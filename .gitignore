@@ -2,3 +2,7 @@
 .DS_Store
 /.idea
 report
+log.html
+output.xml
+report.html
+__pycache__
