@@ -16,7 +16,7 @@ pip3 install -r requirements.txt
 
 ## Run
 ```
-robot --pythonpath services features
+robot --pythonpath services --pythonpath . features
 ```
 
 
