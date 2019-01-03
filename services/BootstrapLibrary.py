@@ -1,6 +1,7 @@
 from selenium import webdriver
 from robot.api.deco import keyword
 
+
 class BootstrapLibrary:
     @keyword
     def goto_baidu(self):
