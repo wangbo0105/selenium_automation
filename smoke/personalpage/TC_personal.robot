@@ -1,10 +1,13 @@
 *** Settings ***
 Documentation   Personal center page jump validation
+Test Setup  open my browser
+Test Teardown  close my browser
+Library  CommonLibrary
 Library  PersonalLibrary
+Library  LoginLibrary
 
 *** Test Cases ***
 go personal_page
-    open my browser
     login  veerqa@veer.tv   123456
     go personal
-    close my browser
+    is personal page

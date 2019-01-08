@@ -1,8 +1,11 @@
 from robot.api.deco import keyword
 from pages.loginpage import Loginpage
+from services.CommonLibrary import CommonLibrary
 
 
 class LoginLibrary(Loginpage):
+    cl = CommonLibrary()
+
     @keyword
     def login(self, username, password, remember=True):
         """登录流程
@@ -11,7 +14,7 @@ class LoginLibrary(Loginpage):
         3、输入密码
         4、根据参数是否点击'记住我'
         5、点击登录button"""
-        self.click_login_tab()
+        self.cl.goto_page_by_click(self.login_tab)
         self.input_username(username)
         self.input_password(password)
         if not remember:
@@ -20,5 +23,12 @@ class LoginLibrary(Loginpage):
 
     @keyword
     def logout(self):
-        self.hover_user_tab()
-        self.click_log_out()
+        self.cl.goto_page_by_hover(self.user_tab, self.log_out)
+
+    @keyword
+    def is_login(self):
+        self.isElementExist(self.user_tab)
+
+    @keyword
+    def is_logout(self):
+        self.isElementExist(self.login_tab)

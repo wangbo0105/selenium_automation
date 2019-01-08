@@ -1,12 +1,25 @@
 from robot.api.deco import keyword
 from pages.videopage import Videopage
+from services.CommonLibrary import CommonLibrary
 
 
 class VideoLibrary(Videopage):
+    cl = CommonLibrary()
+
     @keyword
     def go_video(self):
-        self.go_video_page()
+        self.cl.goto_page_by_click(self.video_tab)
 
     @keyword
     def go_video_detail(self):
-        self.go_video_detail_page()
+        self.cl.goto_page_by_click(self.video_box_1)
+
+    @keyword
+    def is_video_page(self):
+        self.is_text_in_url('videos')
+        self.is_text_in_element(self.slogan, 'VeeR VR 视频')
+
+    @keyword
+    def is_video_detail_page(self):
+        self.is_text_in_url('videos/')
+        self.isElementExist(self.video_player)

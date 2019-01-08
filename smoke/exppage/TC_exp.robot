@@ -1,15 +1,16 @@
 *** Settings ***
 Documentation   Experience page jump validation
+Test Setup  open my browser
+Test Teardown  close my browser
+Library  CommonLibrary
 Library  ExpLibrary
 
 *** Test Cases ***
 go exp page
-    open my browser
     go exp
-    close my browser
+    is exp page
 
 go exp detail page
-    open my browser
     go exp
     go exp detail
-    close my browser
+    is exp detail page

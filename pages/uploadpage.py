@@ -1,10 +1,10 @@
-from services.BrowserLibrary import BrowserLibrary
+from Base.base import Base
 
 
-class Uploadpage(BrowserLibrary):
-    upload_tab = ('xpath', '//*[@id="app"]/div/div/header/nav[1]/div/a')  # 上传tab
+class Uploadpage(Base):
+    upload_tab = ('class', 'upload-btn')  # 上传tab
+    upload_title = ('class', 'upload-title')  # upload title
 
-    def go_upload_page(self):
-        uploadtab = self.base.findElement(self.upload_tab)
-        self.base.click(uploadtab)
-        return self
+    # def go_upload_page(self):
+    #     self.click(self.findElement(self.upload_tab))
+    #     return self

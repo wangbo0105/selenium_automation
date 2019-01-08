@@ -1,8 +1,7 @@
-from services.BrowserLibrary import BrowserLibrary
-import time
+from Base.base import Base
 
 
-class Loginpage(BrowserLibrary):
+class Loginpage(Base):
     login_tab = ('class', 'header-login')  # 登录tab
     username = ('id', 'identifier')  # 用户名输入框
     password = ('id', 'password')  # 密码输入框
@@ -11,42 +10,35 @@ class Loginpage(BrowserLibrary):
     forgetPwd = ('class', 'forget-pwd')  # 忘记密码
     registered = ('id', 'signupLink')  # 注册
     log_out = ('link_text', '退出')  # 用户tab——退出
-    user_tab = ('xpath', '//*[@id="app"]/div/div/header/nav[1]/div/div[2]/a/div[2]')  # 用户tab
+    user_tab = ('class', 'ant-dropdown-trigger')  # 用户tab
 
-    def click_login_tab(self):
-        """点击login tab"""
-        login_tab = self.base.findElement(self.login_tab)
-        self.base.click(login_tab)
+    # def click_login_tab(self):
+    #     """点击login tab"""
+    #     self.click(self.findElement(self.login_tab))
 
     def input_username(self, user):
         """输入用户名"""
-        username = self.base.findElement(self.username)
-        self.base.send_keys(username, user)
+        self.send_keys(self.findElement(self.username), user)
 
     def input_password(self, pwd):
         """输入密码"""
-        password = self.base.findElement(self.password)
-        self.base.send_keys(password, pwd)
+        self.send_keys(self.findElement(self.password), pwd)
 
     def click_loginBtn(self):
         """点击登录button"""
-        login_button = self.base.findElement(self.loginBtn)
-        self.base.click(login_button)
+        self.click(self.findElement(self.loginBtn))
 
     def click_remember(self):
         """点击 记住我 勾选项"""
-        remember = self.base.findElement(self.remember)
-        self.base.click(remember)
+        self.click(self.findElement(self.remember))
 
-    def hover_user_tab(self):
-        """将鼠标移动到个人中心tab"""
-        mine = self.base.findElement(self.user_tab)
-        self.base.move_to_element(mine)
-        time.sleep(3)
-
-    def click_log_out(self):
-        """点击退出tab"""
-        log_out = self.base.findElement(self.log_out)
-        self.base.click(log_out)
+    # def hover_user_tab(self):
+    #     """将鼠标移动到个人中心tab"""
+    #     self.move_to_element(self.findElement(self.user_tab))
+    #     time.sleep(3)
+    #
+    # def click_log_out(self):
+    #     """点击退出tab"""
+    #     self.click(self.findElement(self.log_out))
 
 

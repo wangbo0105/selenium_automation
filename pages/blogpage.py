@@ -1,10 +1,6 @@
-from services.BrowserLibrary import BrowserLibrary
+from Base.base import Base
 
 
-class Blogpage(BrowserLibrary):
-    blog_tab = ('xpath', '//*[@id="app"]/div/div/header/nav[1]/div/ul/li[5]/a')  # VEER博客tab
-
-    def go_blog_page(self):
-        blogtab = self.base.findElement(self.blog_tab)
-        self.base.click(blogtab)
-        return self
+class Blogpage(Base):
+    blog_tab = ('class', 'ant-menu-item', 4)  # VEER博客 tab
+    navbar_brand = ('class', 'navbar-brand')  # VeeR VR 博客

@@ -1,10 +1,10 @@
-from services.BrowserLibrary import BrowserLibrary
+from Base.base import Base
 
 
-class Storepage(BrowserLibrary):
-    store_tab = ('xpath', '//*[@id="app"]/div/div/header/nav[1]/div/ul/li[6]/a')  # 商城tab
+class Storepage(Base):
+    store_url = ('https://shop525226884.taobao.com/?spm=a230r.7195193.1997079397.2.X5z0kg?utm_source=web-menu')
+    store_tab = ('class', 'nav-item', 0)  # 商城tab
 
-    def go_store_page(self):
-        storetab = self.base.findElement(self.store_tab)
-        self.base.click(storetab)
-        return self
+    # def go_store_page(self):
+    #     self.click(self.findElement(self.store_tab))
+    #     return self

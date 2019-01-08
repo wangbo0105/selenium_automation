@@ -1,15 +1,16 @@
 *** Settings ***
 Documentation   Video page jump validation
+Test Setup  open my browser
+Test Teardown  close my browser
 Library  VideoLibrary
+Library  CommonLibrary
 
 *** Test Cases ***
 go video_page
-    open my browser
     go video
-    close my browser
+    is video page
 
 go video detail page
-    open my browser
     go video
     go video detail
-    close my browser
+    is video detail page

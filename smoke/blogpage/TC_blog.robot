@@ -1,9 +1,11 @@
 *** Settings ***
 Documentation   Blog page jump validation
+Test Setup  open my browser
+Test Teardown  close my browser
+Library  CommonLibrary
 Library  BlogLibrary
 
 *** Test Cases ***
 go blog_page
-    open my browser
     go blog
-    close my browser
+    is blog page

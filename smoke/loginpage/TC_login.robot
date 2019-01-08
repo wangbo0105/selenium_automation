@@ -1,18 +1,19 @@
 *** Settings ***
 Documentation   Login page test
+Test Setup  open my browser
+Test Teardown  close my browser
+Library  CommonLibrary
 Library  LoginLibrary
 
 *** Test Cases ***
 login
-    open my browser
     login   ${usrname}  ${password}
-    close my browser
+    is login
 
 log out
-    open my browser
     login   ${usrname}  ${password}
     logout
-    close my browser
+    is logout
 
 
 *** Variables ***

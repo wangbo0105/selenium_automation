@@ -1,55 +1,21 @@
-from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchAttributeException
-import threading
 import time
+from Base import drivertools
 
 
-# noinspection PyBroadException
 class Base(object):
-    """基于原生的selenium进行2次封装"""
-    _instance_lock = threading.Lock()
-
-    def __init__(self, browser='chrome'):
-        """
-        初始化selenium webdriver，使用chrome作为默认的webdriver
-        :param browser: 要打开的浏览器类型
-        """
-        global driver
-        self.timeout = 10
-        self.t = 0.5
-        option_chrome = webdriver.ChromeOptions()
-        option_chrome.add_argument(
-            'disable-infobars')  # 关闭“Chrome正处于软件的自动控制之下”信息栏
-        option_chrome.add_argument('kiosk')  # Mac 全屏
-        option_chrome.add_argument('maximized')  # Windows 全屏
-
-        if browser == 'chrome':
-            driver = webdriver.Chrome(chrome_options=option_chrome)
-        elif browser == 'firefox':
-            driver = webdriver.Firefox()
-        elif browser == 'safari':
-            driver = webdriver.Safari()
-        try:
-            self.driver = driver
-        except Exception:
-            raise NameError("没有找到%s浏览器,你可以输入'firefox','chrome','safari'." % browser)
-
-    def __new__(cls, *args, **kwargs):
-        if not hasattr(Base, "_instance"):
-            with Base._instance_lock:
-                if not hasattr(Base, "_instance"):
-                    Base._instance = object.__new__(cls)
-        return Base._instance
+    driver = drivertools.DriverTools().driver()
+    timeout = 10
+    t = 0.5
 
     def findElement(self, element):
         """
         封装元素定位的方法
-        :param index:
         :param element: 一个具有(标识符类型、值)格式的集合，例如('id'、'用户名')
         :return: ele
         """
@@ -181,28 +147,24 @@ class Base(object):
         """最小化当前窗口的浏览器窗口"""
         self.driver.minimize_window()
 
-    @staticmethod
-    def click(ele):
+    def click(self, ele):
         """单击页面元素，如按钮、图像、链接等"""
-        ActionChains(driver).click(ele).perform()
-        time.sleep(5)
+        ActionChains(self.driver).click(ele).perform()
+        time.sleep(3)
 
-    @staticmethod
-    def double_click(ele):
+    def double_click(self, ele):
         """双击页面元素"""
-        ActionChains(driver).double_click(ele).perform()
+        ActionChains(self.driver).double_click(ele).perform()
 
-    @staticmethod
-    def move_to_element(ele):
+    def move_to_element(self, ele):
         """鼠标悬停操作"""
-        ActionChains(driver).move_to_element(ele).perform()
+        ActionChains(self.driver).move_to_element(ele).perform()
 
-    @staticmethod
-    def drag_element(ele, x, y):
+    def drag_element(self, ele, x, y):
         """鼠标拖动元素，x,y为水平纵向拖动的相对距离"""
-        ActionChains(driver).click_and_hold(ele).perform()  # 长按元素
+        ActionChains(self.driver).click_and_hold(ele).perform()  # 长按元素
         try:
-            ActionChains(driver).drag_and_drop_by_offset(ele, x, y).perform()
+            ActionChains(self.driver).drag_and_drop_by_offset(ele, x, y).perform()
         except Exception:
             print('元素拖动出现异常')
 
@@ -268,71 +230,68 @@ class Base(object):
             print("获取%s属性失败，返回'%s' " % name, e)
             return ""
 
+    def is_input_text(self, element, value, _text):
+        """检查某个元素中是否存在输入的文本"""
+        if self.findElement(element).get_attribute(value) == _text:
+            return True
+        else:
+            raise AssertionError("'%s' is not in current element." % _text)
+
     def isElementExist(self, element):
         """检查元素是否存在"""
-        try:
-            self.findElement(element)
+        if self.findElement(element):
             return True
-        except Exception:
-            return False
+        else:
+            raise AssertionError("'%s' is not exist." % element)
 
     def isElementExist2(self, elements):
         """检查元素是否存在"""
-        eles = self.findElements(elements)
-        n = len(eles)
-        if n == 0:
-            return False
-        elif n == 1:
+        if self.findElements(elements):
             return True
         else:
-            print("定位到元素的个数：%s" % n)
-            return True
+            raise AssertionError("'%s' is not exist." % elements)
 
     def is_url(self, url):
         """判断当前页面是否是预期页面地址"""
-        return self.driver.current_url == url
+        if self.driver.current_url == url:
+            return True
+        else:
+            raise AssertionError("'%s' is not current url." % url)
 
     def is_text_in_url(self, text):
         """判断当前页面url是否包含指定文本"""
-        return text in self.driver.current_url
+        if text in self.driver.current_url:
+            return True
+        else:
+            raise AssertionError("'%s' is not in current url." % text)
 
     def is_title(self, _title=''):
         """检查标题是否符合预期"""
-        try:
-            result = WebDriverWait(self.driver, self.driver.timeout, self.t).until(EC.title_is(_title))
-            return result
-        except Exception:
-            return False
+        if self.driver.title == _title:
+            return True
+        else:
+            raise AssertionError("'%s' not live up to expectations." % _title)
 
     def is_text_in_title(self, _title=''):
         """检查标题中是否存在指定的文本"""
-        try:
-            result = WebDriverWait(self.driver, self.timeout, self.t).until(EC.title_contains(_title))
-            return result
-        except Exception:
-            return False
+        if _title in self.driver.title:
+            return True
+        else:
+            raise AssertionError("'%s' is not in current title." % _title)
 
     def is_text_in_element(self, element, _text=''):
         """检查某个元素中是否存在指定的文本"""
-        if not isinstance(element, tuple):
-            print('locator参数类型错误，必须传元祖类型：loc = ("id", "value1")')
-        try:
-            result = WebDriverWait(self.driver, self.timeout, self.t).until(
-                EC.text_to_be_present_in_element(element, _text))
-            return result
-        except Exception:
-            return False
+        if self.findElement(element).text == _text:
+            return True
+        else:
+            raise AssertionError("'%s' is not in current element." % _text)
 
-    def is_value_in_element(self, element, _value=''):
-        """检查元素是否是指定类型，返回bool值, value为空字符串，返回Fasle"""
-        if not isinstance(element, tuple):
-            print('locator参数类型错误，必须传元祖类型：loc = ("id", "value1")')
-        try:
-            result = WebDriverWait(self.driver, self.timeout, self.t).until(
-                EC.text_to_be_present_in_element_value(element, _value))
-            return result
-        except Exception:
-            return False
+    def is_text_in_elements(self, element, _text=''):
+        """检查某个元素中是否存在指定的文本"""
+        if self.findElements(element).text == _text:
+            return True
+        else:
+            raise AssertionError("'%s' is not in current element." % _text)
 
     def is_alert(self, timeout=3, type='accept'):
         """判断当前页面的alert弹窗"""
@@ -433,4 +392,4 @@ class Base(object):
 
 
 if __name__ == '__main__':
-    pass
+    Base().open('http://stg.veervr.tv')
