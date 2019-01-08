@@ -5,13 +5,15 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchAttributeException
 import time
-from Base import drivertools
+from Base import current_driver
 
 
 class Base(object):
-    driver = drivertools.DriverTools().driver()
     timeout = 10
     t = 0.5
+
+    def driver(self):
+        return current_driver.get()
 
     def findElement(self, element):
         """
@@ -24,27 +26,27 @@ class Base(object):
             value = element[1]
 
             if type == 'id' or type == 'ID' or type == 'Id':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(lambda x: x.find_element_by_id(value))
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(lambda x: x.find_element_by_id(value))
             elif type == 'name' or type == 'NAME' or type == 'Name':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(lambda x: x.find_element_by_name(value))
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(lambda x: x.find_element_by_name(value))
             elif type == 'class' or type == 'CLASS' or type == 'Class':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_element_by_class_name(value))
             elif type == 'xpath' or type == 'XPATH' or type == 'Xpath':
                 # xpath格式：element = ('xpath', ".//*[@id='kw']")
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_element_by_xpath(value))
             elif type == 'css' or type == 'CSS' or type == 'Css':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_element_by_css_selector(value))
             elif type == 'link_text' or type == 'LINK_TEXT' or type == 'Link_text':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_element_by_link_text(value))
             elif type == 'partial_link_text' or type == 'Partial_Link_Text' or type == 'Partial_link_text':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_element_by_partial_link_text(value))
             elif type == 'tag_name' or type == 'TAG_NAME' or type == 'Tag_name':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_element_by_tag_name(value))
             else:
                 raise NameError('请更正函数参数中的类型')
@@ -63,29 +65,29 @@ class Base(object):
             value = element[1]
             index = element[2]
             if type == 'id' or type == 'ID' or type == 'Id':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_id(value)[index])
-                # ele = self.driver.find_elements_by_id(value)
+                # ele = self.driver().find_elements_by_id(value)
             elif type == 'name' or type == 'NAME' or type == 'Name':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_name(value)[index])
             elif type == 'class' or type == 'CLASS' or type == 'Class':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_class_name(value)[index])
             elif type == 'xpath' or type == 'XPATH' or type == 'Xpath':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_xpath(value))
             elif type == 'css' or type == 'CSS' or type == 'Css':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_css_selector(value)[index])
             elif type == 'link_text' or type == 'LINK_TEXT' or type == 'Link_text':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_link_text(value)[index])
             elif type == 'partial_link_text' or type == 'Partial_Link_Text' or type == 'Partial_link_text':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_partial_link_text(value)[index])
             elif type == 'tag_name' or type == 'TAG_NAME' or type == 'Tag_name':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_tag_name(value)[index])
             else:
                 raise NameError('请更正函数参数中的类型')
@@ -96,75 +98,75 @@ class Base(object):
     def open(self, url):
         """打开浏览器并获取指定url页面"""
         if url != '':
-            # self.driver.implicitly_wait(10)  # 隐性等待10s
-            self.driver.get(url)
+            # self.driver().implicitly_wait(10)  # 隐性等待10s
+            self.driver().get(url)
         else:
             print('Please enter the correct url')
 
     def back(self):
         """前往浏览器历史的上个页面"""
-        self.driver.back()
+        self.driver().back()
 
     def forward(self):
         """前往浏览器历史的下个页面"""
-        self.driver.forward()
+        self.driver().forward()
 
     def refresh(self):
         """刷新当前页面"""
-        self.driver.refresh()
+        self.driver().refresh()
         time.sleep(3)
 
     def close(self):
         """关闭当前页面"""
-        self.driver.close()
+        self.driver().close()
         time.sleep(3)
 
     def quit(self):
         """退出浏览器"""
-        self.driver.quit()
+        current_driver.quit()
 
     def get_screenshot(self, targetpath):
         """获取当前屏幕截图并将其保存到目标路径"""
-        self.driver.get_screenshot_as_file(targetpath)
+        self.driver().get_screenshot_as_file(targetpath)
 
     def get_screenshot_base64(self):
         """获取当前屏幕截图并将其保存为base64"""
-        return self.driver.get_screenshot_as_base64()
+        return self.driver().get_screenshot_as_base64()
 
     def get_window_size(self):
         """获取当前窗口的宽度和高度"""
-        self.driver.get_window_size()
+        self.driver().get_window_size()
 
     def set_window_size(self, width, height):
         """设置当前浏览器的宽度和高度"""
-        self.driver.set_window_size(width, height)
+        self.driver().set_window_size(width, height)
 
     def maximize_window(self):
         """最大化当前窗口的浏览器窗口"""
-        self.driver.maximize_window()
+        self.driver().maximize_window()
 
     def minimize_window(self):
         """最小化当前窗口的浏览器窗口"""
-        self.driver.minimize_window()
+        self.driver().minimize_window()
 
     def click(self, ele):
         """单击页面元素，如按钮、图像、链接等"""
-        ActionChains(self.driver).click(ele).perform()
+        ActionChains(self.driver()).click(ele).perform()
         time.sleep(3)
 
     def double_click(self, ele):
         """双击页面元素"""
-        ActionChains(self.driver).double_click(ele).perform()
+        ActionChains(self.driver()).double_click(ele).perform()
 
     def move_to_element(self, ele):
         """鼠标悬停操作"""
-        ActionChains(self.driver).move_to_element(ele).perform()
+        ActionChains(self.driver()).move_to_element(ele).perform()
 
     def drag_element(self, ele, x, y):
         """鼠标拖动元素，x,y为水平纵向拖动的相对距离"""
-        ActionChains(self.driver).click_and_hold(ele).perform()  # 长按元素
+        ActionChains(self.driver()).click_and_hold(ele).perform()  # 长按元素
         try:
-            ActionChains(self.driver).drag_and_drop_by_offset(ele, x, y).perform()
+            ActionChains(self.driver()).drag_and_drop_by_offset(ele, x, y).perform()
         except Exception:
             print('元素拖动出现异常')
 
@@ -196,7 +198,7 @@ class Base(object):
     def get_title(self):
         """获取窗口标题"""
         try:
-            r = self.driver.title
+            r = self.driver().title
             return r
         except Exception:
             print("获取标题失败，返回'' ")
@@ -205,7 +207,7 @@ class Base(object):
     def get_current_url(self):
         """获取当前url"""
         try:
-            r = self.driver.current_url
+            r = self.driver().current_url
             return r
         except Exception:
             print("获取当前url失败，返回'' ")
@@ -253,28 +255,28 @@ class Base(object):
 
     def is_url(self, url):
         """判断当前页面是否是预期页面地址"""
-        if self.driver.current_url == url:
+        if self.driver().current_url == url:
             return True
         else:
             raise AssertionError("'%s' is not current url." % url)
 
     def is_text_in_url(self, text):
         """判断当前页面url是否包含指定文本"""
-        if text in self.driver.current_url:
+        if text in self.driver().current_url:
             return True
         else:
             raise AssertionError("'%s' is not in current url." % text)
 
     def is_title(self, _title=''):
         """检查标题是否符合预期"""
-        if self.driver.title == _title:
+        if self.driver().title == _title:
             return True
         else:
             raise AssertionError("'%s' not live up to expectations." % _title)
 
     def is_text_in_title(self, _title=''):
         """检查标题中是否存在指定的文本"""
-        if _title in self.driver.title:
+        if _title in self.driver().title:
             return True
         else:
             raise AssertionError("'%s' is not in current title." % _title)
@@ -295,9 +297,9 @@ class Base(object):
 
     def is_alert(self, timeout=3, type='accept'):
         """判断当前页面的alert弹窗"""
-        alert = WebDriverWait(self.driver, timeout, self.t).until(EC.alert_is_present())
+        alert = WebDriverWait(self.driver(), timeout, self.t).until(EC.alert_is_present())
         if alert:
-            current_alert = self.driver.switch_to.alert(alert)
+            current_alert = self.driver().switch_to.alert(alert)
             alert_text = current_alert.text
             print(alert_text)
             if type == 'accept':
@@ -326,40 +328,40 @@ class Base(object):
         """切换frame"""
         try:
             if isinstance(id_index_locator, int):  # index从0开始，传入整型参数即判定为用index定位
-                self.driver.switch_to.frame(id_index_locator)
+                self.driver().switch_to.frame(id_index_locator)
             elif isinstance(id_index_locator, str):  # 传入str参数则判定为用id/name定位
-                self.driver.switch_to.frame(id_index_locator)
+                self.driver().switch_to.frame(id_index_locator)
             elif isinstance(id_index_locator,
                             tuple):  # WebElement对象，即用find_element系列方法所取得的对象，我们可以用tag_name、xpath等来定位frame对象
                 ele = self.findElement(id_index_locator)
-                self.driver.switch_to.frame(ele)
+                self.driver().switch_to.frame(ele)
         except Exception:
             print("frame切换异常")
 
     def back_frame(self):
         """返回父级frame"""
-        self.driver.switch_to.parent_frame()
+        self.driver().switch_to.parent_frame()
 
     def quit_frame(self):
         """退出frame"""
-        self.driver.switch_to.default_content()
+        self.driver().switch_to.default_content()
 
     def get_handle(self):
         """获取当前页面的句柄"""
-        handle = self.driver.current_window_handle
+        handle = self.driver().current_window_handle
         print(handle)
         return handle
 
     def switch_handle(self):
         """切换到指定的window_name页面"""
-        handle = self.driver.current_window_handle
+        handle = self.driver().current_window_handle
         print(handle)
-        handles = self.driver.window_handles
+        handles = self.driver().window_handles
         print(handles)
         for i in handles:
             if i != handle:
                 try:
-                    self.driver.switch_to.window(i)
+                    self.driver().switch_to.window(i)
                     time.sleep(3)
                     print("切换页面成功")
                 except Exception:
@@ -367,28 +369,28 @@ class Base(object):
 
     def switch_handles(self, handle):
         """切换到指定的window_name页面"""
-        handles = self.driver.window_handles
-        self.driver.switch_to.window(handles[handle])
+        handles = self.driver().window_handles
+        self.driver().switch_to.window(handles[handle])
         time.sleep(3)
 
     # def js_focus_element(self, ele):
     #     """聚焦元素"""
-    #     self.driver.execute_script("arguments[0].scrollIntoView();", ele)
+    #     self.driver().execute_script("arguments[0].scrollIntoView();", ele)
 
     def js_scroll(self, x, y):
         """滑动滚动条至指定位置"""
         js = "window.scrollTo(%s,%s)" % x, y
-        self.driver.execute_script(js)
+        self.driver().execute_script(js)
 
     def js_scroll_top(self):
         """滚动到顶部"""
         js = "window.scrollTo(0,0)"
-        self.driver.execute_script(js)
+        self.driver().execute_script(js)
 
     def js_scroll_end(self, x=0):
         """滚动到底部"""
         js = "window.scrollTo(%s,document.body.scrollHeight)" % x
-        self.driver.execute_script(js)
+        self.driver().execute_script(js)
 
 
 if __name__ == '__main__':
