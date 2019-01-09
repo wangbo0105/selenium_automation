@@ -16,10 +16,10 @@ class VideoLibrary(Videopage):
 
     @keyword
     def is_video_page(self):
-        self.is_text_in_url('videos')
-        self.is_text_in_element(self.slogan, 'VeeR VR 视频')
+        self.window.is_text_in_url('videos')
+        self.element.is_text_in_element(self.slogan, 'VeeR VR 视频')
 
     @keyword
     def is_video_detail_page(self):
-        self.is_text_in_url('videos/')
-        self.isElementExist(self.video_player)
+        self.window.is_text_in_url('videos/')
+        self.element.isElementExist(self.video_player)

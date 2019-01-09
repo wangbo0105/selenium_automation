@@ -3,13 +3,17 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchAttributeException
-from Base.browser import Browser
+from Base import current_driver
 import time
 
 
-class Element(Browser):
+class Element(object):
     timeout = 10
     t = 0.5
+
+    @staticmethod
+    def driver():
+        return current_driver.get()
 
     def findElement(self, element):
         """
@@ -22,27 +26,27 @@ class Element(Browser):
             value = element[1]
 
             if type == 'id' or type == 'ID' or type == 'Id':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(lambda x: x.find_element_by_id(value))
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(lambda x: x.find_element_by_id(value))
             elif type == 'name' or type == 'NAME' or type == 'Name':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(lambda x: x.find_element_by_name(value))
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(lambda x: x.find_element_by_name(value))
             elif type == 'class' or type == 'CLASS' or type == 'Class':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_element_by_class_name(value))
             elif type == 'xpath' or type == 'XPATH' or type == 'Xpath':
                 # xpath格式：element = ('xpath', ".//*[@id='kw']")
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_element_by_xpath(value))
             elif type == 'css' or type == 'CSS' or type == 'Css':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_element_by_css_selector(value))
             elif type == 'link_text' or type == 'LINK_TEXT' or type == 'Link_text':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_element_by_link_text(value))
             elif type == 'partial_link_text' or type == 'Partial_Link_Text' or type == 'Partial_link_text':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_element_by_partial_link_text(value))
             elif type == 'tag_name' or type == 'TAG_NAME' or type == 'Tag_name':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_element_by_tag_name(value))
             else:
                 raise NameError('请更正函数参数中的类型')
@@ -61,29 +65,29 @@ class Element(Browser):
             value = element[1]
             index = element[2]
             if type == 'id' or type == 'ID' or type == 'Id':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_id(value)[index])
                 # ele = self.driver.find_elements_by_id(value)
             elif type == 'name' or type == 'NAME' or type == 'Name':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_name(value)[index])
             elif type == 'class' or type == 'CLASS' or type == 'Class':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_class_name(value)[index])
             elif type == 'xpath' or type == 'XPATH' or type == 'Xpath':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_xpath(value))
             elif type == 'css' or type == 'CSS' or type == 'Css':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_css_selector(value)[index])
             elif type == 'link_text' or type == 'LINK_TEXT' or type == 'Link_text':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_link_text(value)[index])
             elif type == 'partial_link_text' or type == 'Partial_Link_Text' or type == 'Partial_link_text':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_partial_link_text(value)[index])
             elif type == 'tag_name' or type == 'TAG_NAME' or type == 'Tag_name':
-                ele = WebDriverWait(self.driver, self.timeout, self.t).until(
+                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_tag_name(value)[index])
             else:
                 raise NameError('请更正函数参数中的类型')
@@ -93,22 +97,22 @@ class Element(Browser):
 
     def click(self, ele):
         """单击页面元素，如按钮、图像、链接等"""
-        ActionChains(self.driver).click(ele).perform()
+        ActionChains(self.driver()).click(ele).perform()
         time.sleep(3)
 
     def double_click(self, ele):
         """双击页面元素"""
-        ActionChains(self.driver).double_click(ele).perform()
+        ActionChains(self.driver()).double_click(ele).perform()
 
     def move_to_element(self, ele):
         """鼠标悬停操作"""
-        ActionChains(self.driver).move_to_element(ele).perform()
+        ActionChains(self.driver()).move_to_element(ele).perform()
 
     def drag_element(self, ele, x, y):
         """鼠标拖动元素，x,y为水平纵向拖动的相对距离"""
-        ActionChains(self.driver).click_and_hold(ele).perform()  # 长按元素
+        ActionChains(self.driver()).click_and_hold(ele).perform()  # 长按元素
         try:
-            ActionChains(self.driver).drag_and_drop_by_offset(ele, x, y).perform()
+            ActionChains(self.driver()).drag_and_drop_by_offset(ele, x, y).perform()
         except Exception:
             print('元素拖动出现异常')
 
