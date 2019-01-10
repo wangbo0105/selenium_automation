@@ -1,10 +1,6 @@
-from Base.base import Base
+from pages.basepage import BasePage
 
 
-class Storepage(Base):
-    store_url = ('https://shop525226884.taobao.com/?spm=a230r.7195193.1997079397.2.X5z0kg?utm_source=web-menu')
-    store_tab = ('class', 'nav-item', 0)  # 商城tab
-
-    # def go_store_page(self):
-    #     self.click(self.findElement(self.store_tab))
-    #     return self
+class Storepage(BasePage):
+    store_title = "首页-VeeR商城-淘宝网"  # 商城页面title
+    store_tab = ('class', 'nav-item', 0)  # 导航栏-商城

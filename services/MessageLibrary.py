@@ -13,4 +13,4 @@ class MessageLibrary(Messagepage):
     @keyword
     def is_message_page(self):
         self.is_text_in_url('messages')
-        self.is_text_in_element(self.page_bar_title, '消息')
+        self.is_text_in_element(self.page_bar_title, self.bar_title)

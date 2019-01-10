@@ -1,21 +1,18 @@
 *** Settings ***
 Documentation   Login page test
-Test Setup  open my browser
-Test Teardown  close my browser
-Library  CommonLibrary
-Library  LoginLibrary
+Test Setup  load veer
+Suite Teardown  close my browser
+Library  services.CommonLibrary
+Library  services.LoginLibrary
+Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
 login
-    login   ${usrname}  ${password}
-    is login
+    Given login   ${usrname}  ${password}
+    Then is login
 
 log out
-    login   ${usrname}  ${password}
-    logout
-    is logout
+    Given logout
+    Then is logout
 
 
-*** Variables ***
-${usrname}       veerqa@veer.tv
-${password}      123456

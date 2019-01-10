@@ -1,15 +1,16 @@
 *** Settings ***
 Documentation   Photo page jump validation
-Test Setup  open my browser
-Test Teardown  close my browser
-Library  CommonLibrary
-Library  PhotoLibrary
+Test Setup  load veer
+Suite Teardown  close my browser
+Library  services.CommonLibrary
+Library  services.PhotoLibrary
 
 *** Test Cases ***
 go photo_page
-    go photo
-    is photo page
+    Given go photo
+    Then is photo page
 
 go photo detail page
-    go photo
-    go photo detail
+    Given go photo
+    Then go photo detail
+    Then is photo detail page

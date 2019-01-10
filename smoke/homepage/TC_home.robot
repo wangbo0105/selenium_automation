@@ -1,10 +1,10 @@
 *** Settings ***
 Documentation   Home page jump validation
-Test Setup  open my browser
-Test Teardown  close my browser
-Library  CommonLibrary
-Library  HomeLibrary
+Test Setup  load veer
+Suite Teardown  close my browser
+Library  services.CommonLibrary
+Library  services.HomeLibrary
 
 *** Test Cases ***
 go home_page
-    is home page
+    Then is home page

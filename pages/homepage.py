@@ -1,5 +1,5 @@
-from Base.base import Base
+from pages.basepage import BasePage
 
 
-class Homepage(Base):
-    veer_mark_text = ('class', 'app-des')  # 环 球 V R 内 容 社 区
+class Homepage(BasePage):
+    veer_mark_text = ('class', 'app-des')  # 首页banner-title

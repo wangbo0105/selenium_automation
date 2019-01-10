@@ -23,7 +23,7 @@ def quit():
 def __create_driver(browser='chrome'):
     option_chrome = webdriver.ChromeOptions()
     option_chrome.add_argument('disable-infobars')  # 关闭“Chrome正处于软件的自动控制之下”信息栏
-    # option_chrome.add_argument('kiosk')  # Mac 全屏
+    option_chrome.add_argument('kiosk')  # Mac 全屏
     option_chrome.add_argument('maximized')  # Windows 全屏
 
     if browser == 'chrome':

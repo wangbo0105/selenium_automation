@@ -1,8 +1,8 @@
-from Base.base import Base
+from pages.basepage import BasePage
 
 
-class Settingspage(Base):
-    setting = ('link_text', '设置')  # 设置tab——个人中心
+class Settingspage(BasePage):
+    setting = ('link_text', '设置')  # 用户tab——设置
     user_tab = ('class', 'ant-dropdown-trigger')  # 用户tab
     page_title = ('class', 'inner-page-title')  # 设置title
     name = ('id', 'name')  # 昵称输入栏

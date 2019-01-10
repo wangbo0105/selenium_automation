@@ -1,10 +1,6 @@
-from Base.base import Base
+from pages.basepage import BasePage
 
 
-class Uploadpage(Base):
-    upload_tab = ('class', 'upload-btn')  # 上传tab
-    upload_title = ('class', 'upload-title')  # upload title
-
-    # def go_upload_page(self):
-    #     self.click(self.findElement(self.upload_tab))
-    #     return self
+class Uploadpage(BasePage):
+    upload_tab = ('class', 'upload-btn')  # 导航栏-上传
+    upload_title = ('class', 'upload-title')  # 上传页面-标题

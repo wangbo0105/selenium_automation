@@ -3,14 +3,14 @@ from pages.basepage import BasePage
 
 
 class CommonLibrary(BasePage):
-    url = ('https://stg.veervr.tv/')
+    url = 'https://stg.veervr.tv/'
 
     @keyword
-    def open_my_browser(self):
+    def load_veer(self):
         self.browser.open(self.url)
 
     @keyword
-    def refresh_current_page(self):
+    def refresh_current_window(self):
         self.browser.refresh()
 
     @keyword
@@ -37,6 +37,7 @@ class CommonLibrary(BasePage):
             else:
                 self.element.click(self.findElements(ele2))
         else:
+            self.element.move_to_element(self.findElements(ele1))
             if len(ele2) == 2:
                 self.element.click(self.findElement(ele2))
             else:

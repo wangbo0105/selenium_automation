@@ -1,11 +1,11 @@
 *** Settings ***
 Documentation   Blog page jump validation
-Test Setup  open my browser
-Test Teardown  close my browser
-Library  CommonLibrary
-Library  BlogLibrary
+Test Setup  load veer
+Suite Teardown  close my browser
+Library  services.CommonLibrary
+Library  services.BlogLibrary
 
 *** Test Cases ***
 go blog_page
-    go blog
-    is blog page
+    Given go blog
+    Then is blog page

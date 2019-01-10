@@ -4,22 +4,21 @@ from services.CommonLibrary import CommonLibrary
 
 
 class LanguageLibrary(Languagepage):
-    cl = CommonLibrary()
 
     @keyword
     def switch_english(self):
-        self.cl.goto_page_by_hover(self.langs, self.english_tab)
+        self.click_language_box()
+        self.click_english()
 
     @keyword
     def is_english(self):
-        self.is_text_in_element(self.veer_mark_text, 'Global VR Content Community')
+        self.is_text_in_element(self.veer_mark_text, self.english_mark_text)
 
     @keyword
     def switch_japanese(self):
-        self.cl.goto_page_by_hover(self.langs, self.japanese_tab)
+        self.click_language_box()
+        self.click_japanese()
 
     @keyword
     def is_japanese(self):
-        self.is_text_in_element(self.veer_mark_text, 'グローバルVRコンテンツコミュニティ')
-
-
+        self.is_text_in_element(self.veer_mark_text, self.japanese_mark_text)

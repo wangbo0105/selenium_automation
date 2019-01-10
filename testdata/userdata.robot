@@ -1,3 +1,3 @@
 *** Variables ***
-${username} veerqa@veer.tv
-${password} 123456
+${usrname}       veerqa@veer.tv
+${password}      123456

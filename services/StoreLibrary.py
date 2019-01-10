@@ -13,4 +13,4 @@ class StoreLibrary(Storepage):
     @keyword
     def is_store_page(self):
         self.switch_handle()
-        self.is_url(self.store_url)
+        self.is_title('首页-VeeR商城-淘宝网')

@@ -1,16 +1,7 @@
-from Base.base import Base
+from pages.basepage import BasePage
 
 
-class Exppage(Base):
-    exp_tab = ('class', 'ant-menu-item', 3)  # 互动体验 tab
-    learn_more_1 = ('class', 'ant-btn-primary-ghost', 1)  # 了解更多第一个
-    load_layer = ('class', 'load-layer')  # exp播放器
-
-    # def go_exp_page(self):
-    #     self.click(self.findElement(self.exp_tab))
-    #     return self
-    #
-    # def go_exp_detail_page(self):
-    #     self.click(self.findElement(self.learn_more_1))
-    #     return self
-
+class Exppage(BasePage):
+    exp_tab = ('class', 'ant-menu-item', 3)  # 导航栏-互动体验
+    learn_more_1 = ('class', 'ant-btn-primary-ghost', 1)  # 互动体验-了解更多
+    load_layer = ('class', 'load-layer')  # 互动体验详情页-exp播放器

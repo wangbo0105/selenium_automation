@@ -1,27 +1,25 @@
 *** Settings ***
 Documentation    Settingspage test
-Test Setup  open my browser
-Test Teardown  close my browser
-Library  CommonLibrary
-Library  SettingsLibrary
-Library  LoginLibrary
+Test Setup  load veer
+Suite Teardown  close my browser
+Library  services.CommonLibrary
+Library  services.SettingsLibrary
+Library  services.LoginLibrary
+Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
-#go settings
-#    login   ${usrname}  ${password}
-#    go settings page
-#    is settings page
+go settings
+    When login   ${usrname}  ${password}
+    Given go settings page
+    Then is settings page
 
 edit data
-    login   ${usrname}  ${password}
-    go settings page
-    edit data   ${_name1}   ${_username1}   ${_des1}
-    refresh current page
-    is edit    ${_name1}   ${_username1}   ${_des1}
+    Given go settings page
+    Then edit data   ${_name}   ${_username}   ${_des}
+    Then refresh current window
+    Then is edit    ${_name}   ${_username}   ${_des}
 
 *** Variables ***
-${usrname}       veerqa@veer.tv
-${password}      123456
-${_name1}        name1
-${_username1}    username1
-${_des1}         description1
+${_name}        test_name
+${_username}    test_username
+${_des}         test_description

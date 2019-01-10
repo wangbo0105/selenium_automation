@@ -5,10 +5,6 @@ from services.CommonLibrary import CommonLibrary
 
 class SettingsLibrary(Settingspage):
     cl = CommonLibrary()
-    _name1 = 'name1'
-    _username1 = 'username1'
-    _des1 = 'description1'
-    _website1 = 'http://www.veer.com'
 
     @keyword
     def go_settings_page(self):
@@ -20,16 +16,16 @@ class SettingsLibrary(Settingspage):
         self.isElementExist(self.page_title)
 
     @keyword
-    def edit_data(self, _name1, _username1, _des1):
-        self.input_name(_name1)
-        self.input_username(_username1)
-        self.input_description(_des1)
+    def edit_data(self, _name, _username, _des):
+        self.input_name(_name)
+        self.input_username(_username)
+        self.input_description(_des)
         self.click_save_btn()
 
     @keyword
-    def is_edit(self, _name1, _username1, _des1, value='value'):
-        self.is_input_text(self.name, value, _name1)
-        self.is_input_text(self.username, value, _username1)
-        self.is_input_text(self.personal_description, value,  _des1)
+    def is_edit(self, _name, _username, _des, value='value'):
+        self.is_input_text(self.name, value, _name)
+        self.is_input_text(self.username, value, _username)
+        self.is_input_text(self.personal_description, value,  _des)
 
 

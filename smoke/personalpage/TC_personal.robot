@@ -1,13 +1,14 @@
 *** Settings ***
 Documentation   Personal center page jump validation
-Test Setup  open my browser
-Test Teardown  close my browser
-Library  CommonLibrary
-Library  PersonalLibrary
-Library  LoginLibrary
+Test Setup  load veer
+Suite Teardown  close my browser
+Library  services.CommonLibrary
+Library  services.PersonalLibrary
+Library  services.LoginLibrary
+Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
 go personal_page
-    login  veerqa@veer.tv   123456
-    go personal
-    is personal page
+    When login  ${usrname}   ${password}
+    Then go personal
+    Then is personal page

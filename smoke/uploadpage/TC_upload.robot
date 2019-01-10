@@ -1,11 +1,11 @@
 *** Settings ***
 Documentation   Upload page jump validation
-Test Setup  open my browser
-Test Teardown  close my browser
-Library  UploadLibrary
-Library  CommonLibrary
+Test Setup  load veer
+Suite Teardown  close my browser
+Library  services.UploadLibrary
+Library  services.CommonLibrary
 
 *** Test Cases ***
 go upload_page
-    go upload
-    is upload page
+    Given go upload
+    Then is upload page

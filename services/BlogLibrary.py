@@ -8,7 +8,6 @@ class BlogLibrary(Blogpage):
 
     @keyword
     def go_blog(self):
-        # self.go_blog_page()
         self.cl.goto_page_by_click(self.blog_tab)
 
     @keyword
