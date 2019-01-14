@@ -186,7 +186,7 @@ class Element(object):
         if self.findElement(element).text == _text:
             return True
         else:
-            raise AssertionError("'%s' is not in current element." % _text)
+            raise AssertionError("'%s' is not in current element.'%s'" % _text)
 
     def is_text_in_elements(self, element, _text=''):
         """检查某个元素中是否存在指定的文本"""
@@ -194,6 +194,22 @@ class Element(object):
             return True
         else:
             raise AssertionError("'%s' is not in current element." % _text)
+
+    @staticmethod
+    def is_contains(str1, str2):
+        """检查某个字符串是否包含另一个字符串"""
+        if str2 in str1:
+            return True
+        else:
+            raise AssertionError("Don't match")
+
+    @staticmethod
+    def should_be_equal(str1, str2):
+        """检查两个字符串是否相等"""
+        if str1 == str2:
+            return True
+        else:
+            raise AssertionError("Don't match")
 
     @staticmethod
     def select_by_index(ele, index=0):
