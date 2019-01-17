@@ -23,9 +23,6 @@ class BookMark(BasePage):
         return self.get_attribute(self.findElements(self.content_href_1), 'href')
 
     def clear_bookmark_all(self):
-        overlay = True
-        while overlay:
+        while self.ElementExist(self.play_overlay):
             self.click(self.findElements(self.watch_later_icon))
             self.refresh()
-            if self.ElementNotExist(self.play_overlay):
-                overlay = False
