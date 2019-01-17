@@ -23,22 +23,9 @@ class CommonLibrary(BasePage):
 
     @keyword
     def goto_page_by_click(self, ele):
-        if len(ele) == 2:
-            self.element.click(self.findElement(ele))
-        else:
             self.element.click(self.findElements(ele))
 
     @keyword
     def goto_page_by_hover(self, ele1, ele2):
-        if len(ele1) == 2:
-            self.element.move_to_element(self.findElement(ele1))
-            if len(ele2) == 2:
-                self.element.click(self.findElement(ele2))
-            else:
-                self.element.click(self.findElements(ele2))
-        else:
-            self.element.move_to_element(self.findElements(ele1))
-            if len(ele2) == 2:
-                self.element.click(self.findElement(ele2))
-            else:
-                self.element.click(self.findElements(ele2))
+        self.element.move_to_element(self.findElements(ele1))
+        self.element.click(self.findElements(ele2))

@@ -13,7 +13,7 @@ class SettingsLibrary(Settingspage):
     @keyword
     def is_settings_page(self):
         self.is_text_in_url('settings')
-        self.isElementExist(self.page_title)
+        self.is_element_exist(self.page_title)
 
     @keyword
     def edit_data(self, _name, _username, _des):

@@ -9,4 +9,4 @@ class HomeLibrary(Homepage):
     @keyword
     def is_home_page(self):
         self.is_url(self.cl.url)
-        self.isElementExist(self.veer_mark_text)
+        self.is_element_exist(self.veer_mark_text)

@@ -27,8 +27,8 @@ class LoginLibrary(Loginpage):
 
     @keyword
     def is_login(self):
-        self.isElementExist(self.user_tab)
+        self.is_element_exist(self.user_tab)
 
     @keyword
     def is_logout(self):
-        self.isElementExist(self.login_tab)
+        self.is_element_exist(self.login_tab)

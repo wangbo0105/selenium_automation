@@ -13,4 +13,4 @@ class PersonalLibrary(Personalpage):
     @keyword
     def is_personal_page(self):
         self.is_text_in_url('home')
-        self.isElementExist2(self.home_tab)
+        self.is_element_exist(self.home_tab)

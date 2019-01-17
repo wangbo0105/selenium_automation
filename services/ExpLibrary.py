@@ -17,9 +17,9 @@ class ExpLibrary(Exppage):
     @keyword
     def is_exp_page(self):
         self.is_text_in_url('experience')
-        self.isElementExist(self.learn_more_1)
+        self.is_element_exist(self.learn_more_1)
 
     @keyword
     def is_exp_detail_page(self):
         self.is_text_in_url('experiences/')
-        self.isElementExist(self.load_layer)
+        self.is_element_exist(self.load_layer)

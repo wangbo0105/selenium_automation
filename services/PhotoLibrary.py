@@ -22,4 +22,4 @@ class PhotoLibrary(Photopage):
     @keyword
     def is_photo_detail_page(self):
         self.is_text_in_url('photos/')
-        self.isElementExist(self.photo_player)
+        self.is_element_exist(self.photo_player)

@@ -13,4 +13,4 @@ class UploadLibrary(Uploadpage):
     @keyword
     def is_upload_page(self):
         self.is_text_in_url('upload')
-        self.isElementExist(self.upload_title)
+        self.is_element_exist(self.upload_title)

@@ -22,4 +22,4 @@ class VideoLibrary(Videopage):
     @keyword
     def is_video_detail_page(self):
         self.window.is_text_in_url('videos/')
-        self.element.isElementExist(self.video_player)
+        self.element.is_element_exist(self.video_player)
