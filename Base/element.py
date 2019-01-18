@@ -15,50 +15,11 @@ class Element(object):
     def driver():
         return current_driver.get()
 
-    def findElements(self, element):
+    def findElements(self, element, raiseOnNotFound=True):
         """
         捕获元素，捕获到则返回ele对象，未捕获到则抛出异常提示
+        :param raiseOnNotFound:
         :param element: 是一个具有(标识符类型、值、索引)格式的集合，例如('id'，'用户名'， 0)
-        :return: ele
-        """
-        try:
-            type = element[0]
-            value = element[1]
-            index = element[2]
-            if type == 'id' or type == 'ID' or type == 'Id':
-                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
-                    lambda x: x.find_elements_by_id(value)[index])
-            elif type == 'name' or type == 'NAME' or type == 'Name':
-                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
-                    lambda x: x.find_elements_by_name(value)[index])
-            elif type == 'class' or type == 'CLASS' or type == 'Class':
-                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
-                    lambda x: x.find_elements_by_class_name(value)[index])
-            elif type == 'xpath' or type == 'XPATH' or type == 'Xpath':
-                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
-                    lambda x: x.find_elements_by_xpath(value))
-            elif type == 'css' or type == 'CSS' or type == 'Css':
-                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
-                    lambda x: x.find_elements_by_css_selector(value)[index])
-            elif type == 'link_text' or type == 'LINK_TEXT' or type == 'Link_text':
-                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
-                    lambda x: x.find_element_by_link_text(value))
-            elif type == 'partial_link_text' or type == 'Partial_Link_Text' or type == 'Partial_link_text':
-                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
-                    lambda x: x.find_elements_by_partial_link_text(value)[index])
-            elif type == 'tag_name' or type == 'TAG_NAME' or type == 'Tag_name':
-                ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
-                    lambda x: x.find_elements_by_tag_name(value)[index])
-            else:
-                raise NameError('请更正函数参数中的类型')
-        except Exception:
-            raise ValueError('没有发现这种元素:' + str(element))
-        return ele
-
-    def check_Element(self, element):
-        """
-        捕获元素，捕获到则返回ele对象，未捕获到则返回False，用于check元素
-        :param element: 是一个具有(标识符类型、值)格式的集合，例如('id'、'用户名')
         :return: ele
         """
         try:
@@ -93,7 +54,10 @@ class Element(object):
                 raise NameError('请更正函数参数中的类型')
             return ele
         except:
-            return False
+            if raiseOnNotFound:
+                raise ValueError('没有发现这种元素:' + str(element))
+            else:
+                return False
 
     def click(self, ele):
         """单击页面元素，如按钮、图像、链接等"""
@@ -129,7 +93,7 @@ class Element(object):
     @staticmethod
     def enter(ele):
         """键盘操作回车"""
-        ele.send_keys(Keys.RETURN)
+        ele.send_keys(Keys.ENTER)
 
     @staticmethod
     def backSpace(ele):
@@ -175,21 +139,21 @@ class Element(object):
 
     def ElementExist(self, element):
         """检查元素存在"""
-        if self.check_Element(element):
+        if self.findElements(element, False):
             return True
         else:
             return False
 
     def is_element_not_exist(self, element):
         """断言方法检查元素不存在"""
-        if self.check_Element(element):
+        if self.findElements(element, False):
             raise AssertionError("'%s' existed." % element)
         else:
             return True
 
     def ElementNotExist(self, element):
         """检查元素不存在"""
-        if self.check_Element(element):
+        if self.findElements(element, False):
             return False
         else:
             return True
