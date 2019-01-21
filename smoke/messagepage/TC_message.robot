@@ -10,5 +10,5 @@ Resource  ../../testdata/userdata.robot
 *** Test Cases ***
 go message_page
     When login  ${usrname}   ${password}
-    Then go message
+    Then go page  消息
     Then is message page

@@ -3,8 +3,11 @@ from pages.loginpage import Loginpage
 from services.CommonLibrary import CommonLibrary
 
 
-class LoginLibrary(Loginpage):
-    cl = CommonLibrary()
+class LoginLibrary(object):
+
+    def __init__(self):
+        self.loginpage = Loginpage()
+        self.cl = CommonLibrary()
 
     @keyword
     def login(self, username, password, remember=True):
@@ -14,21 +17,17 @@ class LoginLibrary(Loginpage):
         3、输入密码
         4、根据参数是否点击'记住我'
         5、点击登录button"""
-        self.cl.goto_page_by_click(self.login_tab)
-        self.input_username(username)
-        self.input_password(password)
+        self.cl.go_page('登录')
+        self.loginpage.input_username(username)
+        self.loginpage.input_password(password)
         if not remember:
-            self.click_remember()
-        self.click_loginBtn()
-
-    @keyword
-    def logout(self):
-        self.cl.goto_page_by_hover(self.user_tab, self.log_out)
+            self.loginpage.click_remember()
+        self.loginpage.click_loginBtn()
 
     @keyword
     def is_login(self):
-        self.is_element_exist(self.user_tab)
+        self.loginpage.is_login()
 
     @keyword
     def is_logout(self):
-        self.is_element_exist(self.login_tab)
+        self.loginpage.is_logout()

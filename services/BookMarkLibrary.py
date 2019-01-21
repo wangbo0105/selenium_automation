@@ -1,39 +1,30 @@
 from robot.api.deco import keyword
+from pages.basepage import BasePage
 from pages.bookmark import BookMark
 from services.PhotoLibrary import PhotoLibrary
-from services.PersonalLibrary import PersonalLibrary
+from services.CommonLibrary import CommonLibrary
 
 
-class BookMarkLibrary(BookMark):
-    pp = PhotoLibrary()
-    per = PersonalLibrary()
-    photo_url = None
-
-    @keyword
-    def go_bookmark_tab(self):
-        self.per.go_personal()
-        self.click_VR_tab()
+class BookMarkLibrary(object):
+    def __init__(self):
+        self.base = BasePage()
+        self.cl = CommonLibrary()
+        self.bm = BookMark()
+        self.pp = PhotoLibrary()
 
     @keyword
     def photo_bookmark(self):
-        self.pp.go_photo()
+        self.cl.go_page('全景图')
         self.pp.go_photo_detail()
-        self.click_bookmark_btn()
-        self.photo_url = self.get_current_url()
+        self.bm.click_bookmark_btn()
+        self.bm.click_bookmark_alert_close_btn()
 
     @keyword
-    def close_bookmark_alert(self):
-        self.click_bookmark_alert_close_btn()
-
-    @keyword
-    def check_bookmark_in_detail_page(self):
-        self.is_text_in_element(self.bookmark_btn, '已添加书签')
-
-    @keyword
-    def check_bookmark_in_personal_page(self):
-        self.should_be_equal(self.photo_url, self.get_content_href_1())
+    def check_bookmark(self):
+        self.bm.check_bookmark_in_detail_page()
+        self.cl.go_page('VR书签')
+        self.bm.check_bookmark_in_personalpage()
 
     @keyword
     def clear_bookmark(self):
-        self.clear_bookmark_all()
-
+        self.bm.clear_bookmark_all()

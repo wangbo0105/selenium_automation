@@ -7,10 +7,10 @@ Library  services.ExpLibrary
 
 *** Test Cases ***
 go exp page
-    Given go exp
+    Given go page  互动体验
     Then is exp page
 
 go exp detail page
-    Given go exp
+    Given go page  互动体验
     Then go exp detail
     Then is exp detail page

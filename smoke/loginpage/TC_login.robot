@@ -12,7 +12,7 @@ login
     Then is login
 
 log out
-    Given logout
+    Given go page  退出登录
     Then is logout
 
 

@@ -11,9 +11,10 @@ Resource  ../../testdata/userdata.robot
 *** Test Cases ***
 post comment
     Given login  ${usrname}   ${password}
-    Then go photo
+    Then go page  全景图
     Then go photo detail
     Then post comment  ${comment_text}
+    Then check comment
 
 
 *** Variables ***

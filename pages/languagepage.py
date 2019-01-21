@@ -1,7 +1,7 @@
 from pages.basepage import BasePage
 
 
-class Languagepage(BasePage):
+class Languagepage(object):
     langs = ('class', 'langs', 0)  # 语言切换栏
     english_tab = ('class', 'lang', 0)  # English
     japanese_tab = ('class', 'lang', 1)  # Japanese
@@ -9,11 +9,20 @@ class Languagepage(BasePage):
     english_mark_text = 'Global VR Content Community'
     japanese_mark_text = 'グローバルVRコンテンツコミュニティ'
 
+    def __init__(self):
+        self.base = BasePage()
+
     def click_language_box(self):
-        self.click(self.findElements(self.langs))
+        self.base.element.click(self.langs)
 
     def click_english(self):
-        self.click(self.findElements(self.english_tab))
+        self.base.element.click(self.english_tab)
 
     def click_japanese(self):
-        self.click(self.findElements(self.japanese_tab))
+        self.base.element.click(self.japanese_tab)
+
+    def is_english(self):
+        self.base.element.is_text_in_element(self.veer_mark_text, self.english_mark_text)
+
+    def is_japanese(self):
+        self.base.element.is_text_in_element(self.veer_mark_text, self.japanese_mark_text)

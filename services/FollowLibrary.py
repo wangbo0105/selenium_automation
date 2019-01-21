@@ -1,31 +1,26 @@
 from robot.api.deco import keyword
 from pages.follow import Follow
+from pages.basepage import BasePage
 from services.PhotoLibrary import PhotoLibrary
-from services.PersonalLibrary import PersonalLibrary
+from services.CommonLibrary import CommonLibrary
 
 
-class FollowLibrary(Follow):
-    pp = PhotoLibrary()
-    per = PersonalLibrary()
-    c_name = None
+class FollowLibrary(object):
+
+    def __init__(self):
+        self.cl = CommonLibrary()
+        self.follow = Follow()
+        self.pp = PhotoLibrary()
+        self.base = BasePage()
 
     @keyword
     def follow_creater(self):
-        self.pp.go_photo()
+        self.cl.go_page('全景图')
         self.pp.go_photo_detail()
-        self.click_follow_btn()
-        self.c_name = self.get_text(self.findElements(self.creater_name))
+        self.follow.click_follow_btn()
 
     @keyword
-    def check_follow_in_detail_page(self):
-        self.is_element_exist(self.followed_btn)
-
-    @keyword
-    def go_follow_page(self):
-        self.per.go_personal()
-        self.click_following_btn()
-
-    @keyword
-    def check_follow_in_follow_page(self):
-        current_c_name = self.get_text(self.findElements(self.creater_name))
-        self.should_be_equal(current_c_name, self.c_name)
+    def check_follow(self):
+        self.follow.check_follow_in_detail_page()
+        self.cl.go_page('关注')
+        self.follow.check_follow_in_follow_page()

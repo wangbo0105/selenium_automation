@@ -1,7 +1,7 @@
 from pages.basepage import BasePage
 
 
-class Settingspage(BasePage):
+class Settingspage(object):
     setting = ('link_text', '设置', 0)  # 用户tab——设置
     user_tab = ('class', 'ant-dropdown-trigger', 0)  # 用户tab
     page_title = ('class', 'inner-page-title', 0)  # 设置title
@@ -11,29 +11,32 @@ class Settingspage(BasePage):
     personal_website = ('id', 'homepage', 0)  # 个人网站输入栏
     save_btn = ('class', 'save-btn', 0)  # 保存按钮
 
+    def __init__(self):
+        self.base = BasePage()
+
     def input_name(self, _name):
-        name_tab = self.findElements(self.name)
-        self.double_click(name_tab)
-        self.backSpace(name_tab)
-        self.send_keys(name_tab, _name)
+        self.base.element.double_click(self.name)
+        self.base.element.backSpace(self.name)
+        self.base.element.send_keys(self.name, _name)
 
     def input_username(self, _username):
-        username_tab = self.findElements(self.username)
-        self.double_click(username_tab)
-        self.backSpace(username_tab)
-        self.send_keys(username_tab, _username)
+        self.base.element.double_click(self.username)
+        self.base.element.backSpace(self.username)
+        self.base.element.send_keys(self.username, _username)
 
     def input_description(self, _des):
-        p_des = self.findElements(self.personal_description)
-        self.double_click(p_des)
-        self.backSpace(p_des)
-        self.send_keys(p_des, _des)
-
-    # def input_website(self, _website):
-    #     p_web = self.findElement(self.personal_website)
-    #     self.click(p_web)
-    #     self.clear(p_web)
-    #     self.send_keys(p_web, _website)
+        self.base.element.double_click(self.personal_description)
+        self.base.element.backSpace(self.personal_description)
+        self.base.element.send_keys(self.personal_description, _des)
 
     def click_save_btn(self):
-        self.click(self.findElements(self.save_btn))
+        self.base.element.click(self.save_btn)
+
+    def is_settings_page(self):
+        self.base.window.is_text_in_url('settings')
+        self.base.element.is_element_exist(self.page_title)
+
+    def is_edit(self, _name, _username, _des, value='value'):
+        self.base.element.is_input_text(self.name, value, _name)
+        self.base.element.is_input_text(self.username, value, _username)
+        self.base.element.is_input_text(self.personal_description, value,  _des)

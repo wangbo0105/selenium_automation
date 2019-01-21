@@ -7,10 +7,10 @@ Library  services.CommonLibrary
 
 *** Test Cases ***
 go video_page
-    Given go video
+    Given go page  视频
     Then is video page
 
 go video detail page
-    Given go video
+    Given go page  视频
     Then go video detail
     Then is video detail page

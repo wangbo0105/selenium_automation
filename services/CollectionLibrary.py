@@ -1,44 +1,42 @@
 from robot.api.deco import keyword
 from pages.collection import Collection
+from pages.basepage import BasePage
+from services.CommonLibrary import CommonLibrary
 from services.PhotoLibrary import PhotoLibrary
 from services.PersonalLibrary import PersonalLibrary
 
 
-class CollectionLibrary(Collection):
-    pp = PhotoLibrary()
-    per = PersonalLibrary()
-    photo_url = None
+class CollectionLibrary(object):
+    def __init__(self):
+        self.collection = Collection()
+        self.base = BasePage()
+        self.cl = CommonLibrary()
+        self.pp = PhotoLibrary()
+        self.per = PersonalLibrary()
 
     @keyword
     def add_photo_collection(self):
-        self.pp.go_photo()
+        self.cl.go_page('全景图')
         self.pp.go_photo_detail()
-        self.click_add_collection_btn()
-        self.add_collection()
-        self.photo_url = self.get_current_url()
+        self.collection.click_add_collection_btn()
+        self.collection.add_collection()
+        self.collection.click_add_collection_btn()
 
     @keyword
-    def check_collection_in_detail_page(self):
-        self.is_element_exist(self.contained)
-        self.click_add_collection_btn()
-
-    @keyword
-    def go_collection_tab(self):
-        self.per.go_personal()
-        self.click_collection_tab()
-
-    @keyword
-    def go_collection_box(self):
-        self.click_collection_box_1()
-
-    @keyword
-    def check_collection_in_collection_box(self):
-        self.should_be_equal(self.photo_url, self.get_content_href_1())
+    def check_collection(self):
+        self.collection.check_collection_in_detail_page()
+        self.cl.go_page('合辑')
+        self.collection.click_collection_box_1()
+        self.collection.check_collection()
 
     @keyword
     def create_collection(self, title):
-        self.click_create_collection()
-        self.input_cc_title(title)
-        self.click_cc_safe_btn()
-        collection_href = self.get_collection_box_href_1()
-        self.should_contains(collection_href, title)
+        self.collection.click_create_collection_btn()
+        self.collection.input_cc_title(title)
+        self.collection.click_cc_safe_btn()
+        collection_href = self.collection.get_creat_collection_box_href_1()
+        self.base.element.should_contains(collection_href, title)
+
+    @keyword
+    def clear_collection_box_all(self):
+        self.collection.clear_collection_box_all()

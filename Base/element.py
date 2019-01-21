@@ -15,7 +15,7 @@ class Element(object):
     def driver():
         return current_driver.get()
 
-    def findElements(self, element, raiseOnNotFound=True):
+    def findElements(self, element, raiseOnNotFound='yes'):
         """
         捕获元素，捕获到则返回ele对象，未捕获到则抛出异常提示
         :param raiseOnNotFound:
@@ -59,51 +59,46 @@ class Element(object):
             else:
                 return False
 
-    def click(self, ele):
+    def click(self, element):
         """单击页面元素，如按钮、图像、链接等"""
-        ActionChains(self.driver()).click(ele).perform()
+        ActionChains(self.driver()).click(self.findElements(element)).perform()
         time.sleep(3)
 
-    def double_click(self, ele):
+    def double_click(self, element):
         """双击页面元素"""
-        ActionChains(self.driver()).double_click(ele).perform()
+        ActionChains(self.driver()).double_click(self.findElements(element)).perform()
 
-    def move_to_element(self, ele):
+    def move_to_element(self, element):
         """鼠标悬停操作"""
-        ActionChains(self.driver()).move_to_element(ele).perform()
+        ActionChains(self.driver()).move_to_element(self.findElements(element)).perform()
 
-    def drag_element(self, ele, x, y):
+    def drag_element(self, element, x, y):
         """鼠标拖动元素，x,y为水平纵向拖动的相对距离"""
-        ActionChains(self.driver()).click_and_hold(ele).perform()  # 长按元素
+        ActionChains(self.driver()).click_and_hold(self.findElements(element)).perform()  # 长按元素
         try:
-            ActionChains(self.driver()).drag_and_drop_by_offset(ele, x, y).perform()
+            ActionChains(self.driver()).drag_and_drop_by_offset(self.findElements(element), x, y).perform()
         except Exception:
             print('元素拖动出现异常')
 
-    @staticmethod
-    def send_keys(ele, text=''):
+    def send_keys(self, element, text=''):
         """输入文本内容"""
-        ele.send_keys(text)
+        self.findElements(element).send_keys(text)
 
-    @staticmethod
-    def clear(ele):
+    def clear(self, element):
         """清除文本内容"""
-        ele.clear()
+        self.findElements(element).clear()
 
-    @staticmethod
-    def enter(ele):
+    def enter(self, element):
         """键盘操作回车"""
-        ele.send_keys(Keys.ENTER)
+        self.findElements(element).send_keys(Keys.ENTER)
 
-    @staticmethod
-    def backSpace(ele):
+    def backSpace(self, element):
         """键盘操作删除"""
-        ele.send_keys(Keys.BACKSPACE)
+        self.findElements(element).send_keys(Keys.BACKSPACE)
 
-    @staticmethod
-    def space(ele):
+    def space(self, element):
         """键盘操作空格"""
-        ele.send_keys(Keys.SPACE)
+        self.findElements(element).send_keys(Keys.SPACE)
 
     def get_text(self, element):
         """获取web元素的文本"""
@@ -114,11 +109,18 @@ class Element(object):
             print("获取text失败，返回'' ")
             return ""
 
-    @staticmethod
-    def get_attribute(ele, name):
+    def get_attribute(self, element, name):
         """获取元素属性的属性值"""
         try:
-            return ele.get_attribute(name)
+            return self.findElements(element).get_attribute(name)
+        except NoSuchAttributeException as e:
+            print("获取%s属性失败，返回'%s' " % name, e)
+            return ""
+
+    def get_attribute_href(self, element, name='href'):
+        """获取元素属性的href属性值"""
+        try:
+            return self.findElements(element).get_attribute(name)
         except NoSuchAttributeException as e:
             print("获取%s属性失败，返回'%s' " % name, e)
             return ""
@@ -146,10 +148,10 @@ class Element(object):
 
     def is_element_not_exist(self, element):
         """断言方法检查元素不存在"""
-        if self.findElements(element, False):
-            raise AssertionError("'%s' existed." % element)
-        else:
+        if self.findElements(element, False) == False:
             return True
+        else:
+            raise AssertionError("'%s' existed." % element)
 
     def ElementNotExist(self, element):
         """检查元素不存在"""
@@ -181,17 +183,14 @@ class Element(object):
         else:
             raise AssertionError("Don't match")
 
-    @staticmethod
-    def select_by_index(ele, index=0):
+    def select_by_index(self, element, index=0):
         """<select>标签适用，下拉选择框的选择，通过索引,index是索引第几个，从0开始，默认选第一个"""
-        Select(ele).select_by_index(index)
+        Select(self.findElements(element)).select_by_index(index)
 
-    @staticmethod
-    def select_by_value(ele, value):
+    def select_by_value(self, element, value):
         """<select>标签适用，下拉选择框的选择，通过value属性定位"""
-        Select(ele).select_by_value(value)
+        Select(self.findElements(element)).select_by_value(value)
 
-    @staticmethod
-    def select_by_text(ele, text):
+    def select_by_text(self, element, text):
         """<select>标签适用，下拉选择框的选择，通过文本值定位"""
-        Select(ele).select_by_visible_text(text)
+        Select(self.findElements(element)).select_by_visible_text(text)

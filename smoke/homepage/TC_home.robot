@@ -7,4 +7,5 @@ Library  services.HomeLibrary
 
 *** Test Cases ***
 go home_page
+    Given go page  首页
     Then is home page

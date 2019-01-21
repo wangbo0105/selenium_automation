@@ -11,6 +11,4 @@ Resource  ../../testdata/userdata.robot
 follow creater
     Given login  ${usrname}   ${password}
     When follow creater
-    Then check follow in detail page
-    Then go follow page
-    Then check follow in follow page
+    Then check follow

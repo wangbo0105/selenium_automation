@@ -10,5 +10,5 @@ Resource  ../../testdata/userdata.robot
 *** Test Cases ***
 go personal_page
     When login  ${usrname}   ${password}
-    Then go personal
+    Then go page  个人中心
     Then is personal page

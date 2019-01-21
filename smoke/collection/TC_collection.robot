@@ -10,17 +10,18 @@ Resource  ../../testdata/userdata.robot
 *** Test Cases ***
 create_collection_box
     Given login  ${usrname}   ${password}
-    Then go collection tab
-    Then create collection  ${title}
+    Then go page  合辑
+    Then create collection  ${collection_title}
 
 photo_collection
     When add photo collection
-    Then check collection in detail page
-    Then go collection tab
-    Then go collection box
-    Then check collection in collection box
+    Then check collection
+
+#clear collection box
+#    Given go page  合辑
+#    Then clear collection box all
 
 
 *** Variables ***
-${title}    collection001
+${collection_title}    collection001
 

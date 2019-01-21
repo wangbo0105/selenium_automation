@@ -1,30 +1,23 @@
 from robot.api.deco import keyword
 from pages.like import Like
 from services.PhotoLibrary import PhotoLibrary
-from services.PersonalLibrary import PersonalLibrary
+from services.CommonLibrary import CommonLibrary
 
 
-class LikeLibrary(Like):
-    pp = PhotoLibrary()
-    per = PersonalLibrary()
-    photo_url = None
+class LikeLibrary(object):
+    def __init__(self):
+        self.like = Like()
+        self.cl = CommonLibrary()
+        self.pp = PhotoLibrary()
 
     @keyword
     def photo_content_like(self):
-        self.pp.go_photo()
+        self.cl.go_page('全景图')
         self.pp.go_photo_detail()
-        self.click_like_button()
-        self.photo_url = self.get_current_url()
+        self.like.click_like_button()
 
     @keyword
-    def check_liked_in_detail_page(self):
-        self.is_element_exist(self.liked_button)
-
-    @keyword
-    def go_like_page(self):
-        self.per.go_personal()
-        self.click_like_tab()
-
-    @keyword
-    def check_liked_in_like_page(self):
-        self.should_be_equal(self.photo_url, self.get_content_href_1())
+    def check_liked(self):
+        self.like.check_liked_in_detail_page()
+        self.cl.go_page('喜欢')
+        self.like.check_liked_in_like_page()

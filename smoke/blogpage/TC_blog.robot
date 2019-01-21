@@ -7,5 +7,5 @@ Library  services.BlogLibrary
 
 *** Test Cases ***
 go blog_page
-    Given go blog
+    Given go page  博客
     Then is blog page

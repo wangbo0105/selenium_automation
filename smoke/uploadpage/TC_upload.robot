@@ -7,5 +7,5 @@ Library  services.CommonLibrary
 
 *** Test Cases ***
 go upload_page
-    Given go upload
+    Given go page  上传
     Then is upload page

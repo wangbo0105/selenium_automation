@@ -7,5 +7,5 @@ Library  services.StoreLibrary
 
 *** Test Cases ***
 go store_page
-    Given go store
+    Given go page  商城
     Then is store page

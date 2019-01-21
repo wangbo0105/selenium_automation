@@ -1,25 +1,19 @@
 from robot.api.deco import keyword
 from pages.exppage import Exppage
-from services.CommonLibrary import CommonLibrary
 
 
-class ExpLibrary(Exppage):
-    cl = CommonLibrary()
-
-    @keyword
-    def go_exp(self):
-        self.cl.goto_page_by_click(self.exp_tab)
+class ExpLibrary(object):
+    def __init__(self):
+        self.exp = Exppage()
 
     @keyword
     def go_exp_detail(self):
-        self.cl.goto_page_by_click(self.learn_more_1)
+        self.exp.click_learn_more_btn()
 
     @keyword
     def is_exp_page(self):
-        self.is_text_in_url('experience')
-        self.is_element_exist(self.learn_more_1)
+        self.exp.is_exp_page()
 
     @keyword
     def is_exp_detail_page(self):
-        self.is_text_in_url('experiences/')
-        self.is_element_exist(self.load_layer)
+        self.exp.is_exp_detail_page()

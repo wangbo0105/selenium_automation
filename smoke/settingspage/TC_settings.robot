@@ -10,11 +10,11 @@ Resource  ../../testdata/userdata.robot
 *** Test Cases ***
 go settings
     When login   ${usrname}  ${password}
-    Given go settings page
+    Given go page  设置
     Then is settings page
 
 edit data
-    Given go settings page
+    Given go page  设置
     Then edit data   ${_name}   ${_username}   ${_des}
     Then refresh current window
     Then is edit    ${_name}   ${_username}   ${_des}

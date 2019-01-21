@@ -1,17 +1,11 @@
 from robot.api.deco import keyword
 from pages.blogpage import Blogpage
-from services.CommonLibrary import CommonLibrary
 
 
-class BlogLibrary(Blogpage):
-    cl = CommonLibrary()
-
-    @keyword
-    def go_blog(self):
-        self.cl.goto_page_by_click(self.blog_tab)
+class BlogLibrary(object):
+    def __init__(self):
+        self.bl = Blogpage()
 
     @keyword
     def is_blog_page(self):
-        self.switch_handle()
-        self.is_text_in_url('blog')
-        self.is_element_exist(self.navbar_brand)
+        self.bl.is_blog_page()

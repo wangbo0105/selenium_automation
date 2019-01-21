@@ -11,6 +11,4 @@ Resource  ../../testdata/userdata.robot
 photo_like
     Given login  ${usrname}   ${password}
     When photo content like
-    Then check liked in detail page
-    Then go like page
-    Then check liked in like page
+    Then check liked

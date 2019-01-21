@@ -1,16 +1,12 @@
 from robot.api.deco import keyword
 from pages.personalpage import Personalpage
-from services.CommonLibrary import CommonLibrary
 
 
-class PersonalLibrary(Personalpage):
-    cl = CommonLibrary()
+class PersonalLibrary(object):
 
-    @keyword
-    def go_personal(self):
-        self.cl.goto_page_by_hover(self.user_tab, self.personal_center)
+    def __init__(self):
+        self.personal = Personalpage()
 
     @keyword
     def is_personal_page(self):
-        self.is_text_in_url('home')
-        self.is_element_exist(self.home_tab)
+        self.personal.is_personal_page()

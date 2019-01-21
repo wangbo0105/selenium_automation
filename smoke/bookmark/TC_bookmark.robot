@@ -11,11 +11,8 @@ Resource  ../../testdata/userdata.robot
 photo_bookmark
     Given login  ${usrname}   ${password}
     When photo bookmark
-    Then close bookmark alert
-    Then check bookmark in detail page
-    Then go bookmark tab
-    Then check bookmark in personal page
+    Then check bookmark
 
 clear bookmark
-    Given go bookmark tab
+    Given go page  VR书签
     Then clear bookmark

@@ -7,10 +7,10 @@ Library  services.PhotoLibrary
 
 *** Test Cases ***
 go photo_page
-    Given go photo
+    Given go page  全景图
     Then is photo page
 
 go photo detail page
-    Given go photo
+    Given go page  全景图
     Then go photo detail
     Then is photo detail page
