@@ -43,7 +43,7 @@ class Element(object):
                     lambda x: x.find_elements_by_css_selector(value)[index])
             elif type == 'link_text' or type == 'LINK_TEXT' or type == 'Link_text':
                 ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
-                    lambda x: x.find_element_by_link_text(value))
+                    lambda x: x.find_element_by_link_text(value)[index])
             elif type == 'partial_link_text' or type == 'Partial_Link_Text' or type == 'Partial_link_text':
                 ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_partial_link_text(value)[index])
@@ -179,6 +179,14 @@ class Element(object):
     def should_be_equal(str1, str2):
         """断言方法检查两个字符串是否相等"""
         if str1 == str2:
+            return True
+        else:
+            raise AssertionError("Don't match")
+
+    @staticmethod
+    def should_not_equal(str1, str2):
+        """断言方法检查两个字符串是否相等"""
+        if str1 != str2:
             return True
         else:
             raise AssertionError("Don't match")
