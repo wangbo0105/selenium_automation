@@ -1,4 +1,5 @@
 from Base import current_driver
+import time
 
 
 class JavaScript(object):
@@ -16,7 +17,11 @@ class JavaScript(object):
         js = "window.scrollTo(0,0)"
         self.driver().execute_script(js)
 
-    def js_scroll_end(self, x=0):
+    def js_scroll_end(self, num=1, sleep=0, x=0):
         """滚动到底部"""
         js = "window.scrollTo(%s,document.body.scrollHeight)" % x
-        self.driver().execute_script(js)
+        i = 0
+        while i < num:
+            self.driver().execute_script(js)
+            i += 1
+            time.sleep(sleep)
