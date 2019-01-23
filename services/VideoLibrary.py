@@ -8,6 +8,7 @@ class VideoLibrary(object):
 
     @keyword
     def go_video_detail(self):
+        self.video.get_video_content_href()
         self.video.click_video_content_1()
 
     @keyword
