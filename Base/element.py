@@ -168,11 +168,18 @@ class Element(object):
             raise AssertionError("'%s' is not in current element." % _text)
 
     def isElementExist(self, element):
-        """检查元素是否存在"""
+        """检查元素存在"""
         if self.findElement(element):
             return True
         else:
             raise AssertionError("'%s' is not exist." % element)
+
+    # def isElementNotExist(self, element):
+    #     """检查元素不存在"""
+    #     if self.findElement(element) != True:
+    #         return True
+    #     else:
+    #         raise AssertionError("'%s' is exist." % element)
 
     def isElementExist2(self, elements):
         """检查元素是否存在"""

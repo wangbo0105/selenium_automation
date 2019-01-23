@@ -253,6 +253,13 @@ class Base(object):
         else:
             raise AssertionError("'%s' is not exist." % elements)
 
+    # def isElementNotExist(self, element):
+    #     """检查元素不存在"""
+    #     if self.findElement(element) != True:
+    #         return True
+    #     else:
+    #         raise AssertionError("'%s' is exist." % element)
+
     def is_url(self, url):
         """判断当前页面是否是预期页面地址"""
         if self.driver().current_url == url:
