@@ -17,6 +17,7 @@ class BasePage(object):
     @staticmethod
     def page_dict():
         page_name = {'首页': ('class', 'home', 0),
+                     'logo': ('class', 'logo', 0),
                      '全景图': ('class', 'ant-menu-item', 2),
                      '视频': ('class', 'ant-menu-item', 1),
                      '互动体验': ('class', 'ant-menu-item', 3),
