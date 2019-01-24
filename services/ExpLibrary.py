@@ -7,8 +7,8 @@ class ExpLibrary(object):
         self.exp = Exppage()
 
     @keyword
-    def go_exp_detail(self):
-        self.exp.click_learn_more_btn()
+    def click_item(self, name):
+        self.exp.click_item(name)
 
     @keyword
     def is_exp_page(self):
@@ -17,3 +17,11 @@ class ExpLibrary(object):
     @keyword
     def is_exp_detail_page(self):
         self.exp.is_exp_detail_page()
+
+    @keyword
+    def is_banner_tab(self, name):
+        self.exp.is_select_banner_tab(name)
+
+    @keyword
+    def is_Seth_home_page(self):
+        self.exp.is_Seth_home_page()
