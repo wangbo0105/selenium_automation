@@ -12,5 +12,5 @@ go photo_page
 
 go photo detail page
     Given go page  全景图
-    Then go photo detail
+    Then click item  图片作品
     Then is photo detail page

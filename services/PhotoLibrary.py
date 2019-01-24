@@ -9,41 +9,22 @@ class PhotoLibrary(object):
         self.photopage = PhotoPage()
 
     @keyword
-    def go_photo_detail(self):
-        self.photopage.get_photo_content_title()
-        self.photopage.click_photo_content_1()
+    def click_item(self, name):
+        self.photopage.click_item(name)
+
+    @keyword
+    def is_selected_banner_tab(self, name):
+        self.photopage.is_selected_tab(name)
 
     @keyword
     def is_photo_page(self):
+        self.photopage.match_video_url()
         self.photopage.is_photo_page()
 
     @keyword
     def is_photo_detail_page(self):
+        self.photopage.match_video_url()
         self.photopage.is_photo_detail_page()
-
-    @keyword
-    def click_featured_tab(self):
-        self.photopage.click_featured_tab()
-
-    @keyword
-    def is_featured_tab(self):
-        self.photopage.is_featured_tab()
-
-    @keyword
-    def click_popular_tab(self):
-        self.photopage.click_popular_tab()
-
-    @keyword
-    def is_popular_tab(self):
-        self.photopage.is_popular_tab()
-
-    @keyword
-    def click_recent_tab(self):
-        self.photopage.click_recent_tab()
-
-    @keyword
-    def is_recent_tab(self):
-        self.photopage.is_recent_tab()
 
     @keyword
     def turn_page(self):

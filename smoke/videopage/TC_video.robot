@@ -12,5 +12,5 @@ go video_page
 
 go video detail page
     Given go page  视频
-    Then go video detail
+    Then click item  视频作品
     Then is video detail page
