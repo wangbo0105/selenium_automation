@@ -14,3 +14,9 @@ go video detail page
     Given go page  视频
     Then go video detail
     Then is video detail page
+
+go more video detail page
+    Given go page  视频
+    Then go video detail
+    Then click more video content
+    Then is more video page
