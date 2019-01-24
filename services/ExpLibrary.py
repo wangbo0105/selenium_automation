@@ -1,10 +1,10 @@
 from robot.api.deco import keyword
-from pages.exppage import Exppage
+from pages.exppage import ExpPage
 
 
 class ExpLibrary(object):
     def __init__(self):
-        self.exp = Exppage()
+        self.exp = ExpPage()
 
     @keyword
     def click_item(self, name):
@@ -12,10 +12,12 @@ class ExpLibrary(object):
 
     @keyword
     def is_exp_page(self):
+        self.exp.match_exp_url()
         self.exp.is_exp_page()
 
     @keyword
     def is_exp_detail_page(self):
+        self.exp.match_exp_url()
         self.exp.is_exp_detail_page()
 
     @keyword
