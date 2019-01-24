@@ -39,6 +39,6 @@ class Loginpage(object):
         self.base.element.is_element_exist(self.login_tab)
 
     def is_login_alert(self):
-        self.base.element.is_element_exist()
+        self.base.element.is_element_exist(self.login_alert)
 
 
