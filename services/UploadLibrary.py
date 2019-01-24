@@ -1,10 +1,10 @@
 from robot.api.deco import keyword
-from pages.uploadpage import Uploadpage
+from pages.uploadpage import UploadPage
 
 
 class UploadLibrary(object):
     def __init__(self):
-        self.upload = Uploadpage()
+        self.upload = UploadPage()
 
     @keyword
     def is_upload_page(self):

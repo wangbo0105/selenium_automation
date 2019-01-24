@@ -1,10 +1,10 @@
 from robot.api.deco import keyword
-from pages.homepage import Homepage
+from pages.homepage import HomePage
 
 
 class HomeLibrary(object):
     def __init__(self):
-        self.homepage = Homepage()
+        self.homepage = HomePage()
 
     @keyword
     def is_home_page(self):

@@ -1,12 +1,12 @@
 from robot.api.deco import keyword
-from pages.languagepage import Languagepage
+from pages.language import Language
 from services.CommonLibrary import CommonLibrary
 
 
 class LanguageLibrary(object):
 
     def __init__(self):
-        self.lan = Languagepage()
+        self.lan = Language()
 
     @keyword
     def switch_english(self):

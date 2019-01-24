@@ -1,10 +1,10 @@
 from robot.api.deco import keyword
-from pages.blogpage import Blogpage
+from pages.blogpage import BlogPage
 
 
 class BlogLibrary(object):
     def __init__(self):
-        self.bl = Blogpage()
+        self.bl = BlogPage()
 
     @keyword
     def is_blog_page(self):

@@ -1,12 +1,12 @@
 from robot.api.deco import keyword
-from pages.photopage import Photopage
+from pages.photopage import PhotoPage
 from services.CommonLibrary import CommonLibrary
 
 
 class PhotoLibrary(object):
     def __init__(self):
         self.cl = CommonLibrary()
-        self.photopage = Photopage()
+        self.photopage = PhotoPage()
 
     @keyword
     def go_photo_detail(self):

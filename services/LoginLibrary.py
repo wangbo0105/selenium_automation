@@ -1,12 +1,12 @@
 from robot.api.deco import keyword
-from pages.loginpage import Loginpage
+from pages.loginpage import LoginPage
 from services.CommonLibrary import CommonLibrary
 
 
 class LoginLibrary(object):
 
     def __init__(self):
-        self.loginpage = Loginpage()
+        self.loginpage = LoginPage()
         self.cl = CommonLibrary()
 
     @keyword

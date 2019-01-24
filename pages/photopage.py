@@ -1,7 +1,7 @@
 from pages.basepage import BasePage
 
 
-class Photopage(object):
+class PhotoPage(BasePage):
     photo_tab = ('class', 'ant-menu-item', 2)  # 导航栏-全景图
     photo_content_1 = ('class', 'photo-card-single', 0)  # 全景图-列表第一个作品
     user_avator = ('class', 'user-avatar', 0)  # content user-avatar
@@ -19,75 +19,75 @@ class Photopage(object):
     content_title = ('class', 'title', 1)  # photo title
 
     def __init__(self):
-        self.base = BasePage()
+        super().__init__()
         self.photo_src1 = None
         self.photo_src2 = None
 
     def get_photo_content_user_info(self):
-        return self.base.element.get_attribute_href(self.user_avator)
+        return self.element.get_attribute_href(self.user_avator)
 
     def get_photo_content_title(self):
-        self.photo_src1 = self.base.element.get_attribute(self.more_image_responsive, 'alt')
+        self.photo_src1 = self.element.get_attribute(self.more_image_responsive, 'alt')
 
     def click_photo_content_1(self):
-        self.base.element.click(self.photo_content_1)
+        self.element.click(self.photo_content_1)
 
     def is_photo_page(self):
-        self.base.window.is_text_in_url('photo')
-        self.base.element.is_text_in_element(self.slogan, self.slogan_name)
+        self.window.is_text_in_url('photo')
+        self.element.is_text_in_element(self.slogan, self.slogan_name)
 
     def is_photo_detail_page(self):
-        self.base.window.is_text_in_url('photos/')
-        self.base.element.is_element_exist(self.photo_player)
-        self.photo_src2 = self.base.element.get_text(self.content_title)
-        self.base.element.should_be_equal(self.photo_src1, self.photo_src2)
+        self.window.is_text_in_url('photos/')
+        self.element.is_element_exist(self.photo_player)
+        self.photo_src2 = self.element.get_text(self.content_title)
+        self.element.should_be_equal(self.photo_src1, self.photo_src2)
         self.photo_src1 = None
         self.photo_src2 = None
 
     def click_featured_tab(self):
-        self.base.element.click(self.featured_tab)
+        self.element.click(self.featured_tab)
 
     def is_featured_tab(self):
-        self.base.window.is_text_in_url('photo/featured')
-        active = self.base.element.get_attribute(self.featured_tab, 'class')
-        self.base.element.should_contains(active, self.tabs_tab_active)
+        self.window.is_text_in_url('photo/featured')
+        active = self.element.get_attribute(self.featured_tab, 'class')
+        self.element.should_contains(active, self.tabs_tab_active)
 
     def click_popular_tab(self):
-        self.base.element.click(self.popular_tab)
+        self.element.click(self.popular_tab)
 
     def is_popular_tab(self):
-        self.base.window.is_text_in_url('photo/popular')
-        active = self.base.element.get_attribute(self.popular_tab, 'class')
-        self.base.element.should_contains(active, self.tabs_tab_active)
+        self.window.is_text_in_url('photo/popular')
+        active = self.element.get_attribute(self.popular_tab, 'class')
+        self.element.should_contains(active, self.tabs_tab_active)
 
     def click_recent_tab(self):
-        self.base.element.click(self.recent_tab)
+        self.element.click(self.recent_tab)
 
     def is_recent_tab(self):
-        self.base.window.is_text_in_url('photo/recent')
-        active = self.base.element.get_attribute(self.recent_tab, 'class')
-        self.base.element.should_contains(active, self.tabs_tab_active)
+        self.window.is_text_in_url('photo/recent')
+        active = self.element.get_attribute(self.recent_tab, 'class')
+        self.element.should_contains(active, self.tabs_tab_active)
 
     def click_turn_page_btn(self):
         self.photo_src1 = self.get_photo_content_user_info()
-        self.base.js.js_scroll_end(3, 3)
-        self.base.element.click(self.pagination_bar_2)
+        self.js.js_scroll_end(3, 3)
+        self.element.click(self.pagination_bar_2)
         self.photo_src2 = self.get_photo_content_user_info()
 
     def is_turned_page(self):
-        self.base.js.js_scroll_end(3, 3)
-        active = self.base.element.get_attribute(self.pagination_bar_2, 'class')
-        self.base.element.should_contains(active, self.pagination_item_active)
-        self.base.element.should_not_equal(self.photo_src1, self.photo_src2)
+        self.js.js_scroll_end(3, 3)
+        active = self.element.get_attribute(self.pagination_bar_2, 'class')
+        self.element.should_contains(active, self.pagination_item_active)
+        self.element.should_not_equal(self.photo_src1, self.photo_src2)
         self.photo_src1 = None
         self.photo_src2 = None
 
     def click_more_photo(self):
-        self.base.element.click(self.more_image_responsive)
+        self.element.click(self.more_image_responsive)
 
     def is_more_photo_page(self):
-        self.photo_src2 = self.base.element.get_text(self.content_title)
-        self.base.element.should_be_equal(self.photo_src1, self.photo_src2)
+        self.photo_src2 = self.element.get_text(self.content_title)
+        self.element.should_be_equal(self.photo_src1, self.photo_src2)
         self.photo_src1 = None
         self.photo_src2 = None
 

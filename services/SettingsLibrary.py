@@ -1,10 +1,10 @@
 from robot.api.deco import keyword
-from pages.settingspage import Settingspage
+from pages.settingspage import SettingsPage
 
 
 class SettingsLibrary(object):
     def __init__(self):
-        self.setting = Settingspage()
+        self.setting = SettingsPage()
 
     @keyword
     def is_settings_page(self):
