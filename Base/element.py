@@ -4,7 +4,6 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchAttributeException
 from Base import current_driver
-import time
 
 
 class Element(object):
