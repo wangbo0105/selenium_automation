@@ -3,6 +3,7 @@ from pages.basepage import BasePage
 
 class Loginpage(object):
     login_tab = ('class', 'header-login', 0)  # 导航栏-登录tab
+    login_alert = ('class', 'ant-modal-content', 0)  # 登录弹窗
     username = ('id', 'identifier', 0)  # 用户名输入框
     password = ('id', 'password', 0)  # 密码输入框
     loginBtn = ('class', 'submit-btn', 0)  # 登录button
@@ -36,5 +37,8 @@ class Loginpage(object):
 
     def is_logout(self):
         self.base.element.is_element_exist(self.login_tab)
+
+    def is_login_alert(self):
+        self.base.element.is_element_exist()
 
 

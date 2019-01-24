@@ -25,6 +25,10 @@ class LoginLibrary(object):
         self.loginpage.click_loginBtn()
 
     @keyword
+    def is_login_alert(self):
+        self.loginpage.is_login_alert()
+
+    @keyword
     def is_login(self):
         self.loginpage.is_login()
 
