@@ -19,17 +19,3 @@ mobileLogin           18810309857         111111      False
 loginDDT
     [Arguments]    ${usrname}    ${password}    ${expectedResult}
     login   ${usrname}  ${password}   ${expectedResult}
-#login
- #   login
-    #login   ${usrname}  ${password}
-    #is login
-
-#logout
- #   login   ${usrname}  ${password}
-  #  logout
-   # is logout
-
-
-#*** Variables ***
-#${usrname}       veerqa@veer.tv
-#${password}      123456

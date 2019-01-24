@@ -12,10 +12,6 @@ class Loginpage(Base):
     user_tab = ('class', 'ant-dropdown-trigger')  # 用户tab
     close_login_modal = ('class', 'ant-modal-close-x') #登录弹框关闭button
 
-    # def click_login_tab(self):
-    #     """点击login tab"""
-    #     self.click(self.findElement(self.login_tab))
-
     def input_username(self, user):
         self.findElement(self.username).clear()
         """输入用户名"""
@@ -37,7 +33,6 @@ class Loginpage(Base):
     def hover_user_tab(self):
         """将鼠标移动到个人中心tab"""
         self.move_to_element(self.findElement(self.user_tab))
-        # time.sleep(3)
     
     def click_log_out(self):
         """点击退出tab"""
