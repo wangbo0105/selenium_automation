@@ -6,17 +6,18 @@ Library  services.VideoLibrary
 Library  services.CommonLibrary
 
 *** Test Cases ***
-go video_page
+导航栏 视频首页跳转
     Given go page  视频
     Then is video page
 
-go video detail page
+视频详情页跳转
     Given go page  视频
-    Then go video detail
+    Then click item  视频作品
     Then is video detail page
 
-go more video detail page
+更多视频跳转
     Given go page  视频
-    Then go video detail
-    Then click more video content
+    Then click item  视频作品
+    Then get more video href
+    Then click item  更多视频
     Then is more video page
