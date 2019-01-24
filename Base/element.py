@@ -62,7 +62,6 @@ class Element(object):
     def click(self, element):
         """单击页面元素，如按钮、图像、链接等"""
         ActionChains(self.driver()).click(self.findElements(element)).perform()
-        time.sleep(3)
 
     def double_click(self, element):
         """双击页面元素"""
