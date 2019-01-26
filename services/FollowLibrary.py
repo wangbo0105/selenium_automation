@@ -3,24 +3,30 @@ from pages.follow import Follow
 from pages.basepage import BasePage
 from services.PhotoLibrary import PhotoLibrary
 from services.CommonLibrary import CommonLibrary
+from services.PersonalLibrary import PersonalLibrary
 
 
 class FollowLibrary(object):
 
     def __init__(self):
-        self.cl = CommonLibrary()
+        self.common = CommonLibrary()
         self.follow = Follow()
-        self.pp = PhotoLibrary()
+        self.photo = PhotoLibrary()
         self.base = BasePage()
+        self.personal = PersonalLibrary()
+
+    @keyword
+    def go_followed_page(self):
+        self.follow.go_following_page()
 
     @keyword
     def follow_creater(self):
-        self.cl.go_page('全景图')
-        self.pp.go_photo_detail()
+        self.common.go_page('photo')
+        self.photo.photo_click_item('photo_content')
         self.follow.click_follow_btn()
 
     @keyword
-    def check_follow(self):
+    def Check_the_creator_is_focused_on_success(self):
         self.follow.check_follow_in_detail_page()
-        self.cl.go_page('关注')
+        self.follow.go_following_page()
         self.follow.check_follow_in_follow_page()

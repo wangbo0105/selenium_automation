@@ -8,16 +8,16 @@ Library  services.LoginLibrary
 Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
-go settings
-    When login   ${usrname}  ${password}
-    Given go page  设置
-    Then is settings page
+go settings page
+    Given login   ${usrname}  ${password}
+    When go settings page
+    Then should be settings page
 
-edit data
-    Given go page  设置
-    Then edit data   ${_name}   ${_username}   ${_des}
-    Then refresh current window
-    Then is edit    ${_name}   ${_username}   ${_des}
+edit user information
+    Given go settings page
+    When edit user information   ${_name}   ${_username}   ${_des}
+    And refresh current window
+    Then check user information was modified successfully    ${_name}   ${_username}   ${_des}
 
 *** Variables ***
 ${_name}        test_name

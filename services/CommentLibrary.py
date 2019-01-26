@@ -14,6 +14,6 @@ class CommentLibrary(object):
         self.comment.click_submit_btn()
 
     @keyword
-    def check_comment(self):
-        self.comment.check_comment()
+    def check_the_comment_is_successful(self, text):
+        self.comment.check_comment(text)
 

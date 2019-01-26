@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation   Message page jump validation
+Documentation   message page smoke test
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
@@ -8,7 +8,7 @@ Library  services.LoginLibrary
 Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
-go message_page
-    When login  ${usrname}   ${password}
-    Then go page  消息
-    Then is message page
+go message page
+    Given login  ${usrname}   ${password}
+    When go page  message
+    Then should be message page

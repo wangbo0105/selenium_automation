@@ -6,22 +6,22 @@ from services.CommonLibrary import CommonLibrary
 class LanguageLibrary(object):
 
     def __init__(self):
-        self.lan = Language()
+        self.language = Language()
 
     @keyword
     def switch_english(self):
-        self.lan.click_language_box()
-        self.lan.click_english()
+        self.language.click_language_box()
+        self.language.click_english()
 
     @keyword
-    def is_english(self):
-        self.lan.is_english()
+    def check_english(self):
+        self.language.is_english()
 
     @keyword
     def switch_japanese(self):
-        self.lan.click_language_box()
-        self.lan.click_japanese()
+        self.language.click_language_box()
+        self.language.click_japanese()
 
     @keyword
-    def is_japanese(self):
-        self.lan.is_japanese()
+    def check_japanese(self):
+        self.language.is_japanese()

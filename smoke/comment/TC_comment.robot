@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    comment test
+Documentation    comment somke test
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
@@ -11,10 +11,10 @@ Resource  ../../testdata/userdata.robot
 *** Test Cases ***
 post comment
     Given login  ${usrname}   ${password}
-    Then go page  全景图
-    Then go photo detail
+    Then go page  photo
+    Then photo click item  photo_content
     Then post comment  ${comment_text}
-    Then check comment
+    Then check the comment is successful  ${comment_text}
 
 
 *** Variables ***

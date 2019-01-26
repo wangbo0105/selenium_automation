@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation   Login page test
+Documentation   login smoke test
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
@@ -9,10 +9,10 @@ Resource  ../../testdata/userdata.robot
 *** Test Cases ***
 login
     Given login   ${usrname}  ${password}
-    Then is login
+    Then check you are logged in
 
-log out
-    Given go page  退出登录
-    Then is logout
+logout
+    Given log out
+    Then check you are logged out
 
 

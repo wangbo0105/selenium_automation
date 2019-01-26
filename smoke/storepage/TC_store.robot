@@ -1,11 +1,11 @@
 *** Settings ***
-Documentation   Store page jump validation
+Documentation   Store page smoke test
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
-Library  services.StoreLibrary
+Library  services.ExternalLibrary
 
 *** Test Cases ***
-go store_page
-    Given go page  商城
-    Then is store page
+go store page
+    Given go page  store
+    Then should be store page

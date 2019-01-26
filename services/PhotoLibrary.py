@@ -1,28 +1,26 @@
 from robot.api.deco import keyword
 from pages.photopage import PhotoPage
-from services.CommonLibrary import CommonLibrary
 
 
 class PhotoLibrary(object):
     def __init__(self):
-        self.cl = CommonLibrary()
         self.photopage = PhotoPage()
 
     @keyword
-    def click_item(self, name):
+    def photo_click_item(self, name):
         self.photopage.click_item(name)
 
     @keyword
-    def is_selected_banner_tab(self, name):
+    def the_banner_tab_should_be_selected(self, name):
         self.photopage.is_selected_tab(name)
 
     @keyword
-    def is_photo_page(self):
+    def should_be_photo_page(self):
         self.photopage.match_video_url()
         self.photopage.is_photo_page()
 
     @keyword
-    def is_photo_detail_page(self):
+    def should_be_photo_detail_page(self):
         self.photopage.match_video_url()
         self.photopage.is_photo_detail_page()
 
@@ -31,7 +29,7 @@ class PhotoLibrary(object):
         self.photopage.click_turn_page_btn()
 
     @keyword
-    def is_turned_page(self):
+    def the_pages_should_turned(self):
         self.photopage.is_turned_page()
 
     @keyword
@@ -40,7 +38,7 @@ class PhotoLibrary(object):
         self.photopage.click_more_photo()
 
     @keyword
-    def is_more_photo_content_page(self):
+    def should_be_more_photo_content_page(self):
         self.photopage.is_more_photo_page()
 
 

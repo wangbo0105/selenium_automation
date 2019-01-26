@@ -1,11 +1,11 @@
 *** Settings ***
-Documentation   Blog page jump validation
+Documentation   blog smoke test
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
-Library  services.BlogLibrary
+Library  services.ExternalLibrary
 
 *** Test Cases ***
-go blog_page
-    Given go page  博客
-    Then is blog page
+go blog page
+    Given go page  blog
+    Then should be blog page

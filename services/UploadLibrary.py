@@ -7,5 +7,5 @@ class UploadLibrary(object):
         self.upload = UploadPage()
 
     @keyword
-    def is_upload_page(self):
+    def should_be_upload_page(self):
         self.upload.is_upload_page()

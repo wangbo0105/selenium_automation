@@ -1,25 +1,23 @@
 *** Settings ***
-Documentation    collection test
+Documentation    collection smoke test
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
 Library  services.CollectionLibrary
 Library  services.LoginLibrary
+Library  services.PersonalLibrary
 Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
-create_collection_box
+create collection
     Given login  ${usrname}   ${password}
-    Then go page  合辑
-    Then create collection  ${collection_title}
+    And go collection tab
+    When create collection  ${collection_title}
+    Then check the collection was created successfully  ${collection_title}
 
-photo_collection
+add photos collection
     When add photo collection
     Then check collection
-
-#clear collection box
-#    Given go page  合辑
-#    Then clear collection box all
 
 
 *** Variables ***

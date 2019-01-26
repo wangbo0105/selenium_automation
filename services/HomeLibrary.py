@@ -7,7 +7,7 @@ class HomeLibrary(object):
         self.homepage = HomePage()
 
     @keyword
-    def is_home_page(self):
+    def should_be_home_page(self):
         self.homepage.home_page()
 
     @keyword
@@ -15,7 +15,7 @@ class HomeLibrary(object):
         self.homepage.click_recommended_view_all()
 
     @keyword
-    def is_recommended_page(self):
+    def should_be_recommended_page(self):
         self.homepage.recommended_page()
 
     @keyword
@@ -24,13 +24,13 @@ class HomeLibrary(object):
         self.homepage.click_recommended_content()
 
     @keyword
-    def is_recommended_content_detail_page(self):
+    def should_be_recommended_content_detail_page(self):
         self.homepage.recommended_content_detail_page()
 
     @keyword
-    def show_more_recommended(self):
+    def click_more_recommended(self):
         self.homepage.click_recommended_show_more()
 
     @keyword
-    def is_recommended_show_more(self):
+    def check_recommended_show_more_successful(self):
         self.homepage.recommended_show_more()

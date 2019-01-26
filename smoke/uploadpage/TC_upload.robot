@@ -1,11 +1,11 @@
 *** Settings ***
-Documentation   Upload page jump validation
+Documentation   Upload page smoke test
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.UploadLibrary
 Library  services.CommonLibrary
 
 *** Test Cases ***
-go upload_page
-    Given go page  上传
-    Then is upload page
+go upload page
+    Given go page  upload
+    Then should be upload page
