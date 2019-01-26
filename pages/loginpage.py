@@ -29,6 +29,10 @@ class LoginPage(BasePage):
         """点击 记住我 勾选项"""
         self.element.click(self.remember)
 
+    def logout(self):
+        self.element.move_to_element(self.user_tab)
+        self.element.click(self.log_out)
+
     def is_login(self):
         self.element.is_element_exist(self.user_tab)
 

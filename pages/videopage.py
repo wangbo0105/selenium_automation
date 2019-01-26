@@ -22,8 +22,8 @@ class VideoPage(BasePage):
 
     @staticmethod
     def video_page_dict():
-        item_name = {'视频作品': ('class', 'play-overlay', 0),
-                     '更多视频': ('class', 'title', 6), }
+        item_name = {'video_content': ('class', 'play-overlay', 0),
+                     'more_video': ('class', 'title', 6), }
         return item_name
 
     def click_item(self, name):

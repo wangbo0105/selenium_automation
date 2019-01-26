@@ -1,4 +1,5 @@
 from pages.basepage import BasePage
+from pages.personalpage import PersonalPage
 
 
 class Like(BasePage):
@@ -10,7 +11,12 @@ class Like(BasePage):
 
     def __init__(self):
         super().__init__()
+        self.personal = PersonalPage()
         self.photo_url = None
+
+    def go_liked_tab(self):
+        self.personal.go_personal_page()
+        self.element.click(self.like_tab)
 
     def click_like_button(self):
         self.element.click(self.like_button)

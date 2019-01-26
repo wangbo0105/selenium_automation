@@ -1,4 +1,5 @@
 from pages.basepage import BasePage
+from pages.personalpage import PersonalPage
 
 
 class Follow(BasePage):
@@ -9,7 +10,12 @@ class Follow(BasePage):
 
     def __init__(self):
         super().__init__()
+        self.personal = PersonalPage()
         self.c_name = None
+
+    def go_following_page(self):
+        self.personal.go_personal_page()
+        self.element.click(self.following_btn)
 
     def click_follow_btn(self):
         self.element.click(self.follow_btn)

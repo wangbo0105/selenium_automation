@@ -11,6 +11,10 @@ class SettingsPage(BasePage):
     personal_website = ('id', 'homepage', 0)  # 个人网站输入栏
     save_btn = ('class', 'save-btn', 0)  # 保存按钮
 
+    def go_settings_page(self):
+        self.element.move_to_element(self.user_tab)
+        self.element.click(self.setting)
+
     def input_name(self, _name):
         self.element.double_click(self.name)
         self.element.backSpace(self.name)

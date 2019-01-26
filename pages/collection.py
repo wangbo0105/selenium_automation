@@ -1,4 +1,5 @@
 from pages.basepage import BasePage
+from pages.personalpage import PersonalPage
 
 
 class Collection(BasePage):
@@ -20,6 +21,11 @@ class Collection(BasePage):
     def __init__(self):
         super().__init__()
         self.photo_url = None
+        self.personal = PersonalPage()
+
+    def go_collection_tab(self):
+        self.personal.go_personal_page()
+        self.element.click(self.collection_tab)
 
     def click_add_collection_btn(self):
         self.photo_url = self.window.get_current_url()

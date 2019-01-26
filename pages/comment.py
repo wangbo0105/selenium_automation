@@ -8,14 +8,12 @@ class Comment(BasePage):
 
     def __init__(self):
         super().__init__()
-        self.comment_text = None
 
     def input_comment(self, text):
-        self.comment_text = text
         self.element.send_keys(self.comment_box, text)
 
     def click_submit_btn(self):
         self.element.click(self.submit_btn)
 
-    def check_comment(self):
-        self.element.is_text_in_element(self.comment_content, self.comment_text)
+    def check_comment(self, text):
+        self.element.is_text_in_element(self.comment_content, text)

@@ -1,4 +1,5 @@
 from pages.basepage import BasePage
+from pages.personalpage import PersonalPage
 
 
 class BookMark(BasePage):
@@ -12,7 +13,12 @@ class BookMark(BasePage):
 
     def __init__(self):
         super().__init__()
+        self.personal = PersonalPage()
         self.photo_url = None
+
+    def go_bookmark_tab(self):
+        self.personal.go_personal_page()
+        self.element.click(self.VR_tab)
 
     def click_bookmark_btn(self):
         self.element.click(self.bookmark_btn)

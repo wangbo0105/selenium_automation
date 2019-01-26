@@ -24,7 +24,7 @@ class PhotoPage(BasePage):
         item_name = {'featured': ('class', 'tabs-tab', 0),
                      'popular': ('class', 'tabs-tab', 1),
                      'recent': ('class', 'tabs-tab', 2),
-                     '图片作品': ('class', 'photo-card-single', 0), }
+                     'photo_content': ('class', 'photo-card-single', 0), }
         return item_name
 
     def click_item(self, name):

@@ -12,13 +12,13 @@ class ExpPage(BasePage):
 
     @staticmethod
     def exp_page_dict():
-        item_name = {'立即体验': ('class', 'join-button', 0),
-                     '了解更多': ('class', 'ant-btn-primary-ghost', 1),
-                     '餐厅全景图案例': ('class', 'banner-tab', 0),
-                     'VR故事': ('class', 'banner-tab', 1),
-                     'VRlog日记案例': ('class', 'banner-tab', 2),
-                     '上传-了解更多': ('class', 'zh-CN', 0),
-                     'Seth的VeeR主页': ('class', 'author-profile-link', 0)}
+        item_name = {'experience_immediately': ('class', 'join-button', 0),
+                     'learn_more': ('class', 'ant-btn-primary-ghost', 1),
+                     'restaurant_panorama_case': ('class', 'banner-tab', 0),
+                     'VR_story': ('class', 'banner-tab', 1),
+                     'VRlog_diary_case': ('class', 'banner-tab', 2),
+                     'upload_learn_more': ('class', 'zh-CN', 0),
+                     'Seth_veer_page': ('class', 'author-profile-link', 0)}
         return item_name
 
     def click_item(self, name):
@@ -27,7 +27,7 @@ class ExpPage(BasePage):
 
     def match_exp_url(self):
         current_url = (self.window.get_current_url())
-        pattern = re.compile(r'/experience[s/]?.*')
+        pattern = re.compile(r'/experience[s]?.*')
         result = re.search(pattern, current_url).group()
         if result is None:
             raise AssertionError("URL Don't match")
