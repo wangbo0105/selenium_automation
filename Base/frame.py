@@ -16,7 +16,7 @@ class Frame(object):
                 self.driver().switch_to.frame(id_index_locator)
             elif isinstance(id_index_locator,
                             tuple):  # WebElement对象，即用find_element系列方法所取得的对象，我们可以用tag_name、xpath等来定位frame对象
-                ele = Element().findElement(id_index_locator)
+                ele = Element().findElements(id_index_locator)
                 self.driver().switch_to.frame(ele)
         except Exception:
             print("frame切换异常")
