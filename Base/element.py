@@ -43,7 +43,7 @@ class Element(object):
                     lambda x: x.find_elements_by_css_selector(value)[index])
             elif type == 'link_text' or type == 'LINK_TEXT' or type == 'Link_text':
                 ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
-                    lambda x: x.find_element_by_link_text(value)[index])
+                    lambda x: x.find_element_by_link_text(value))
             elif type == 'partial_link_text' or type == 'Partial_Link_Text' or type == 'Partial_link_text':
                 ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_partial_link_text(value)[index])
@@ -62,7 +62,7 @@ class Element(object):
     def click(self, element):
         """单击页面元素，如按钮、图像、链接等"""
         ActionChains(self.driver()).click(self.findElements(element)).perform()
-        time.sleep(3)
+        time.sleep(1)
 
     def double_click(self, element):
         """双击页面元素"""

@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    content follow test
+Documentation    follow smoke test
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
@@ -11,4 +11,4 @@ Resource  ../../testdata/userdata.robot
 follow creater
     Given login  ${usrname}   ${password}
     When follow creater
-    Then check follow
+    Then check the creator is focused on success

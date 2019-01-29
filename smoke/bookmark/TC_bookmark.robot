@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    content bookmark test
+Documentation    bookmark smoke test
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
@@ -8,11 +8,11 @@ Library  services.LoginLibrary
 Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
-photo_bookmark
+add photos bookmark
     Given login  ${usrname}   ${password}
-    When photo bookmark
-    Then check bookmark
+    When bookmark photos
+    Then check the photo bookmark has been added
 
-clear bookmark
-    Given go page  VR书签
-    Then clear bookmark
+clear bookmarks data
+    Given go bookmark tab
+    Then clear bookmark data

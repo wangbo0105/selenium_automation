@@ -1,21 +1,51 @@
 from pages.basepage import BasePage
+import re
 
 
-class Exppage(object):
-    exp_tab = ('class', 'ant-menu-item', 3)  # 导航栏-互动体验
-    learn_more_1 = ('class', 'ant-btn-primary-ghost', 1)  # 互动体验-了解更多
+class ExpPage(BasePage):
+    exp_slogan = ('class', 'slogan', 0)  # 互动体验首页banner
     load_layer = ('class', 'load-layer', 0)  # 互动体验详情页-exp播放器
 
-    def __init__(self):
-        self.base = BasePage()
+    slogan_name = 'VeeR 全新互动体验'
+    banner_tab_active = 'active'
+    Seth_home_href = 'vr/docs/home'
 
-    def click_learn_more_btn(self):
-        self.base.element.click(self.learn_more_1)
+    @staticmethod
+    def exp_page_dict():
+        item_name = {'experience_immediately': ('class', 'join-button', 0),
+                     'learn_more': ('class', 'ant-btn-primary-ghost', 1),
+                     'restaurant_panorama_case': ('class', 'banner-tab', 0),
+                     'VR_story': ('class', 'banner-tab', 1),
+                     'VRlog_diary_case': ('class', 'banner-tab', 2),
+                     'upload_learn_more': ('class', 'zh-CN', 0),
+                     'Seth_veer_page': ('class', 'author-profile-link', 0)}
+        return item_name
+
+    def click_item(self, name):
+        item = ExpPage().exp_page_dict()
+        self.element.click(item[name])
+
+    def match_exp_url(self):
+        current_url = (self.window.get_current_url())
+        pattern = re.compile(r'/experience[s]?.*')
+        result = re.search(pattern, current_url).group()
+        if result is None:
+            raise AssertionError("URL Don't match")
+        else:
+            return True
 
     def is_exp_page(self):
-        self.base.window.is_text_in_url('experience')
-        self.base.element.is_element_exist(self.learn_more_1)
+        _slogan = self.element.get_text(self.exp_slogan)
+        self.element.should_be_equal(self.slogan_name, _slogan)
 
     def is_exp_detail_page(self):
-        self.base.window.is_text_in_url('experiences/')
-        self.base.element.is_element_exist(self.load_layer)
+        self.element.is_element_exist(self.load_layer)
+
+    def is_select_banner_tab(self, name):
+        item = ExpPage().exp_page_dict()
+        att = self.element.get_attribute(item[name], 'class')
+        self.element.should_contains(att, self.banner_tab_active)
+
+    def is_Seth_home_page(self):
+        _url = self.window.get_current_url()
+        self.element.should_contains(_url, self.Seth_home_href)

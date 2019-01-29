@@ -1,10 +1,12 @@
 from robot.api.deco import keyword
 from pages.basepage import BasePage
+from pages.navigator import Navigator
 
 
-class CommonLibrary:
+class CommonLibrary(object):
     def __init__(self):
         self.base = BasePage()
+        self.navigator = Navigator()
 
     @keyword
     def load_veer(self):
@@ -24,4 +26,4 @@ class CommonLibrary:
 
     @keyword
     def go_page(self, name):
-        self.base.go_page(name)
+        self.navigator.go_page(name)

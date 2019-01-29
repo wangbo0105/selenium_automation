@@ -1,11 +1,12 @@
 *** Settings ***
 Documentation   search page jump & search result validation
 
-Test Setup        open my browser
+Test Setup        load veer
 Test Teardown     close my browser
-Library           CommonLibrary
-Library           SearchLibrary
+Library           services.CommonLibrary
+Library           services.SearchLibrary
 
 *** Test Cases ***
 jump & search result validation
-    search  2018
+    Given search content  2018
+    Then check search result
