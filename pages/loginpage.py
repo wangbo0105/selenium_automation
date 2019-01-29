@@ -12,13 +12,16 @@ class LoginPage(BasePage):
     registered = ('id', 'signupLink', 0)  # 注册
     log_out = ('link_text', '退出', 0)  # 用户tab——退出
     user_tab = ('class', 'ant-dropdown-trigger', 0)  # 用户tab
+    close_login_modal = ('class', 'ant-modal-close-x')  # 登录弹框关闭button
 
     def input_username(self, user):
         """输入用户名"""
+        self.element.clear(self.username)
         self.element.send_keys(self.username, user)
 
     def input_password(self, pwd):
         """输入密码"""
+        self.element.clear(self.password)
         self.element.send_keys(self.password, pwd)
 
     def click_loginBtn(self):
@@ -29,9 +32,17 @@ class LoginPage(BasePage):
         """点击 记住我 勾选项"""
         self.element.click(self.remember)
 
-    def logout(self):
+    def hover_user_tab(self):
+        """将鼠标移动到个人中心tab"""
         self.element.move_to_element(self.user_tab)
+
+    def click_log_out(self):
+        """点击退出tab"""
         self.element.click(self.log_out)
+
+    def click_close_login_modal(self):
+        """点击关闭登录弹框"""
+        self.element.click(self.close_login_modal)
 
     def is_login(self):
         self.element.is_element_exist(self.user_tab)
@@ -41,5 +52,3 @@ class LoginPage(BasePage):
 
     def is_login_alert(self):
         self.element.is_element_exist(self.login_alert)
-
-
