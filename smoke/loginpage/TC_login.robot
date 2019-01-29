@@ -1,11 +1,12 @@
 *** Settings ***
 Documentation       Login page test
 
-Test Setup        open my browser
-Test Teardown     close my browser
+Test Setup        load veer
+Suite Teardown    close my browser
+
 Test Template     loginDDT
-Library           CommonLibrary
-Library           LoginLibrary
+Library           services.CommonLibrary
+Library           services.LoginLibrary
 
 
 *** Test Cases ***    Usrname             Password    ExpectedResult
@@ -18,4 +19,4 @@ mobileLogin           18810309857         111111      False
 *** Keywords ***
 loginDDT
     [Arguments]    ${usrname}    ${password}    ${expectedResult}
-    login   ${usrname}  ${password}   ${expectedResult}
+    login           ${usrname}  ${password}   ${expectedResult}

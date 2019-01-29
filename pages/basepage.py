@@ -25,6 +25,7 @@ class BasePage(object):
                      '商城': ('class', 'nav-item', 0),
                      '消息': ('class', 'message-box-header', 0),
                      '上传': ('class', 'upload-btn', 0),
+                     'signup': ('class','header-signup',0),
                      '登录': ('class', 'header-login', 0),
                      '退出登录': ('link_text', '退出', 0),
                      '用户': ('class', 'ant-dropdown-trigger', 0),
