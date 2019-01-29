@@ -1,6 +1,7 @@
 from robot.api.deco import keyword
 from pages.loginpage import LoginPage
 from services.CommonLibrary import CommonLibrary
+from pages.basepage import BasePage
 
 
 class LoginLibrary(object):
@@ -8,6 +9,8 @@ class LoginLibrary(object):
     def __init__(self):
         self.loginpage = LoginPage()
         self.common = CommonLibrary()
+        self.base = BasePage()
+
 
     @keyword
     def all_login(self, username, password, expectedResult, remember=True):
@@ -28,12 +31,12 @@ class LoginLibrary(object):
             self.loginpage.click_remember()
         self.loginpage.click_loginBtn()
         if expectedResult == 'True':
-            self.loginpage.element.is_element_exist(self.loginpage.user_tab)
+            self.loginpage.is_login()
             self.loginpage.hover_user_tab()
             self.loginpage.click_log_out()
         else:
             self.loginpage.click_close_login_modal()
-            self.loginpage.element.is_element_exist(self.loginpage.login_tab)
+            self.base.element.is_element_exist(self.loginpage.login_tab)
 
     @keyword
     def login(self, username, password, remember=True):

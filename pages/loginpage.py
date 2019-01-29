@@ -16,11 +16,10 @@ class LoginPage(object):
     def __init__(self):
         self.base = BasePage()
 
-    def click_login(self):
-      self.base.element.click(self.login_tab)
-
     def input_username(self, user):
         """输入用户名"""
+        # self.base.element.clear(self.username)
+
         self.base.element.double_click(self.username)
         self.base.element.backSpace(self.username)
         self.base.element.send_keys(self.username, user)

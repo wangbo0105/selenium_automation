@@ -1,5 +1,4 @@
 from pages.basepage import BasePage
-import time
 
 class Signuppage(object):
     email_input = ('css', '#identifier', 0)  #邮箱输入框
@@ -11,7 +10,6 @@ class Signuppage(object):
         self.base = BasePage()
 
     def input_email(self,email):
-        time.sleep(3)
         self.base.element.double_click(self.email_input)
         self.base.element.clear(self.email_input)
         """输入邮箱"""
@@ -28,7 +26,7 @@ class Signuppage(object):
         self.base.element.send_keys(self.password, pwd)
 
     def submit(self):
-        """点击登录button"""
+        """点击注册button"""
         self.base.element.click(self.signBtn)
 
     def signup_success(self):
