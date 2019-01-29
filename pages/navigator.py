@@ -14,6 +14,7 @@ class Navigator(BasePage):
                      'blog': ('class', 'ant-menu-item', 4),
                      'store': ('class', 'nav-item', 0),
                      'message': ('class', 'message-box-header', 0),
+                     'signup': ('class','header-signup', 0),
                      'login': ('class', 'header-login', 0),
                      'user': ('class', 'ant-dropdown-trigger', 0),
                      'upload': ('class', 'upload-btn', 0), }

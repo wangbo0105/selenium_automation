@@ -2,12 +2,10 @@ from pages.basepage import BasePage
 import time
 
 class Signuppage(object):
-    # email_input = ('id', 'identifier') #邮箱输入框
-    # email_input = ('xpath', '//*[@id="identifier"]')
-    email_input = ('class', 'ant-form-item', '1')    
-    username_input = ('id', 'fullname')  # 用户名输入框
-    password = ('id', 'password')  # 密码输入框
-    signBtn = ('class', 'signup-btn')  # 登录button
+    email_input = ('css', '#identifier', 0)  #邮箱输入框
+    username_input = ('css', '#fullname',0)  # 用户名输入框
+    password = ('css', '#password', 0)  # 密码输入框
+    signBtn = ('class', 'signup-btn', 0)  # 注册button
 
     def __init__(self):
         self.base = BasePage()
@@ -34,4 +32,4 @@ class Signuppage(object):
         self.base.element.click(self.signBtn)
 
     def signup_success(self):
-        self.base.element.click(self.signBtn)
+        self.base.element.is_element_not_exist(self.signBtn)
