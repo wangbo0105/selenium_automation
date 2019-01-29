@@ -10,7 +10,7 @@ class LoginLibrary(object):
         self.common = CommonLibrary()
 
     @keyword
-    def login(self, username, password, expectedResult, remember=True, logout=False):
+    def all_login(self, username, password, expectedResult, remember=True):
 
         """登录流程
         1、点击登录tab
@@ -28,13 +28,21 @@ class LoginLibrary(object):
             self.loginpage.click_remember()
         self.loginpage.click_loginBtn()
         if expectedResult == 'True':
-            self.loginpage.element.isElementExist(self.loginpage.user_tab)
-            if logout == 'True':
-                self.loginpage.hover_user_tab()
-                self.loginpage.click_log_out()
+            self.loginpage.element.is_element_exist(self.loginpage.user_tab)
+            self.loginpage.hover_user_tab()
+            self.loginpage.click_log_out()
         else:
             self.loginpage.click_close_login_modal()
-            self.loginpage.element.isElementExist(self.loginpage.login_tab)
+            self.loginpage.element.is_element_exist(self.loginpage.login_tab)
+
+    @keyword
+    def login(self, username, password, remember=True):
+        self.common.go_page('login')
+        self.loginpage.input_username(username)
+        self.loginpage.input_password(password)
+        if not remember:
+            self.loginpage.click_remember()
+        self.loginpage.click_loginBtn()
 
     @keyword
     def log_out(self):

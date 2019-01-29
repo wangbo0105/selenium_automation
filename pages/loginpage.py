@@ -4,24 +4,26 @@ from pages.basepage import BasePage
 class LoginPage(BasePage):
     login_tab = ('class', 'header-login', 0)  # 导航栏-登录tab
     login_alert = ('class', 'ant-modal-content', 0)  # 登录弹窗
-    username = ('id', 'identifier', 0)  # 用户名输入框
-    password = ('id', 'password', 0)  # 密码输入框
+    username = ('css', '#identifier', 0)  # 用户名输入框
+    password = ('css', '#password', 0)  # 密码输入框
     loginBtn = ('class', 'submit-btn', 0)  # 登录button
     remember = ('class', 'ant-checkbox-input', 0)  # 是否记住勾选框
     forgetPwd = ('class', 'forget-pwd', 0)  # 忘记密码
     registered = ('id', 'signupLink', 0)  # 注册
     log_out = ('link_text', '退出', 0)  # 用户tab——退出
     user_tab = ('class', 'ant-dropdown-trigger', 0)  # 用户tab
-    close_login_modal = ('class', 'ant-modal-close-x')  # 登录弹框关闭button
+    close_login_modal = ('class', 'ant-modal-close', 0)  # 登录弹框关闭button
 
     def input_username(self, user):
         """输入用户名"""
-        self.element.clear(self.username)
+        self.element.double_click(self.username)
+        self.element.backSpace(self.username)
         self.element.send_keys(self.username, user)
 
     def input_password(self, pwd):
         """输入密码"""
-        self.element.clear(self.password)
+        self.element.double_click(self.password)
+        self.element.backSpace(self.password)
         self.element.send_keys(self.password, pwd)
 
     def click_loginBtn(self):
