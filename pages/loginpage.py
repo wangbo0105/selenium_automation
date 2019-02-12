@@ -1,6 +1,6 @@
 from pages.basepage import BasePage
 
-class LoginPage(object):
+class LoginPage(BasePage):
     login_tab = ('class', 'header-login', 0)  # 导航栏-登录tab
     login_alert = ('class', 'ant-modal-content', 0)  # 登录弹窗
     username = ('css', '#identifier', 0)  # 用户名输入框
