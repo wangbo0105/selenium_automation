@@ -8,7 +8,8 @@ Library  services.CommonLibrary
 *** Test Cases ***
 Navigation bar video home page jump
     Given go page  video
-    Then should be video page
+    Then should be expected page  video
+    And url should be matching  video
 
 Video details page jump
     Given go page  video
@@ -18,5 +19,6 @@ Video details page jump
 More video jumps
     Given go page  video
     Then video click item  video_content
-    When video click item  more_video
+    And get more video href
+    When video click item  video_content
     Then should be more video page

@@ -8,7 +8,8 @@ Library  services.PhotoLibrary
 *** Test Cases ***
 go photo mainpage
     Given go page  photo
-    Then should be photo page
+    Then should be expected page  photo
+    And url should be matching  photo
 
 go photo content detail page
     Given go page  photo

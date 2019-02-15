@@ -11,12 +11,14 @@ Resource  ../../testdata/userdata.robot
 *** Test Cases ***
 Navigation bar interactive experience home page jump
     When go page  experience
-    Then should be experience page
+    Then should be expected page  experience
+    And url should be matching  experience
 
 Upload page - learn more interactive experience home page jump
     Given go page  upload
     When exp click item  upload_learn_more
-    Then should be experience page
+    Then should be expected page  experience
+    And url should be matching  experience
 
 Banner-Tab- learn more interactive experience play details page jump
     Given go page  experience
