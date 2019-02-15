@@ -27,3 +27,7 @@ class LikeLibrary(object):
         self.like.check_liked_in_detail_page()
         self.like.go_liked_tab()
         self.like.check_liked_in_like_page()
+
+    @keyword
+    def clear_like(self):
+        self.like.clear_like_all()

@@ -1,6 +1,7 @@
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.select import Select
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchAttributeException
 from Base import current_driver
@@ -15,7 +16,7 @@ class Element(object):
     def driver():
         return current_driver.get()
 
-    def findElements(self, element, raiseOnNotFound='yes'):
+    def findElements(self, element, raiseOnNotFound=True):
         """
         捕获元素，捕获到则返回ele对象，未捕获到则抛出异常提示
         :param raiseOnNotFound:
@@ -37,7 +38,7 @@ class Element(object):
                     lambda x: x.find_elements_by_class_name(value)[index])
             elif type == 'xpath' or type == 'XPATH' or type == 'Xpath':
                 ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
-                    lambda x: x.find_elements_by_xpath(value))
+                    lambda x: x.find_elements_by_xpath(value)[index])
             elif type == 'css' or type == 'CSS' or type == 'Css':
                 ele = WebDriverWait(self.driver(), self.timeout, self.t).until(
                     lambda x: x.find_elements_by_css_selector(value)[index])

@@ -11,7 +11,6 @@ class LoginLibrary(object):
         self.common = CommonLibrary()
         self.base = BasePage()
 
-
     @keyword
     def all_login(self, username, password, expectedResult, remember=True):
 

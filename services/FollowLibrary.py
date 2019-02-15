@@ -30,3 +30,7 @@ class FollowLibrary(object):
         self.follow.check_follow_in_detail_page()
         self.follow.go_following_page()
         self.follow.check_follow_in_follow_page()
+
+    @keyword
+    def clear_following(self):
+        self.follow.clear_follow_all()

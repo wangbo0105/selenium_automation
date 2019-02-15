@@ -1,10 +1,12 @@
 from robot.api.deco import keyword
 from pages.photopage import PhotoPage
+from services.CommonLibrary import CommonLibrary
 
 
 class PhotoLibrary(object):
     def __init__(self):
         self.photopage = PhotoPage()
+        self.common = CommonLibrary()
 
     @keyword
     def photo_click_item(self, name):
@@ -15,13 +17,8 @@ class PhotoLibrary(object):
         self.photopage.is_selected_tab(name)
 
     @keyword
-    def should_be_photo_page(self):
-        self.photopage.match_video_url()
-        self.photopage.is_photo_page()
-
-    @keyword
     def should_be_photo_detail_page(self):
-        self.photopage.match_video_url()
+        self.common.url_should_be_matching('photo')
         self.photopage.is_photo_detail_page()
 
     @keyword
@@ -39,6 +36,5 @@ class PhotoLibrary(object):
 
     @keyword
     def should_be_more_photo_content_page(self):
+        self.common.url_should_be_matching('photo')
         self.photopage.is_more_photo_page()
-
-

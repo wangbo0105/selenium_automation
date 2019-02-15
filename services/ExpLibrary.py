@@ -1,23 +1,20 @@
 from robot.api.deco import keyword
 from pages.exppage import ExpPage
+from services.CommonLibrary import CommonLibrary
 
 
 class ExpLibrary(object):
     def __init__(self):
         self.exp = ExpPage()
+        self.common = CommonLibrary()
 
     @keyword
     def exp_click_item(self, name):
         self.exp.click_item(name)
 
     @keyword
-    def should_be_experience_page(self):
-        self.exp.match_exp_url()
-        self.exp.is_exp_page()
-
-    @keyword
     def should_be_experience_details_page(self):
-        self.exp.match_exp_url()
+        self.common.url_should_be_matching('experience')
         self.exp.is_exp_detail_page()
 
     @keyword

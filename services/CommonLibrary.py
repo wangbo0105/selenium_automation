@@ -25,5 +25,17 @@ class CommonLibrary(object):
         self.base.browser.close()
 
     @keyword
+    def switch_window(self):
+        self.base.window.switch_handle()
+
+    @keyword
     def go_page(self, name):
         self.navigator.go_page(name)
+
+    @keyword
+    def url_should_be_matching(self, _regular):
+        self.navigator.match_url(_regular)
+
+    @keyword
+    def should_be_expected_page(self, _page):
+        self.navigator.check_current_page(_page)
