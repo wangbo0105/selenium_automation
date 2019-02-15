@@ -7,6 +7,10 @@ class HomeLibrary(object):
         self.homepage = HomePage()
 
     @keyword
+    def click_feeds_item(self, name):
+        self.homepage.click_item(name)
+
+    @keyword
     def should_be_home_page(self):
         self.homepage.home_page()
 

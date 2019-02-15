@@ -8,7 +8,7 @@ Library  services.CommonLibrary
 
 *** Test Cases ***
 go recommended page
-    Given go recommended page
+    Given click feeds item  推荐
     Then should be recommended page
 
 go recommended content detail page
@@ -18,3 +18,11 @@ go recommended content detail page
 recommended show more
     Given click more recommended
     Then check recommended show more successful
+
+featured photo page jump
+    When click feeds item  精选图片
+    Then should be expected page  photo
+
+featured video page jump
+    When click feeds item  精选视频
+    Then should be expected page  video

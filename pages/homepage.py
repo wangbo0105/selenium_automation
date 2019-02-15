@@ -13,10 +13,27 @@ class HomePage(BasePage):
     video_player = ('class', 'video-player', 0)  # video-player
     collection_info = ('class', 'collection-info', 0)  # collection-info
     experience_player = ('class', 'experience-detail-player', 0)  # experience-detail-player
+    wrapper_right = ('class', 'anticon-right', 1)  # 向右翻页
+    wrapper_left = ('class', 'anticon-left', 0)  # 向左翻页
+    recommended_content_href = None
 
     def __init__(self):
         super().__init__()
         self.recommended_content_href = None
+
+    @staticmethod
+    def feeds_dict(name):
+        item_name = {name: ('xpath', "//h1[text()=\"%s\"]" % name, 0,),
+                     }
+        return item_name
+
+    @staticmethod
+    def get_item(name):
+        item = HomePage().feeds_dict(name)
+        return item[name]
+
+    def click_item(self, name):
+        self.element.click(HomePage().get_item(name))
 
     def home_page(self):
         self.window.is_url(self.url)
@@ -62,3 +79,12 @@ class HomePage(BasePage):
     def recommended_show_more(self):
         """判断推荐是否展开更多"""
         self.element.is_element_not_exist(self.recommended_show_more_btn)
+
+    def turning_page_right(self):
+        self.element.click(self.wrapper_right)
+
+    def turned_right_checked(self):
+        self.element.is_element_exist(self.wrapper_left)
+
+    def turning_page_left(self):
+        self.element.click(self.wrapper_left)
