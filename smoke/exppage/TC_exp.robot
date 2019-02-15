@@ -8,7 +8,8 @@ Library  services.ExpLibrary
 *** Test Cases ***
 Interactive experience home page jump verification
     Given go page  experience
-    Then should be experience page
+    Then should be expected page  experience
+    And url should be matching  experience
 
 Interactive experience details page jump verification
     Given go page  experience

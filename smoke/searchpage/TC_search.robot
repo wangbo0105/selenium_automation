@@ -10,3 +10,4 @@ Library           services.SearchLibrary
 jump & search result validation
     Given search content  2018
     Then check search result
+    And url should be matching  search

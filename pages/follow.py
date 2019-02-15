@@ -7,6 +7,7 @@ class Follow(BasePage):
     follow_btn = ('class', 'follow-btn', 0)  # 关注 button
     followed_btn = ('class', 'followed-btn', 0)  # 已关注 button
     following_btn = ('class', 'following', 0)  # 个人中心-关注button
+    un_follow_btn = ('class', 'ant-btn-lg', 1)  # 取消关注button
 
     def __init__(self):
         super().__init__()
@@ -30,3 +31,9 @@ class Follow(BasePage):
     def check_follow_in_follow_page(self):
         current_c_name = self.element.get_text(self.creater_name)
         self.element.should_be_equal(current_c_name, self.c_name)
+
+    def clear_follow_all(self):
+        while self.element.ElementExist(self.followed_btn):
+            self.element.click(self.followed_btn)
+            self.element.click(self.un_follow_btn)
+            self.browser.refresh()

@@ -6,7 +6,6 @@ class ExpPage(BasePage):
     exp_slogan = ('class', 'slogan', 0)  # 互动体验首页banner
     load_layer = ('class', 'load-layer', 0)  # 互动体验详情页-exp播放器
 
-    slogan_name = 'VeeR 全新互动体验'
     banner_tab_active = 'active'
     Seth_home_href = 'vr/docs/home'
 

@@ -8,9 +8,10 @@ Library  services.CommonLibrary
 *** Test Cases ***
 go video_page
     Given go page  video
-    Then should be video page
+    Then should be expected page  video
+    And url should be matching  video
 
 go video detail page
     Given go page  video
-    When click item  视频作品
+    When video click item  video_content
     Then should be video detail page

@@ -12,8 +12,9 @@ class Collection(BasePage):
     create_title_input_box = ('class', 'ant-input-lg', 0)  # 创建合辑-title输入框
     create_safe_btn = ('class', 'save-btn', 0)  # 创建合辑-保存button
     collection_create_box = ('class', 'collection-create-box', 0)  # collection-create-box
+    collection_del_alert = ('class', 'ant-modal-body', 0)  # collection 删除弹窗
     collection_box_del_btn = ('class', 'delete', 0)  # collection 删除button
-    collection_box_del_yes = ('class', 'ant-btn-ghost', 2)  # collection 删除-确认删除
+    collection_box_del_yes = ('class', 'left-btn', 0)  # collection 删除-确认删除
     collection_box_del_no = ('class', 'ant-btn-primary-ghost', 2)  # collection 删除-取消删除
     collection_box_1 = ('class', 'title', 1)  # collection tab -第一个合辑
     content_href_1 = ('class', 'title', 3)  # collection box-第一个作品
@@ -62,7 +63,6 @@ class Collection(BasePage):
     def clear_collection_box_all(self):
         while self.element.ElementExist(self.collection_create_box):
             self.element.click(self.collection_box_del_btn)
+            self.element.click(self.collection_del_alert)
             self.element.click(self.collection_box_del_yes)
             self.browser.refresh()
-
-

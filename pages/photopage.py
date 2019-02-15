@@ -1,5 +1,4 @@
 from pages.basepage import BasePage
-import re
 
 
 class PhotoPage(BasePage):
@@ -13,7 +12,6 @@ class PhotoPage(BasePage):
     more_image_responsive = ('css', '.image-responsive img', 0)  # 播放详情页 更多作品第一个
     content_title = ('class', 'title', 1)  # photo title
 
-    slogan_name = 'VeeR 360 全景图'  # 全景图 banner标题文本
     tabs_tab_active = 'tabs-tab-active'  # tab选中态
     pagination_item_active = 'active'  # 页标选中态
     photo_src1 = None
@@ -31,23 +29,11 @@ class PhotoPage(BasePage):
         item = PhotoPage().photo_page_dict()
         self.element.click(item[name])
 
-    def match_video_url(self):
-        current_url = (self.window.get_current_url())
-        pattern = re.compile(r'/photo[s/]?.*')
-        result = re.search(pattern, current_url).group()
-        if result is None:
-            raise AssertionError("URL Don't match")
-        else:
-            return True
-
     def get_photo_content_user_info(self):
         return self.element.get_attribute_href(self.user_avator)
 
     def get_photo_content_title(self):
         self.photo_src1 = self.element.get_attribute(self.more_image_responsive, 'alt')
-
-    def is_photo_page(self):
-        self.element.is_text_in_element(self.slogan, self.slogan_name)
 
     def is_photo_detail_page(self):
         self.element.is_element_exist(self.photo_player)

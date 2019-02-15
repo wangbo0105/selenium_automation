@@ -8,4 +8,5 @@ Library  services.HomeLibrary
 *** Test Cases ***
 go home page
     Given go page  logo
-    Then should be home page
+    Then should be expected page  home
+    And url should be matching  home

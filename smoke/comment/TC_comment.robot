@@ -18,4 +18,4 @@ post comment
 
 
 *** Variables ***
-${comment_text}    comment_001
+${comment_text}    good_content

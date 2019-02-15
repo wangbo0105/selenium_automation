@@ -37,4 +37,3 @@ class Like(BasePage):
             self.element.click(self.play_overlay)
             self.element.click(self.liked_button)
             self.browser.back()
-        self.element.is_element_not_exist(self.play_overlay)

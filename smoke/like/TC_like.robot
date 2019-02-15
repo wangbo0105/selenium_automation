@@ -12,3 +12,7 @@ add photos like
     Given login  ${usrname}   ${password}
     When add photos like
     Then check the photo is liked
+
+clear like
+    When go liked tab
+    Then clear like

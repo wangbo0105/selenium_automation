@@ -12,3 +12,7 @@ follow creater
     Given login  ${usrname}   ${password}
     When follow creater
     Then check the creator is focused on success
+
+clear following
+    Then go followed page
+    And clear following

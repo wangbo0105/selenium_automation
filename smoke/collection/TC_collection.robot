@@ -19,6 +19,11 @@ add photos collection
     When add photo collection
     Then check collection
 
+clear collection
+    And go collection tab
+    Then clear collection box all
+
+
 
 *** Variables ***
 ${collection_title}    collection001

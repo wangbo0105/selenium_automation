@@ -3,7 +3,7 @@ Documentation   message page smoke test
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
-Library  services.MessageLibrary
+
 Library  services.LoginLibrary
 Resource  ../../testdata/userdata.robot
 
@@ -11,4 +11,5 @@ Resource  ../../testdata/userdata.robot
 go message page
     Given login  ${usrname}   ${password}
     When go page  message
-    Then should be message page
+    Then should be expected page  message
+    And url should be matching  message
