@@ -2,6 +2,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 from Base import current_driver
+from urllib.request import unquote
 
 
 class Window(object):
@@ -92,10 +93,11 @@ class Window(object):
 
     def is_text_in_url(self, text):
         """判断当前页面url是否包含指定文本"""
-        if text in self.driver().current_url:
+        url = unquote(self.driver().current_url, encoding='utf-8')
+        if text in url:
             return True
         else:
-            raise AssertionError("'%s' is not in current url." % text)
+            raise AssertionError("'%s' is not in current url.'%s'" % (text, url))
 
     def is_title(self, _title=''):
         """检查标题是否符合预期"""
