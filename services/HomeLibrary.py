@@ -8,15 +8,11 @@ class HomeLibrary(object):
 
     @keyword
     def click_feeds_item(self, name):
-        self.homepage.click_item(name)
+        self.homepage.click_feeds_item(name)
 
     @keyword
-    def should_be_home_page(self):
-        self.homepage.home_page()
-
-    @keyword
-    def go_recommended_page(self):
-        self.homepage.click_recommended_view_all()
+    def click_feeds_content_item(self, name):
+        self.homepage.click_feeds_content_item(name)
 
     @keyword
     def should_be_recommended_page(self):
@@ -38,3 +34,19 @@ class HomeLibrary(object):
     @keyword
     def check_recommended_show_more_successful(self):
         self.homepage.recommended_show_more()
+
+    @keyword
+    def click_category_tab(self, name):
+        self.homepage.click_category_tab(name)
+
+    @keyword
+    def check_category_page(self, name):
+        self.homepage.check_category_page(name)
+
+    @keyword
+    def turning_list(self, _direction):
+        self.homepage.turning_page(_direction)
+
+    @keyword
+    def check_turned_right(self):
+        self.homepage.is_turned_right()
