@@ -38,6 +38,8 @@ class Navigator(BasePage):
             'store': r'(http[s]?://(shop525226884.taobao.com))',
             'upload': r'/upload',
             'message': r'/messages',
+            'paid': r'/paid',
+            'contents': r'/contents/'
 
         }
         return url_regular
