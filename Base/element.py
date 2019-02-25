@@ -174,7 +174,7 @@ class Element(object):
         if str2 in str1:
             return True
         else:
-            raise AssertionError("Don't match")
+            raise AssertionError("Don't match %s,%s" % (str1, str2))
 
     @staticmethod
     def should_be_equal(str1, str2):
@@ -182,7 +182,7 @@ class Element(object):
         if str1 == str2:
             return True
         else:
-            raise AssertionError("Don't match")
+            raise AssertionError("Don't match %s,%s" % (str1, str2))
 
     @staticmethod
     def should_not_equal(str1, str2):
@@ -190,7 +190,7 @@ class Element(object):
         if str1 != str2:
             return True
         else:
-            raise AssertionError("Don't match")
+            raise AssertionError("Don't match %s,%s" % (str1, str2))
 
     def select_by_index(self, element, index=0):
         """<select>标签适用，下拉选择框的选择，通过索引,index是索引第几个，从0开始，默认选第一个"""
