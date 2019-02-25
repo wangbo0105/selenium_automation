@@ -13,3 +13,11 @@ class PersonalLibrary(object):
     @keyword
     def should_be_personal_page(self):
         self.personal.is_personal_page()
+
+    @keyword
+    def switch_nav_tab(self, name):
+        self.personal.switch_nav_tab(name)
+
+    @keyword
+    def check_tabs_is_selected(self, name):
+        self.personal.check_tabs_is_selected(name)
