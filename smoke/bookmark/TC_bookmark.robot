@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation    bookmark smoke test
-Suite Setup  load veer and login    ${usrname}   ${password}
+Suite Setup  Run Keywords  load veer  AND  login  ${usrname}  ${password}
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
