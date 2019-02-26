@@ -22,14 +22,6 @@ class PhotoLibrary(object):
         self.photopage.is_photo_detail_page()
 
     @keyword
-    def turn_page(self):
-        self.photopage.click_turn_page_btn()
-
-    @keyword
-    def the_pages_should_turned(self):
-        self.photopage.is_turned_page()
-
-    @keyword
     def click_more_photo_content(self):
         self.photopage.get_photo_content_title()
         self.photopage.click_more_photo()

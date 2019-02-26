@@ -1,12 +1,14 @@
 from robot.api.deco import keyword
 from pages.basepage import BasePage
 from pages.navigator import Navigator
+from module.pagination import Pagination
 
 
 class CommonLibrary(object):
     def __init__(self):
         self.base = BasePage()
         self.navigator = Navigator()
+        self.pagination = Pagination()
 
     @keyword
     def load_veer(self):
@@ -39,3 +41,11 @@ class CommonLibrary(object):
     @keyword
     def should_be_expected_page(self, _page):
         self.navigator.check_current_page(_page)
+
+    @keyword
+    def turn_current_tab_page(self, name):
+        self.pagination.turn_page(name)
+
+    @keyword
+    def check_page_turned(self, name):
+        self.pagination.check_page_active(name)

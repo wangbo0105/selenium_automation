@@ -28,4 +28,11 @@ category page tab switch
     When click category tab  记录
     Then check category page  记录
 
-
+turnpage in category tab
+    Given click feeds item  旅游
+    When turn current tab page  next_page
+    Then check page turned  page_2
+    When turn current tab page  last_page
+    Then check page turned  page_1
+    When turn current tab page  page_3
+    Then check page turned  page_3
