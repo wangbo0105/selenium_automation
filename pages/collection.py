@@ -16,8 +16,8 @@ class Collection(BasePage):
     collection_box_del_btn = ('class', 'delete', 0)  # collection 删除button
     collection_box_del_yes = ('class', 'left-btn', 0)  # collection 删除-确认删除
     collection_box_del_no = ('class', 'ant-btn-primary-ghost', 2)  # collection 删除-取消删除
-    collection_box_1 = ('class', 'title', 1)  # collection tab -第一个合辑
-    content_href_1 = ('class', 'title', 3)  # collection box-第一个作品
+    collection_box_1 = ('xpath', '//div[@class="play-overlay"]/a', 0)   # collection tab -第一个合辑
+    content_href_1 = ('xpath', '//div[@class="cover-bg"]/a', 0)  # collection box-第一个作品
 
     def __init__(self):
         super().__init__()

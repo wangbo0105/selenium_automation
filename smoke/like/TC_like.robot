@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation    content like smoke test
+Suite Setup  Run Keywords  load veer  AND   login  ${usrname}  ${password}
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
@@ -9,7 +10,6 @@ Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
 add photos like
-    Given login  ${usrname}   ${password}
     When add photos like
     Then check the photo is liked
 

@@ -6,7 +6,7 @@ class Like(BasePage):
     like_button = ('class', 'like-button', 0)  # like-button
     liked_button = ('class', 'liked', 0)  # liked
     like_tab = ('class', ' tabs-tab', 4)  # 个人中心-喜欢tab
-    content_href_1 = ('class', 'title', 1)  # 喜欢tab-第一个作品
+    content_href_1 = ('xpath', '//div[@class="play-overlay"]/a', 0)  # 喜欢tab-第一个作品
     play_overlay = ('class', 'play-overlay', 0)  # 喜欢列表内容
 
     def __init__(self):

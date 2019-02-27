@@ -21,3 +21,7 @@ add bookmark in detail page
 add bookmark in cover page
     When bookmark in cover page
     Then check the bookmark has been added
+
+remove bookmarks
+    Given go bookmark tab
+    Then clear bookmark data
