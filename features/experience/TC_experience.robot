@@ -51,4 +51,4 @@ Experience the upload page jump immediately
     When exp click item  experience_immediately
     Then check the login alert is displayed
     And login  ${usrname}  ${password}
-    Then should be upload page
+    Then should be expected page  upload
