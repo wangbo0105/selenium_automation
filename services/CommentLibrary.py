@@ -9,11 +9,11 @@ class CommentLibrary(object):
         self.base = BasePage()
 
     @keyword
-    def post_comment(self, text):
-        self.comment.input_comment(text)
+    def post_comment(self):
+        self.comment.input_comment()
         self.comment.click_submit_btn()
 
     @keyword
-    def check_the_comment_is_successful(self, text):
-        self.comment.check_comment(text)
+    def check_the_comment_is_successful(self):
+        self.comment.check_comment()
 

@@ -1,4 +1,5 @@
 from pages.basepage import BasePage
+from module.random_generator import RandomGenerator
 
 
 class SettingsPage(BasePage):
@@ -11,24 +12,30 @@ class SettingsPage(BasePage):
     personal_website = ('id', 'homepage', 0)  # 个人网站输入栏
     save_btn = ('class', 'save-btn', 0)  # 保存按钮
 
+    def __init__(self):
+        super().__init__()
+        self.random_name = RandomGenerator().random_comments(5)
+        self.random_username = RandomGenerator().random_comments(10)
+        self.random_description = RandomGenerator().random_comments(16)
+
     def go_settings_page(self):
         self.element.move_to_element(self.user_tab)
         self.element.click(self.setting)
 
-    def input_name(self, _name):
+    def input_name(self):
         self.element.double_click(self.name)
         self.element.backSpace(self.name)
-        self.element.send_keys(self.name, _name)
+        self.element.send_keys(self.name, self.random_name)
 
-    def input_username(self, _username):
+    def input_username(self):
         self.element.double_click(self.username)
         self.element.backSpace(self.username)
-        self.element.send_keys(self.username, _username)
+        self.element.send_keys(self.username, self.random_username)
 
-    def input_description(self, _des):
+    def input_description(self):
         self.element.double_click(self.personal_description)
         self.element.backSpace(self.personal_description)
-        self.element.send_keys(self.personal_description, _des)
+        self.element.send_keys(self.personal_description, self.random_description)
 
     def click_save_btn(self):
         self.element.click(self.save_btn)
@@ -37,7 +44,7 @@ class SettingsPage(BasePage):
         self.window.is_text_in_url('settings')
         self.element.is_element_exist(self.page_title)
 
-    def is_edit(self, _name, _username, _des, value='value'):
-        self.element.is_input_text(self.name, value, _name)
-        self.element.is_input_text(self.username, value, _username)
-        self.element.is_input_text(self.personal_description, value,  _des)
+    def is_edit(self, value='value'):
+        self.element.is_input_text(self.name, value, self.random_name)
+        self.element.is_input_text(self.username, value, self.random_username)
+        self.element.is_input_text(self.personal_description, value, self.random_description)

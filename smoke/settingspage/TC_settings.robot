@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation    Settingspage test
+Suite Setup  Run Keywords  load veer  AND  login  ${usrname}  ${password}
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
@@ -8,18 +9,12 @@ Library  services.LoginLibrary
 Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
-go settings page
-    Given login   ${usrname}  ${password}
-    When go settings page
-    Then should be settings page
+#go settings page
+#    When go settings page
+#    Then should be settings page
 
 edit user information
     Given go settings page
-    When edit user information   ${_name}   ${_username}   ${_des}
+    When edit user information
     And refresh current window
-    Then check user information was modified successfully    ${_name}   ${_username}   ${_des}
-
-*** Variables ***
-${_name}        test_name
-${_username}    test_username
-${_des}         test_description
+    Then check user information was modified successfully
