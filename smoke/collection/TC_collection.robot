@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation    collection smoke test
+Suite Setup  Run Keywords  load veer  AND  login  ${usrname}  ${password}
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
@@ -10,10 +11,9 @@ Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
 create collection
-    Given login  ${usrname}   ${password}
-    And go collection tab
-    When create collection  ${collection_title}
-    Then check the collection was created successfully  ${collection_title}
+    Given go collection tab
+    When create collection
+    Then check the collection was created successfully
 
 add photos collection
     When add photo collection
