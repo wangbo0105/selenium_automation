@@ -9,9 +9,9 @@ Library  services.LoginLibrary
 Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
-#go settings page
-#    When go settings page
-#    Then should be settings page
+go settings page
+    When go settings page
+    Then should be settings page
 
 edit user information
     Given go settings page
