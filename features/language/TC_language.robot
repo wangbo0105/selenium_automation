@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Switch language smoke test
+Documentation    Switch language test
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
