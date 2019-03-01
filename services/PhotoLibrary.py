@@ -23,7 +23,6 @@ class PhotoLibrary(object):
 
     @keyword
     def click_more_photo_content(self):
-        self.photopage.get_photo_content_title()
         self.photopage.click_more_photo()
 
     @keyword
