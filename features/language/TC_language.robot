@@ -10,7 +10,7 @@ switch english
     Given switch language  English
     Then check current language  English
 
-Englishswitch japanese
+switch japanese
     Given switch language  Japanese
     Then check current language  Japanese
 
