@@ -20,6 +20,23 @@ add photos like
     When add content like
     Then check content is liked   liked_photo
 
+remove liked content
+    Given go liked tab
+    Then click liked content in liked tab  liked_photo
+    When remove content liked
+    Then check liked content is remove in detail
+    And check liked content is removed in liked tab  liked_photo
+
+add videos like
+    Given click feeds content item  精选视频
+    When add content like
+    Then check content is liked   liked_video
+
+add experiences like
+    Given click feeds content item  精选互动
+    When add content like
+    Then check content is liked   liked_experience
+
 clear all liked content
     Given go liked tab
     Then clear all liked content
