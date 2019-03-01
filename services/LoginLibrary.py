@@ -2,7 +2,7 @@ from robot.api.deco import keyword
 from pages.loginpage import LoginPage
 from services.CommonLibrary import CommonLibrary
 from pages.basepage import BasePage
-
+import time
 
 class LoginLibrary(object):
 
@@ -12,7 +12,7 @@ class LoginLibrary(object):
         self.base = BasePage()
 
     @keyword
-    def all_login(self, username, password, expectedResult, remember=True):
+    def all_login(self, username=None, password=None, expectedResult=True, remember=True):
 
         """登录流程
         1、点击登录tab
@@ -26,6 +26,7 @@ class LoginLibrary(object):
         self.common.go_page('login')
         self.loginpage.input_username(username)
         self.loginpage.input_password(password)
+        time.sleep(3)
         if not remember:
             self.loginpage.click_remember()
         self.loginpage.click_loginBtn()
@@ -33,7 +34,7 @@ class LoginLibrary(object):
             self.loginpage.is_login()
             self.loginpage.hover_user_tab()
             self.loginpage.click_log_out()
-        else:
+        if expectedResult == 'False':
             self.loginpage.click_close_login_modal()
             self.base.element.is_element_exist(self.loginpage.login_tab)
 
