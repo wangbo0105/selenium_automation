@@ -4,6 +4,7 @@ from pages.basepage import BasePage
 from services.CommonLibrary import CommonLibrary
 from services.PersonalLibrary import PersonalLibrary
 from services.HomeLibrary import HomeLibrary
+from services.PhotoLibrary import PhotoLibrary
 
 
 class CollectionLibrary(object):
@@ -13,6 +14,7 @@ class CollectionLibrary(object):
         self.common = CommonLibrary()
         self.home = HomeLibrary()
         self.personal = PersonalLibrary()
+        self.photo = PhotoLibrary()
 
     @keyword
     def go_collection_tab(self):
@@ -30,19 +32,21 @@ class CollectionLibrary(object):
 
     @keyword
     def add_content_to_collection(self):
-        self.home.click_feeds_content_item('精选图片')
+        self.common.go_page('photo')
+        self.photo.photo_click_item('photo_content')
         self.collection.get_current_content_url()
         self.collection.click_add_collection_btn()
         self.collection.add_collection()
         self.collection.click_add_collection_btn()
 
-    @keyword
-    def remove_content_in_content_detail(self):
-        self.home.click_feeds_content_item('精选图片')
-        self.collection.get_current_content_url()
-        self.collection.click_add_collection_btn()
-        self.collection.add_collection()
-        self.collection.click_add_collection_btn()
+    # @keyword
+    # def remove_content_in_content_detail(self):
+    #     self.common.go_page('home')
+    #     self.home.click_feeds_content_item('精选图片')
+    #     self.collection.get_current_content_url()
+    #     self.collection.click_add_collection_btn()
+    #     self.collection.add_collection()
+    #     self.collection.click_add_collection_btn()
 
     @keyword
     def check_content_has_collected(self):
@@ -54,11 +58,16 @@ class CollectionLibrary(object):
     def check_content_has_removed_from_content_detail(self):
         self.collection.check_content_removed_in_detail_page()
         self.go_collection_tab()
+        self.collection.click_collection_box()
         self.collection.check_remove_content_results()
 
     @keyword
     def create_collection_box(self, save=True, title_length=5, des_length=10):
         self.collection.create_collection_box(title_length, des_length, save)
+
+    @keyword
+    def cancel_create_collection_page(self):
+        self.collection.click_cc_cancel_btn()
 
     @keyword
     def check_create_collection_box_results(self, state=True):
