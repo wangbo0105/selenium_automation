@@ -4,7 +4,6 @@ Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
 Library  services.ExpLibrary
-Library  services.UploadLibrary
 Library  services.LoginLibrary
 Resource  ../../testdata/userdata.robot
 
