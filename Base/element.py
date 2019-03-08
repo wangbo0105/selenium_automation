@@ -5,6 +5,7 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchAttributeException
 from Base import current_driver
+from urllib.request import unquote
 import time
 
 
@@ -121,7 +122,7 @@ class Element(object):
     def get_attribute_href(self, element, name='href'):
         """获取元素属性的href属性值"""
         try:
-            return self.findElements(element).get_attribute(name)
+            return unquote(self.findElements(element).get_attribute(name), encoding='utf-8')
         except NoSuchAttributeException as e:
             print("获取%s属性失败，返回'%s' " % name, e)
             return ""
