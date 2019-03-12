@@ -78,7 +78,7 @@ class Window(object):
     def get_current_url(self):
         """获取当前url"""
         try:
-            r = self.driver().current_url
+            r = unquote(self.driver().current_url, encoding='utf-8')
             return r
         except Exception:
             print("获取当前url失败，返回'' ")
@@ -86,7 +86,7 @@ class Window(object):
 
     def is_url(self, url):
         """判断当前页面是否是预期页面地址"""
-        if self.driver().current_url == url:
+        if unquote(self.driver().current_url, encoding='utf-8') == url:
             return True
         else:
             raise AssertionError("'%s' is not current url." % url)
