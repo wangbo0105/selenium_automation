@@ -35,7 +35,7 @@ class Navigator(BasePage):
             'videos': r'/videos/.*',
             'experience': r'/experience[s]?.*',
             'blog': r'/blog/',
-            'store': r'(http[s]?://(shop525226884.taobao.com))',
+            'store': r'(http[s]?://shop([0-9]{9}.taobao.com))',
             'upload': r'/upload',
             'message': r'/messages',
             'paid': r'/paid',
