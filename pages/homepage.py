@@ -31,7 +31,9 @@ class HomePage(BasePage):
         elif name == u'付费专区' or name == 'Top Paid':
             item_name = {name: ('xpath', "//h1[text()=\"%s\"]/../../../div[1]/div/div[1]/a/div[1]" % name, 0)}
         else:
-            item_name = {name: ('xpath', "//h1[text()=\"%s\"]/../../../div[1]/div/div[1]/div[1]/div[1]" % name, 0)}
+            # item_name = {name: ('xpath', "//h1[text()=\"%s\"]/../../../div[1]/div/div[1]/div[1]/div[1]" % name, 0)}
+            item_name = {
+                name: ('xpath', "//h1[text=()=\"%s\"]/ancestor::[contains(@class,'content-list-view')]" % name, 0)}
         return item_name
 
     @staticmethod

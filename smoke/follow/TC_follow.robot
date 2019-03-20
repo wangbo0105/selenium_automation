@@ -7,11 +7,13 @@ Library  services.CommonLibrary
 Library  services.FollowLibrary
 Library  services.LoginLibrary
 Library  services.HomeLibrary
+Library  services.PhotoLibrary
 Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
 follow creater in content detail page
-    Given click feeds content item  精选图片
+    Given go page  photo
+    Then photo click item  photo_content
     When click follow btn
     Then check follow state in detail page  ${True}
     Then check followed num  1

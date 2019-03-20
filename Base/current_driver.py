@@ -24,8 +24,8 @@ def __create_driver(browser='chrome'):
     global driver
     option_chrome = webdriver.ChromeOptions()
     option_chrome.add_argument('disable-infobars')  # 关闭“Chrome正处于软件的自动控制之下”信息栏
-    # option_chrome.add_argument('kiosk')  # Mac 全屏
-    option_chrome.add_argument('start-fullscreen')
+    option_chrome.add_argument('kiosk')  # Mac 全屏
+    # option_chrome.add_argument('start-fullscreen')
     # option_chrome.add_argument('maximized')  # Windows 全屏
     # option_chrome.add_argument('headless')
 
@@ -35,5 +35,6 @@ def __create_driver(browser='chrome'):
         driver = webdriver.Firefox()
     elif browser == 'safari':
         driver = webdriver.Safari()
+        # driver.set_window_size(1024, 800)
 
     return driver

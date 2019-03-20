@@ -167,7 +167,7 @@ class Element(object):
         if self.findElements(element).text == _text:
             return True
         else:
-            raise AssertionError("'%s' is not in current element." % _text)
+            raise AssertionError("'%s' is not in current element." % _text + self.findElements(element).text)
 
     @staticmethod
     def should_contains(str1, str2):
