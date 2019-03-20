@@ -7,13 +7,15 @@ class Language(BasePage):
 
     @staticmethod
     def language_type_dict(name):
-        item_name = {'English': ('xpath', "//div[contains(text(),'English')]", 0),
-                     'Chinese': ('xpath', "//div[contains(text(),'中文简体')]", 0),
-                     'Japanese': ('xpath', "//div[contains(text(),'日本語')]", 0),
-                     }
+        item_name = {
+            'English': ('xpath', "//div[contains(text(),'English')]", 0),
+            'Chinese': ('xpath', "//div[contains(text(),'中文简体')]", 0),
+            'Japanese': ('xpath', "//div[contains(text(),'日本語')]", 0),
+            }
         return item_name[name]
 
     def switch_language(self, name):
+        self.element.move_to_element(self.langs)
         self.element.click(self.langs)
         self.element.click(self.language_type_dict(name))
 
