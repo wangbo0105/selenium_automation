@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from Base import current_driver
 from urllib.request import unquote
+import os
 
 
 class Window(object):
@@ -18,6 +19,13 @@ class Window(object):
     def get_screenshot(self, targetpath):
         """获取当前屏幕截图并将其保存到目标路径"""
         self.driver().get_screenshot_as_file(targetpath)
+
+    def get_error_screenshot(self):
+        cur_path = './Screenshots/'
+        now = time.strftime("%Y_%m_%d_%H_%M_%S")
+        name = ('%s.png' % now)
+        report_path = os.path.join(cur_path, name)
+        self.get_screenshot(report_path)
 
     def get_screenshot_base64(self):
         """获取当前屏幕截图并将其保存为base64"""
