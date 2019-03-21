@@ -12,20 +12,20 @@ Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
 go bookmark tab
-    When go bookmark tab
+    Given go bookmark tab
     Then check tabs is selected  VR书签
 
 add bookmark in detail page
-    When bookmark in detail page
+    Given bookmark in detail page
     Then check the bookmark has been added
 
 remove bookmark in detail page
-    When remove bookmark in detail
+    Given remove bookmark in detail
     Then check remove bookmark in detail
     And check remove bookmark in personal
 
 add bookmark in cover page
-    When bookmark in cover page
+    Given bookmark in cover page
     Then check the bookmark has been added
 
 bookmark helper alter
