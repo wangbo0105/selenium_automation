@@ -1,6 +1,8 @@
 /venv
+/Screenshots
 .DS_Store
 /.idea
+.vscode
 report
 log.html
 output.xml
