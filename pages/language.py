@@ -2,24 +2,29 @@ from pages.basepage import BasePage
 
 
 class Language(BasePage):
-    langs = ('class', 'langs', 0)  # 语言切换栏
-    english_tab = ('class', 'lang', 0)  # English
-    japanese_tab = ('class', 'lang', 1)  # Japanese
-    veer_mark_text = ('class', 'app-des', 0)  # 环 球 V R 内 容 社 区
-    english_mark_text = 'Global VR Content Community'
-    japanese_mark_text = 'グローバルVRコンテンツコミュニティ'
+    langs = ('class', 'langs', 0)
+    veer_mark_text = ('class', 'app-des', 0)
 
-    def click_language_box(self):
-        self.element.click(self.langs)
+    @staticmethod
+    def language_type_dict(name):
+        item_name = {
+            'English': ('xpath', "//div[contains(text(),'English')]", 0),
+            'Chinese': ('xpath', "//div[contains(text(),'中文简体')]", 0),
+            'Japanese': ('xpath', "//div[contains(text(),'日本語')]", 0), }
+        return item_name[name]
 
-    def click_english(self):
-        self.element.click(self.english_tab)
+    def switch_language(self, name):
+        self.element.move_to_element(self.langs)
+        self.element.click(self.language_type_dict(name))
 
-    def click_japanese(self):
-        self.element.click(self.japanese_tab)
+    @staticmethod
+    def language_item_dict(name):
+        item_name = {'English': 'Global VR Content Community',
+                     'Chinese': '环 球 V R 内 容 社 区',
+                     'Japanese': 'グローバルVRコンテンツコミュニティ',
+                     }
+        return item_name[name]
 
-    def is_english(self):
-        self.element.is_text_in_element(self.veer_mark_text, self.english_mark_text)
-
-    def is_japanese(self):
-        self.element.is_text_in_element(self.veer_mark_text, self.japanese_mark_text)
+    def check_current_language(self, name):
+        self.element.is_text_in_element(self.veer_mark_text, self.language_item_dict(name))
+        self.element.is_element_exist(self.language_type_dict(name))

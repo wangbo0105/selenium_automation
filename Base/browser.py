@@ -1,6 +1,5 @@
 from Base import current_driver
 import time
-from Base import current_driver
 
 
 class Browser(object):

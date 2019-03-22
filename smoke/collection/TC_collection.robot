@@ -12,19 +12,15 @@ Resource  ../../testdata/userdata.robot
 *** Test Cases ***
 create collection
     Given go collection tab
-    When create collection
-    Then check the collection was created successfully
+    When create collection box  ${True}
+    Then check create collection box results  ${True}
 
-add photos collection
-    When add photo collection
-    Then check collection
+add content to collection
+    When add content to collection
+    Then check content has collected
 
 clear collection
     And go collection tab
     Then clear collection box all
 
-
-
-*** Variables ***
-${collection_title}    collection001
 

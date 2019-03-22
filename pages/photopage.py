@@ -2,7 +2,7 @@ from pages.basepage import BasePage
 
 
 class PhotoPage(BasePage):
-    photo_player = ('class', 'photo-overlay', 0)
+    photo_player = ('class', 'photo-player', 0)
     more_photo = ('css', '.image-responsive img', 0)
     content_name = ('xpath', '//div[@class="title-delta"]/h1', 0)
 
@@ -14,12 +14,15 @@ class PhotoPage(BasePage):
         item_name = {'featured': ('class', 'tabs-tab', 0),
                      'popular': ('class', 'tabs-tab', 1),
                      'recent': ('class', 'tabs-tab', 2),
-                     'photo_content': ('class', 'photo-card-single', 0), }
+                     'photo_content': ('css', 'div.photo-overlay > img', 0), }
         return item_name
 
     def click_item(self, name):
         item = self.photo_page_dict()
+        self.js.js_scroll(0, 100)
+        # self.window.get_error_screenshot()
         self.element.click(item[name])
+        # self.window.get_error_screenshot()
 
     def is_photo_detail_page(self):
         self.element.is_element_exist(self.photo_player)
