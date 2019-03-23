@@ -13,6 +13,7 @@ class Follow(BasePage):
     ant_btn_ghost = ('class', 'ant-btn-lg', 0)
     ant_btn_primary = ('class', 'ant-btn-lg', 1)
     container = ('class', 'content-container', 0)
+    follower_home = ('xpath', '//div[@class="follower-item"]/div[@class="user-avatar"]', 0)
 
     def __init__(self):
         super().__init__()
@@ -27,6 +28,9 @@ class Follow(BasePage):
 
     def go_follower_page(self):
         self.element.click(self.follower_btn)
+
+    def go_follower_homepage(self):
+        self.element.click(self.follower_home)
 
     def check_follower_page(self):
         self.window.is_text_in_url('follower')

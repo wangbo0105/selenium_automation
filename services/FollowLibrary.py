@@ -24,6 +24,10 @@ class FollowLibrary(object):
         self.follow.go_follower_page()
 
     @keyword
+    def go_follower_homepage(self):
+        self.follow.go_follower_home_page()
+
+    @keyword
     def check_current_page_is_follower_page(self):
         self.follow.check_follower_page()
 
