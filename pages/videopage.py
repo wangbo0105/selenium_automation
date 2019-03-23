@@ -1,3 +1,5 @@
+import time
+
 from pages.basepage import BasePage
 
 
@@ -7,7 +9,7 @@ class VideoPage(BasePage):
     @staticmethod
     def video_page_dict():
         item_name = {'video_content': ('class', 'play-overlay', 0),
-                     'more_video_href': ('xpath', "//*[@class='play-overlay']/a", 0),
+                     'more_video_href': ('xpath', "//div[@class='play-overlay']/a", 0),
                      'video_player': ('class', 'video-player', 0), }
         return item_name
 
@@ -23,6 +25,9 @@ class VideoPage(BasePage):
         self.element.is_element_exist(VideoPage().get_item('video_player'))
 
     def get_more_video_content_href(self):
+        self.window.get_error_screenshot()
+        self.js.js_scroll(0, 400)
+        self.window.get_error_screenshot()
         self.more_video_href = self.element.get_attribute_href(VideoPage().get_item('more_video_href'))
 
     def is_more_video_page(self):

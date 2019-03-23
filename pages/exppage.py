@@ -1,3 +1,5 @@
+import time
+
 from pages.basepage import BasePage
 import re
 
@@ -38,6 +40,7 @@ class ExpPage(BasePage):
         self.element.should_be_equal(self.slogan_name, _slogan)
 
     def is_exp_detail_page(self):
+        time.sleep(2)
         self.element.is_element_exist(self.load_layer)
 
     def is_select_banner_tab(self, name):

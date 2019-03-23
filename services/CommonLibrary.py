@@ -13,6 +13,7 @@ class CommonLibrary(object):
     @keyword
     def load_veer(self):
         self.base.browser.open(self.base.url)
+        self.base.window.set_window_size(1400, 820)
 
     @keyword
     def refresh_current_window(self):

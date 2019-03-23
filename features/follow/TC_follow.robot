@@ -49,13 +49,13 @@ follow creater in follower page
     And go following page
     Then check follow state in following page  ${True}
 
-follower page ::cancel follw alert select cancle
+follower page :cancel follw alert select cancle
     Given go follower page
     When click followed btn
     And choose follow operation  ${False}
     Then check follow state in following page  ${True}
 
-follower page ::cancel follw alert select unfollow
+follower page :cancel follw alert select unfollow
     Given go follower page
     When click followed btn
     And choose follow operation  ${True}

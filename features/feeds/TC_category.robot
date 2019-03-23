@@ -17,10 +17,6 @@ feeds category Travel content jump
     Given click feeds content item  旅游
     Then should be video detail page
 
-feeds category Documentary jump
-    Given click feeds item  记录
-    Then check category page  记录
-
 category page tab switch
     Given go page  video
     When click category tab  旅游
