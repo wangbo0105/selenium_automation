@@ -1,4 +1,5 @@
 from pages.basepage import BasePage
+import time
 import re
 
 
@@ -24,6 +25,7 @@ class Navigator(BasePage):
     def go_page(self, name):
         page = Navigator().page_dict()
         self.element.click(page[name])
+        time.sleep(2)
 
     @staticmethod
     def page_url_regular_dict():

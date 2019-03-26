@@ -25,6 +25,8 @@ class FollowLibrary(object):
 
     @keyword
     def go_follower_homepage(self):
+        self.personal.go_personal_center()
+        self.follow.go_follower_page()
         self.follow.go_follower_home_page()
 
     @keyword

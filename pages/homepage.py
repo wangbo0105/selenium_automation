@@ -41,7 +41,7 @@ class HomePage(BasePage):
 
     def click_feeds_item(self, name):
         item = HomePage().feeds_dict(name)
-        if name == '旅游':
+        if name == '动画':
             self.js.js_scroll(0, 1900)
         if name == '精选图片' or '精选视频':
             self.js.js_scroll(0, 400)

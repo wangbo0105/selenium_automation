@@ -40,13 +40,19 @@ add experiences like
     Then check content is liked   liked_experience
 
 add collection_box like
-    Given go follower page
-    Then go follower homepage
-    And switch nav tab  合辑
+    Given go follower homepage
+    Then switch nav tab  合辑
     And go collection box detail
-    Given add content like
+    When add content like
     Then check content is liked   liked_collection
 
+remove collection_box like
+    Given go follower homepage
+    Then switch nav tab  合辑
+    And go collection box detail
+    When remove content liked
+    Then check liked content is remove in detail
+    And check liked content is removed in liked tab  liked_collection
 
 clear all liked content
     Given go liked tab
