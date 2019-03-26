@@ -29,7 +29,7 @@ class Like(BasePage):
         item_name = {'liked_photo': ('xpath', "//div[contains(text(),'喜欢的照片')]", 0),
                      'liked_video': ('xpath', "//div[contains(text(),'喜欢的视频')]", 0),
                      'liked_experience': ('xpath', "//div[contains(text(),'喜欢的互动体验')]", 0),
-
+                     'liked_collection': ('xpath', "//div[contains(text(),'喜欢的合辑')]", 0)
                      }
         return item_name
 
@@ -43,6 +43,8 @@ class Like(BasePage):
                      'liked_video': ('xpath', "//div[contains(text(),'喜欢的视频')]/../../div[2]/div/div/div[2]/div/a", 0),
                      'liked_experience': (
                          'xpath', "//div[contains(text(),'喜欢的互动体验')]/../../div[2]/div/div/div[2]/div/a", 0),
+                     'liked_collection': (
+                         'xpath', "//div[contains(text(),'喜欢的合辑')]/../../div[2]/div/div/div[2]/div/a", 0),
 
                      }
         return item_name
@@ -55,7 +57,7 @@ class Like(BasePage):
         self.element.is_element_exist(self.get_liked_type(name))
 
     def check_liked_content_exited(self, name):
-        self.element.should_be_equal(self.content_href, self.element.get_attribute_href(self.get_liked_content(name)))
+        self.element.should_contains(self.content_href, self.element.get_attribute_href(self.get_liked_content(name)))
 
     def check_liked_content_removed(self, name):
         self.element.is_element_not_exist(self.get_liked_type(name))

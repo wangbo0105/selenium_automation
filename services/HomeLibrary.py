@@ -48,5 +48,5 @@ class HomeLibrary(object):
         self.homepage.turning_page(_direction)
 
     @keyword
-    def check_turned_right(self):
-        self.homepage.is_turned_right()
+    def check_turned_wrapper(self, item):
+        self.homepage.is_turned_wrapper(item)
