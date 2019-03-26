@@ -1,4 +1,5 @@
 from pages.basepage import BasePage
+import time
 
 
 class LoginPage(BasePage):
@@ -13,6 +14,27 @@ class LoginPage(BasePage):
     log_out = ('link_text', '退出', 0)  # 用户tab——退出
     user_tab = ('class', 'ant-dropdown-trigger', 0)  # 用户tab
     close_login_modal = ('class', 'ant-modal-close', 0)  # 登录弹框关闭button
+    signupLoginBtn = ('class','login-link', 0) # 注册弹框上的login button
+    WeChat_button = ('id', 'wechatLoginBtn', 0)
+    WeChat_modal = ('class', 'ant-modal-content', 0)
+    forget_password_link = ('link_text', '忘记密码?', 0)
+    # forget_password_link = ('css', 'forget-pwd font-medium', 0
+    # 
+    #  )
+    #  div > div.ant-modal-content > div > form > div.ant-row.ant-form-item.remember-row > div > div > a
+    # forget_password_link = ('xpath','/html/body/div[4]/div/div[2]/div/div[1]/div/form/div[5]/div/div/a')
+    # forget_password_link = ('xpath', '//div[@css=ant-row.ant-form-item.remember-row]/div/div/a')
+    #  = ('xpath', "//label[@class='ant-checkbox-wrapper']/a", 0)
+    forget_password_modal = ('class', 'ant-modal-body', 0)
+    # emailInput = ('css', '.ant-row ant-form-item', 0)
+    emailInput = ('css', '.ant-form-item-control ', 0)
+    # emailInput = ('xpath', '//div[@class="ant-form-item-control"]', 0)
+    nextStepBtn = ('xpath', "//*[@class='wizard-step active']/button", 0)
+    explainInput = ('class', 'ant-form-explain', 0)
+    emailSentModal = ('class', 'ant-modal-content', 0)
+    emailSentModalClose = ('class', 'ant-modal-close', 0)
+    resentBtn = ('xpath', "//*[@class='resend']/a", 0)
+    forgetPasswordClose = ('class', 'ant-modal-close', 0)
 
     def input_username(self, user):
         """输入用户名"""
@@ -54,3 +76,43 @@ class LoginPage(BasePage):
 
     def is_login_alert(self):
         self.element.is_element_exist(self.login_alert)
+
+    def click_signupModal_login(self):
+        self.element.click(self.signupLoginBtn)
+
+    def click_WeChat_button(self):
+        self.element.click(self.WeChat_button)
+
+    def check_WeChat_modal(self):
+        self.element.is_element_exist(self.WeChat_modal)
+    
+    def click_forget_password(self):
+        self.element.click(self.forget_password_link)
+
+    def check_forget_password_modal(self):
+        self.element.is_element_exist(self.forget_password_modal)
+
+    def input_email(self, email):
+        time.sleep(2)
+        self.element.double_click(self.emailInput)
+        self.element.backSpace(self.emailInput)
+        self.element.send_keys(self.emailInput, email)
+
+    def select_next_step(self):
+        self.element.click(self.nextStepBtn)
+
+    def check_prompt_wrong_format_email(self):
+        self.element.is_element_exist(self.explainInput)
+
+    def check_sent_email_modal(self):
+        self.element.is_element_exist(self.emailSentModal)
+    
+    def close_sent_email_modal(self):
+        self.element.click(self.emailSentModalClose)
+    
+    def select_resent_email(self):
+        self.element.click(self.resentBtn)
+    
+    def close_forget_password_modal(self):
+        self.element.click(self.forgetPasswordClose)
+        
