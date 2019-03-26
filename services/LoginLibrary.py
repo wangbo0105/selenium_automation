@@ -2,7 +2,7 @@ from robot.api.deco import keyword
 from pages.loginpage import LoginPage
 from services.CommonLibrary import CommonLibrary
 from pages.basepage import BasePage
-
+import time
 
 class LoginLibrary(object):
 
@@ -12,7 +12,7 @@ class LoginLibrary(object):
         self.base = BasePage()
 
     @keyword
-    def all_login(self, username, password, expectedResult, remember=True):
+    def all_login(self, username=None, password=None, expectedResult=True, remember=True):
 
         """登录流程
         1、点击登录tab
@@ -26,6 +26,7 @@ class LoginLibrary(object):
         self.common.go_page('login')
         self.loginpage.input_username(username)
         self.loginpage.input_password(password)
+        time.sleep(3)
         if not remember:
             self.loginpage.click_remember()
         self.loginpage.click_loginBtn()
@@ -33,9 +34,17 @@ class LoginLibrary(object):
             self.loginpage.is_login()
             self.loginpage.hover_user_tab()
             self.loginpage.click_log_out()
-        else:
+        if expectedResult == 'False':
             self.loginpage.click_close_login_modal()
             self.base.element.is_element_exist(self.loginpage.login_tab)
+
+# def sign_up(self, email =None , username =None, password = None,ExpectedResult = True):
+#         self.signup.input_email(email)
+#         self.signup.input_username(username)
+#         self.signup.input_password(password)
+#         self.signup.submit()
+#         if ExpectedResult == 'False':
+#           self.close_signup_modal()
 
     @keyword
     def login(self, username, password, remember=True):
@@ -61,3 +70,54 @@ class LoginLibrary(object):
     @keyword
     def check_you_are_logged_out(self):
         self.loginpage.is_logout()
+
+    @keyword
+    def select_login(self):
+        self.loginpage.click_signupModal_login()
+
+    @keyword
+    def select_WeChat(self):
+        self.loginpage.click_WeChat_button()
+    
+    @keyword
+    def check_WeChat_modal(self):
+        self.loginpage.check_WeChat_modal()
+
+    @keyword
+    def select_forget_password(self):
+        self.loginpage.click_forget_password()
+    
+    @keyword 
+    def check_forget_password_modal(self):
+        self.loginpage.check_forget_password_modal()
+
+    @keyword
+    def input_email(self, email):
+        self.loginpage.input_email(email)
+    
+    @keyword
+    def select_next_step(self):
+        self.loginpage.select_next_step()
+    
+    @keyword
+    def check_prompt_wrong_format_email(self):
+        self.loginpage.check_prompt_wrong_format_email()
+
+    @keyword
+    def check_sent_email_modal(self):
+        self.loginpage.check_sent_email_modal()
+
+    @keyword
+    def close_sent_email_modal(self):
+        self.loginpage.close_sent_email_modal()
+
+    @keyword
+    def select_resent_email(self):
+        self.loginpage.select_resent_email()
+        
+    @keyword
+    def close_forget_password_modal(self):
+        self.loginpage.close_forget_password_modal()
+
+
+    
