@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from Base import current_driver
 from urllib.request import unquote
+import os
 
 
 class Window(object):
@@ -18,6 +19,13 @@ class Window(object):
     def get_screenshot(self, targetpath):
         """获取当前屏幕截图并将其保存到目标路径"""
         self.driver().get_screenshot_as_file(targetpath)
+
+    def get_error_screenshot(self):
+        cur_path = './Screenshots/'
+        now = time.strftime("%Y_%m_%d_%H_%M_%S")
+        name = ('%s.png' % now)
+        report_path = os.path.join(cur_path, name)
+        self.get_screenshot(report_path)
 
     def get_screenshot_base64(self):
         """获取当前屏幕截图并将其保存为base64"""
@@ -78,7 +86,7 @@ class Window(object):
     def get_current_url(self):
         """获取当前url"""
         try:
-            r = self.driver().current_url
+            r = unquote(self.driver().current_url, encoding='utf-8')
             return r
         except Exception:
             print("获取当前url失败，返回'' ")
@@ -86,7 +94,7 @@ class Window(object):
 
     def is_url(self, url):
         """判断当前页面是否是预期页面地址"""
-        if self.driver().current_url == url:
+        if unquote(self.driver().current_url, encoding='utf-8') == url:
             return True
         else:
             raise AssertionError("'%s' is not current url." % url)

@@ -1,6 +1,5 @@
 from robot.api.deco import keyword
 from pages.language import Language
-from services.CommonLibrary import CommonLibrary
 
 
 class LanguageLibrary(object):
@@ -9,19 +8,9 @@ class LanguageLibrary(object):
         self.language = Language()
 
     @keyword
-    def switch_english(self):
-        self.language.click_language_box()
-        self.language.click_english()
+    def switch_language(self, name):
+        self.language.switch_language(name)
 
     @keyword
-    def check_english(self):
-        self.language.is_english()
-
-    @keyword
-    def switch_japanese(self):
-        self.language.click_language_box()
-        self.language.click_japanese()
-
-    @keyword
-    def check_japanese(self):
-        self.language.is_japanese()
+    def check_current_language(self, name):
+        self.language.check_current_language(name)

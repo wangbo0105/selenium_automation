@@ -38,6 +38,7 @@ class BookMark(BasePage):
         self.element.is_text_in_element(self.bookmark_btn, '已添加书签')
 
     def click_bookmark_icon(self):
+        self.js.js_scroll(0, 200)
         self.element.click(self.bookmark_icon)
         self.content_url = self.element.get_attribute_href(self.content_href)
 

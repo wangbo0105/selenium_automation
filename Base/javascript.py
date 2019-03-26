@@ -1,4 +1,5 @@
 from Base import current_driver
+from Base.element import Element
 import time
 
 
@@ -9,8 +10,13 @@ class JavaScript(object):
 
     def js_scroll(self, x, y):
         """滑动滚动条至指定位置"""
-        js = "window.scrollTo(%s,%s)" % x, y
+        js = "window.scrollTo(%s,%s)" % (x, y)
         self.driver().execute_script(js)
+
+    def js_scroll_ele(self, ele):
+        """滑动滚动条至指定元素"""
+        target = Element().findElements(ele)
+        self.driver().execute_script("arguments[0].scrollIntoView();", target)  # 拖动到可见的元素去
 
     def js_scroll_top(self):
         """滚动到顶部"""

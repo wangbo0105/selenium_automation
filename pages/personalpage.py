@@ -1,4 +1,5 @@
 from pages.basepage import BasePage
+import time
 
 
 class PersonalPage(BasePage):
@@ -21,6 +22,7 @@ class PersonalPage(BasePage):
 
     def switch_nav_tab(self, name):
         self.element.click(self.get_tabs_nav_dict(name))
+        time.sleep(1)
 
     def check_tabs_is_selected(self, name):
         active = self.element.get_attribute(self.get_tabs_nav_dict(name), 'aria-selected')
