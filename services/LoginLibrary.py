@@ -32,6 +32,7 @@ class LoginLibrary(object):
         self.loginpage.click_loginBtn()
         if expectedResult == 'True':
             self.loginpage.is_login()
+            time.sleep(3)
             self.loginpage.hover_user_tab()
             self.loginpage.click_log_out()
         if expectedResult == 'False':
@@ -94,6 +95,8 @@ class LoginLibrary(object):
     @keyword
     def input_email(self, email):
         self.loginpage.input_email(email)
+        print("hello word")
+        print(email)
     
     @keyword
     def select_next_step(self):

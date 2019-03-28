@@ -12,28 +12,19 @@ class LoginPage(BasePage):
     forgetPwd = ('class', 'forget-pwd', 0)  # 忘记密码
     registered = ('id', 'signupLink', 0)  # 注册
     log_out = ('link_text', '退出', 0)  # 用户tab——退出
-    user_tab = ('class', 'ant-dropdown-trigger', 0)  # 用户tab
+    user_tab = ('css','.user-avatar.ant-dropdown-trigger',0)
     close_login_modal = ('class', 'ant-modal-close', 0)  # 登录弹框关闭button
-    signupLoginBtn = ('class','login-link', 0) # 注册弹框上的login button
+    signupLoginBtn = ('xpath','//div[@class="tips"]/div[@class="login"]', 0) # 注册弹框上的login button
     WeChat_button = ('id', 'wechatLoginBtn', 0)
     WeChat_modal = ('class', 'ant-modal-content', 0)
     forget_password_link = ('link_text', '忘记密码?', 0)
-    # forget_password_link = ('css', 'forget-pwd font-medium', 0
-    # 
-    #  )
-    #  div > div.ant-modal-content > div > form > div.ant-row.ant-form-item.remember-row > div > div > a
-    # forget_password_link = ('xpath','/html/body/div[4]/div/div[2]/div/div[1]/div/form/div[5]/div/div/a')
-    # forget_password_link = ('xpath', '//div[@css=ant-row.ant-form-item.remember-row]/div/div/a')
-    #  = ('xpath', "//label[@class='ant-checkbox-wrapper']/a", 0)
     forget_password_modal = ('class', 'ant-modal-body', 0)
-    # emailInput = ('css', '.ant-row ant-form-item', 0)
-    emailInput = ('css', '.ant-form-item-control ', 0)
-    # emailInput = ('xpath', '//div[@class="ant-form-item-control"]', 0)
-    nextStepBtn = ('xpath', "//*[@class='wizard-step active']/button", 0)
+    emailInput = ('xpath', '//div[@class="ant-modal-body"]//input', 0)
+    nextStepBtn = ('xpath', '//div[@class="ant-modal-body"]//button', 0)
     explainInput = ('class', 'ant-form-explain', 0)
     emailSentModal = ('class', 'ant-modal-content', 0)
-    emailSentModalClose = ('class', 'ant-modal-close', 0)
-    resentBtn = ('xpath', "//*[@class='resend']/a", 0)
+    emailSentModalClose = ('xpath', '//button[@class="ant-modal-close"]', 0)
+    resentBtn = ('xpath', "//div[@class='resend']/a", 0)
     forgetPasswordClose = ('class', 'ant-modal-close', 0)
 
     def input_username(self, user):
@@ -93,10 +84,12 @@ class LoginPage(BasePage):
         self.element.is_element_exist(self.forget_password_modal)
 
     def input_email(self, email):
-        time.sleep(2)
-        self.element.double_click(self.emailInput)
-        self.element.backSpace(self.emailInput)
+        # self.element.double_click(self.emailInput)
+        # self.element.backSpace(self.emailInput)
+        print("email")
+        print(email)
         self.element.send_keys(self.emailInput, email)
+        
 
     def select_next_step(self):
         self.element.click(self.nextStepBtn)
