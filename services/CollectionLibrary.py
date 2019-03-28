@@ -22,6 +22,10 @@ class CollectionLibrary(object):
         self.personal.switch_nav_tab('合辑')
 
     @keyword
+    def go_collection_box_detail(self):
+        self.collection.click_collection_box()
+
+    @keyword
     def create_collection_and_add_content(self):
         self.home.click_feeds_content_item('精选视频')
         self.collection.get_current_content_url()

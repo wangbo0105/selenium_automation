@@ -28,9 +28,9 @@ class LikeLibrary(object):
         self.like.check_liked_type_exited(name)
         self.like.check_liked_content_exited(name)
 
-    @keyword
-    def check_liked_type_tab_exited(self, name):
-        self.like.check_liked_type_exited(name)
+    # @keyword
+    # def check_liked_type_tab_exited(self, name):
+    #     self.like.check_liked_type_exited(name)
 
     @keyword
     def check_liked_content_is_remove_in_detail(self):

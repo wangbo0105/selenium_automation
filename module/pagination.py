@@ -22,7 +22,7 @@ class Pagination:
         return item_name[name]
 
     def turn_page(self, name):
-        self.base.js.js_scroll_end(num=3, sleep=1)
+        self.base.js.js_scroll_end(num=4, sleep=1)
         self.base.element.click(self.get_page_item_dict(name))
 
     def check_page_active(self, name):

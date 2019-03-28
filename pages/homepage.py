@@ -31,9 +31,7 @@ class HomePage(BasePage):
         elif name == u'付费专区' or name == 'Top Paid':
             item_name = {name: ('xpath', "//h1[text()=\"%s\"]/../../../div[1]/div/div[1]/a/div[1]" % name, 0)}
         else:
-            # item_name = {name: ('xpath', "//h1[text()=\"%s\"]/../../../div[1]/div/div[1]/div[1]/div[1]" % name, 0)}
-            item_name = {
-                name: ('xpath', "//h1[text=()=\"%s\"]/ancestor::[contains(@class,'content-list-view')]" % name, 0)}
+            item_name = {name: ('xpath', "//h1[text()=\"%s\"]/../../../div[1]/div/div[1]/div[1]/div[1]" % name, 0)}
         return item_name
 
     @staticmethod
@@ -41,32 +39,33 @@ class HomePage(BasePage):
         item_name = {name: ('xpath', "//a[text()=\"%s\"]/.." % name, 0)}
         return item_name
 
-    @staticmethod
-    def get_feeds_item(name):
-        item = HomePage().feeds_dict(name)
-        return item[name]
-
     def click_feeds_item(self, name):
-        self.element.click(HomePage().get_feeds_item(name))
-
-    @staticmethod
-    def get_feeds_content_item(name):
-        item = HomePage().feeds_content_dict(name)
-        return item[name]
+        item = HomePage().feeds_dict(name)
+        if name == '动画':
+            self.js.js_scroll(0, 1900)
+        if name == '精选图片' or '精选视频':
+            self.js.js_scroll(0, 400)
+        self.element.click(item[name])
 
     def click_feeds_content_item(self, name):
-        self.element.click(HomePage().get_feeds_content_item(name))
-
-    @staticmethod
-    def get_category_tabs_item(name):
-        item = HomePage().category_tabs_dict(name)
-        return item[name]
+        item = HomePage().feeds_content_dict(name)
+        if name == '精选视频':
+            self.js.js_scroll(0, 1000)
+        elif name == '付费专区':
+            self.js.js_scroll(0, 800)
+        if name == '旅游':
+            self.js.js_scroll(0, 1900)
+        elif name == '精选图片' or '精选互动':
+            self.js.js_scroll(0, 1500)
+        self.element.click(item[name])
 
     def click_category_tab(self, name):
-        self.element.click(HomePage().get_category_tabs_item(name))
+        item = HomePage().category_tabs_dict(name)
+        self.element.click(item[name])
 
     def check_category_page(self, name):
-        active = self.element.get_attribute(HomePage().get_category_tabs_item(name), 'class')
+        item = HomePage().category_tabs_dict(name)
+        active = self.element.get_attribute(item[name], 'class')
         self.element.should_contains(active, 'tabs-tab-active')
         self.window.is_text_in_url(name)
 
@@ -108,6 +107,7 @@ class HomePage(BasePage):
         self.element.is_element_not_exist(self.recommended_show_more_btn)
 
     def turning_page(self, _direction):
+        self.js.js_scroll(0, 800)
         if _direction == 'right':
             self.element.click(self.wrapper_right)
         elif _direction == 'left':
@@ -115,5 +115,8 @@ class HomePage(BasePage):
         else:
             raise AttributeError('arguments error,%s' % _direction)
 
-    def is_turned_right(self):
-        self.element.is_element_exist(self.wrapper_left)
+    def is_turned_wrapper(self, item):
+        if item == 'right':
+            self.element.is_element_exist(self.wrapper_left)
+        else:
+            self.element.is_element_not_exist(self.wrapper_left)

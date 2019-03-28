@@ -20,9 +20,7 @@ class PhotoPage(BasePage):
     def click_item(self, name):
         item = self.photo_page_dict()
         self.js.js_scroll(0, 100)
-        # self.window.get_error_screenshot()
         self.element.click(item[name])
-        # self.window.get_error_screenshot()
 
     def is_photo_detail_page(self):
         self.element.is_element_exist(self.photo_player)
@@ -37,6 +35,7 @@ class PhotoPage(BasePage):
         self.element.should_contains(active, self.tabs_tab_active)
 
     def click_more_photo(self):
+        self.js.js_scroll(0, 200)
         self.photo_name_text = self.element.get_attribute(self.more_photo, 'alt')
         self.element.click(self.more_photo)
 

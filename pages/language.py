@@ -14,6 +14,7 @@ class Language(BasePage):
         return item_name[name]
 
     def switch_language(self, name):
+        self.js.js_scroll_end()
         self.element.move_to_element(self.langs)
         self.element.click(self.language_type_dict(name))
 

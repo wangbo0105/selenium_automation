@@ -11,25 +11,27 @@ Library  services.ExpLibrary
 
 *** Test Cases ***
 featured photo page jump
-    When click feeds item  精选图片
+    Given click feeds item  精选图片
     Then should be expected page  photo
 
 featured photo content jump
-    When click feeds content item  精选图片
+    Given click feeds content item  精选图片
     Then should be photo detail page
 
 featured video page jump
-    When click feeds item  精选视频
+    Given click feeds item  精选视频
     Then should be expected page  video
 
 feature video content jump
-    When click feeds content item  精选视频
+    Given click feeds content item  精选视频
     Then should be video detail page
 
 featured experience content jump
-    When click feeds content item  精选互动
+    Given click feeds content item  精选互动
     Then should be experience details page
 
-featured content list turned right
-    When turning list  right
-    Then check turned right
+featured content list turned wrapper
+    Given turning list  right
+    Then check turned wrapper  right
+    Given turning list  left
+    Then check turned wrapper  left

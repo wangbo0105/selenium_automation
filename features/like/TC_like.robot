@@ -4,6 +4,8 @@ Suite Setup  Run Keywords  load veer  AND  login  ${usrname}  ${password}
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
+Library  services.FollowLibrary
+Library  services.CollectionLibrary
 Library  services.LikeLibrary
 Library  services.LoginLibrary
 Library  services.PersonalLibrary
@@ -36,6 +38,21 @@ add experiences like
     Given click feeds content item  精选互动
     When add content like
     Then check content is liked   liked_experience
+
+add collection_box like
+    Given go follower homepage
+    Then switch nav tab  合辑
+    And go collection box detail
+    When add content like
+    Then check content is liked   liked_collection
+
+remove collection_box like
+    Given go follower homepage
+    Then switch nav tab  合辑
+    And go collection box detail
+    When remove content liked
+    Then check liked content is remove in detail
+    And check liked content is removed in liked tab  liked_collection
 
 clear all liked content
     Given go liked tab

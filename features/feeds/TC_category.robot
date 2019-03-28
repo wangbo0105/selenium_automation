@@ -10,16 +10,12 @@ Library  services.VideoLibrary
 
 *** Test Cases ***
 feeds category Travel jump
-    Given click feeds item  旅游
-    Then check category page  旅游
+    Given click feeds item  动画
+    Then check category page  动画
 
 feeds category Travel content jump
-    Given click feeds content item  旅游
+    Given click feeds content item  动画
     Then should be video detail page
-
-feeds category Documentary jump
-    Given click feeds item  记录
-    Then check category page  记录
 
 category page tab switch
     Given go page  video
@@ -29,7 +25,8 @@ category page tab switch
     Then check category page  记录
 
 turnpage in category tab
-    Given click feeds item  旅游
+    Given click feeds item  动画
+    Then click category tab  旅游
     When turn current tab page  next_page
     Then check page turned  page_2
     When turn current tab page  last_page
