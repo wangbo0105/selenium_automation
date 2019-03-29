@@ -53,7 +53,6 @@ class SignupPage(BasePage):
         time.sleep(3)
 
     def signup_success(self):
-        time.sleep(3)
         self.element.is_element_not_exist(self.email_input)
 
     def is_exist_purposeModal(self):
