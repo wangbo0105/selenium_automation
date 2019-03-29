@@ -12,6 +12,7 @@ class JavaScript(object):
         """滑动滚动条至指定位置"""
         js = "window.scrollTo(%s,%s)" % (x, y)
         self.driver().execute_script(js)
+        time.sleep(1)
 
     def js_scroll_ele(self, ele):
         """滑动滚动条至指定元素"""

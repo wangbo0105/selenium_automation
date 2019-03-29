@@ -6,6 +6,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchAttributeException
 from Base import current_driver
 from urllib.request import unquote
+import pyperclip
 import time
 
 
@@ -94,6 +95,9 @@ class Element(object):
         """键盘操作回车"""
         self.findElements(element).send_keys(Keys.ENTER)
 
+    def paste(self, element):
+        self.findElements(element).send_keys(pyperclip.paste())
+
     def backSpace(self, element):
         """键盘操作删除"""
         self.findElements(element).send_keys(Keys.BACKSPACE)
@@ -176,6 +180,15 @@ class Element(object):
             return True
         else:
             raise AssertionError("Don't match %s,%s" % (str1, str2))
+
+    @staticmethod
+    def should_not_contains(str1, str2):
+        """断言方法检查某个字符串是否包含另一个字符串"""
+        _str1 = ''.join(str1)
+        if str2 not in str1:
+            return True
+        else:
+            raise AssertionError("%s is in %s" % (str1, str2))
 
     @staticmethod
     def should_be_equal(str1, str2):
