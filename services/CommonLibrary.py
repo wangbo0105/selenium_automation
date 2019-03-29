@@ -1,3 +1,5 @@
+import time
+
 from robot.api.deco import keyword
 from pages.basepage import BasePage
 from pages.navigator import Navigator
@@ -14,6 +16,7 @@ class CommonLibrary(object):
     def load_veer(self):
         self.base.browser.open(self.base.url)
         self.base.window.set_window_size(1400, 820)
+        time.sleep(1)
 
     @keyword
     def refresh_current_window(self):

@@ -1,3 +1,5 @@
+import time
+
 from pages.basepage import BasePage
 
 
@@ -28,6 +30,7 @@ class Follow(BasePage):
 
     def go_follower_page(self):
         self.element.click(self.follower_btn)
+        time.sleep(1)
 
     def go_follower_homepage(self):
         self.element.click(self.follower_home)
