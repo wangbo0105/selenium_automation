@@ -12,10 +12,12 @@ class SignupLibrary(object):
         self.login = LoginPage()
 
     @keyword
-    def sign_up(self, email =None , username =None, password = None,ExpectedResult = True):
+    def sign_up(self, email =None , username =None, password = None,nickname = None, ExpectedResult = True):
+        self.signup.select_email()
         self.signup.input_email(email)
         self.signup.input_username(username)
         self.signup.input_password(password)
+        self.signup.input_nickname(nickname)
         self.signup.submit()
         if ExpectedResult == 'False':
           self.close_signup_modal()
