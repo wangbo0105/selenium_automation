@@ -22,7 +22,8 @@ class Like(BasePage):
         self.element.is_element_exist(self.liked_button)
 
     def check_unlike_in_detail_page(self):
-        self.element.is_element_not_exist(self.liked_button)
+        _state = self.element.get_attribute(self.like_button, 'class')
+        self.element.should_not_contains(_state, 'liked')
 
     @staticmethod
     def liked_type_dict():
