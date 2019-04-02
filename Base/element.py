@@ -154,10 +154,10 @@ class Element(object):
 
     def is_element_not_exist(self, element):
         """断言方法检查元素不存在"""
-        if self.findElements(element, False) == False:
+        if not self.findElements(element, False):
             return True
         else:
-            raise AssertionError("'%s' existed." % element)
+            raise AssertionError("'%s' existed." % (element,))
 
     def ElementNotExist(self, element):
         """检查元素不存在"""
