@@ -5,8 +5,8 @@ import time
 class LoginPage(BasePage):
     login_tab = ('class', 'header-login', 0)  # 导航栏-登录tab
     login_alert = ('class', 'ant-modal-content', 0)  # 登录弹窗
-    username = ('css', '#identifier', 0)  # 用户名输入框
-    password = ('css', '#password', 0)  # 密码输入框
+    username = ('css', '#loginIdentifier', 0)  # 用户名输入框
+    password = ('css', '#loginPassword', 0)  # 密码输入框
     loginBtn = ('class', 'submit-btn', 0)  # 登录button
     remember = ('class', 'ant-checkbox-input', 0)  # 是否记住勾选框
     forgetPwd = ('class', 'forget-pwd', 0)  # 忘记密码

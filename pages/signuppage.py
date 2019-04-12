@@ -1,13 +1,14 @@
 from pages.basepage import BasePage
 import time
 
+
 class SignupPage(BasePage):
-    email_input = ('css', '#identifier', 0)  # 邮箱输入框
+    email_input = ('css', '#signupIdentifier', 0)  # 邮箱输入框
     email_type = ('xpath', '//div[@class="signup-options"]/div', 1)
-    
-    username_input = ('css', '#username', 0)  # 用户名输入框
-    nickname_input = ('css', '#fullname', 0)
-    password = ('css', '#password', 0)  # 密码输入框
+
+    username_input = ('css', '#signupUsername', 0)  # 用户名输入框
+    nickname_input = ('css', '#signupFullname', 0)
+    password = ('css', '#signupPassword', 0)  # 密码输入框
     signBtn = ('css', '.ant-btn.ant-btn-primary.ant-btn-lg.submit-btn', 0)  # 注册button
     # signBtn = ('xpath', '/html/body/div[6]/div/div[2]/div/div[1]/div/div[3]/form/button', 0)  # 注册button
     
@@ -68,18 +69,18 @@ class SignupPage(BasePage):
         self.element.is_element_exist(self.signupModalCloseBtn)
 
     def click_signupModalClose(self):
-        self.element.click(self.signupModalCloseBtn) 
+        self.element.click(self.signupModalCloseBtn)
 
     def click_one_purpose(self):
         self.element.click(self.purposeItem)
-    
+
     def cancel_click_one_purpose(self):
         self.element.click(self.purposeItem)
 
     def one_purpose_is_selected(self):
         active = self.element.get_attribute(self.purposeItem, 'class')
         self.element.should_contains(active, 'active')
-    
+
     def one_purpose_is_not_selected(self):
         active = self.element.get_attribute(self.purposeItem, 'class')
         self.element.should_be_equal(active, 'list-item')

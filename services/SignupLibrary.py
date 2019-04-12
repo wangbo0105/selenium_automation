@@ -4,6 +4,7 @@ from services.CommonLibrary import CommonLibrary
 from pages.loginpage import LoginPage
 import time
 
+
 class SignupLibrary(object):
     cl = CommonLibrary()
 
@@ -12,7 +13,7 @@ class SignupLibrary(object):
         self.login = LoginPage()
 
     @keyword
-    def sign_up(self, email =None , username =None, password = None,nickname = None, ExpectedResult = True):
+    def sign_up(self, email=None, username=None, password=None, nickname=None, ExpectedResult=True):
         self.signup.select_email()
         self.signup.input_email(email)
         self.signup.input_username(username)
@@ -20,7 +21,7 @@ class SignupLibrary(object):
         self.signup.input_nickname(nickname)
         self.signup.submit()
         if ExpectedResult == 'False':
-          self.close_signup_modal()
+            self.close_signup_modal()
 
     @keyword
     def signup_success(self):
@@ -66,9 +67,9 @@ class SignupLibrary(object):
 
     @keyword
     def close_signup_modal(self):
-          self.signup.click_signupModalClose()
+        self.signup.click_signupModalClose()
 
-    #注释代码是暂时还未实现的check各种注册失败情况下的文案提示
+    # 注释代码是暂时还未实现的check各种注册失败情况下的文案提示
     # @keyword
     # def check_prompt_is_email_has_already_registered(self):
     #     self.signup.explain_is_email_registered()
@@ -88,4 +89,3 @@ class SignupLibrary(object):
     # @keyword
     # def check_prompt_is_password_less_6_characters(self):
     #     self.signup.check_prompt_is_password_less_6_characters()
-        
