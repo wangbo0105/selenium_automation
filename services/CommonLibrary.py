@@ -15,7 +15,8 @@ class CommonLibrary(object):
     @keyword
     def load_veer(self):
         self.base.browser.open(self.base.url)
-        self.base.window.set_window_size(1400, 820)
+        # self.base.window.set_window_size(1400, 820)
+        self.base.window.set_window_size(1600, 1000)
         time.sleep(1)
 
     @keyword
