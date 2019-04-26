@@ -15,7 +15,6 @@ class VideoPlayerLibrary(object):
     def go_video_player(self):
         self.common.go_page('video')
         self.video.click_item('video_content')
-        time.sleep(5)
 
     @keyword()
     def play_video(self):
@@ -31,8 +30,8 @@ class VideoPlayerLibrary(object):
 
     @keyword()
     def switch_resolution(self, reso):
+        time.sleep(2)
         self.video_player.switching_resolution(reso)
-        time.sleep(5)
 
     @keyword()
     def check_current_resolution(self, reso):
