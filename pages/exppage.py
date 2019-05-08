@@ -5,7 +5,7 @@ import re
 
 
 class ExpPage(BasePage):
-    exp_slogan = ('class', 'slogan', 0)  # 互动体验首页banner
+    exp_slogan = ('class', 'experience-detail-player', 0)  # 互动体验首页banner
     load_layer = ('class', 'load-layer', 0)  # 互动体验详情页-exp播放器
 
     banner_tab_active = 'active'

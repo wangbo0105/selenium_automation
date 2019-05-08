@@ -20,9 +20,9 @@ class Language(BasePage):
 
     @staticmethod
     def language_item_dict(name):
-        item_name = {'English': 'Global VR Content Community',
-                     'Chinese': '环 球 V R 内 容 社 区',
-                     'Japanese': 'グローバルVRコンテンツコミュニティ',
+        item_name = {'English': 'Global VR Content Platform',
+                     'Chinese': '全 球 V R 内 容 平 台',
+                     'Japanese': 'グローバルVRコンテンツプラットフォーム',
                      }
         return item_name[name]
 
