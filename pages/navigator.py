@@ -58,7 +58,7 @@ class Navigator(BasePage):
 
     @staticmethod
     def page_slogan_dict():
-        slogan_name = {'home': '环 球 V R 内 容 社 区',
+        slogan_name = {'home': '全 球 V R 内 容 平 台',
                        'photo': 'VeeR 360 全景图',
                        'video': 'VeeR VR 视频',
                        'experience': 'VeeR 全新互动体验',
