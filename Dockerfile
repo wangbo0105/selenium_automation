@@ -9,14 +9,14 @@ ENV HOME=/automation
 WORKDIR ${HOME}
 
 # DEBUG USE
-RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+#RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
 # install pip3
 RUN apt-get update
 RUN apt-get install -y python3-pip
 
 # install selenium
-RUN sudo pip3 install selenium robotframework pyperclip -i https://pypi.douban.com/simple
+RUN sudo pip3 install selenium robotframework pyperclip # -i https://pypi.douban.com/simple
 
 RUN mkdir -p ${HOME}
 
