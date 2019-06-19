@@ -14,9 +14,9 @@ build:image:
         - oregon
         - docker_build
     variables:
-        IMAGE_TAG: ${DOCKER_DOMAIN}:test/cyclops:latest
+        IMAGE_TAG: "${DOCKER_DOMAIN}:test/cyclops:latest"
     script:
-        - docker build -t ${IMAGE_TAG} .
-        - docker push ${IMAGE_TAG}
+        - docker build -t "${IMAGE_TAG}" .
+        - docker push "${IMAGE_TAG}"
 
 
