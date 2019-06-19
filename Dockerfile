@@ -1,30 +1,28 @@
 FROM selenium/node-chrome-debug
 
-ENV HOME=/automation
+USER root
 
-# install pip3
-RUN sudo apt-get update
-RUN sudo apt-get install -y python3-pip
-
-# set display port to avoid crash
-#ENV DISPLAY=:99
 ENV NODE_MAX_INSTANCES 10
 ENV NODE_MAX_SESSION 10
-
-# install selenium
-RUN sudo pip3 install selenium robotframework
-
-
-RUN sudo mkdir -p ${HOME}
-
-RUN sudo chmod 755 ${HOME}
-
-RUN sudo chmod 755 ${HOME}/entrypoint.sh
+ENV HOME=/automation
 
 WORKDIR ${HOME}
 
+# DEBUG USE
+RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+
+# install pip3
+RUN apt-get update
+RUN apt-get install -y python3-pip
+
+# install selenium
+RUN sudo pip3 install selenium robotframework pyperclip -i https://pypi.douban.com/simple
+
+RUN mkdir -p ${HOME}
+
+RUN chmod 755 ${HOME}
+
 COPY . ${HOME}/
 
-ENTRYPOINT ['sh', '${HOME}/entrypoint.sh']
-
+ENTRYPOINT ["./entrypoint.sh"]
 

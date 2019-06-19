@@ -1,0 +1,21 @@
+stage:
+    - build
+
+
+variables:
+  DOCKER_DOMAIN: "155086154000.dkr.ecr.us-west-2.amazonaws.com"
+
+
+build:image:
+    only:
+        - master
+    tags:
+        - oregon
+        - docker_build
+    variables:
+        IMAGE_TAG: ${DOCKER_DOMAIN}:test/cyclops:latest
+    script:
+        - docker build -t ${IMAGE_TAG} .
+        - docker push ${IMAGE_TAG}
+
+
