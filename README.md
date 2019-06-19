@@ -32,23 +32,23 @@ Selenium wrapper for easy use: http://seleniumbase.com
 ### docker based
 
 * pull image from 155086154000.dkr.ecr.us-west-2.amazonaws.com/test/cyclops:latest  
-* docker run 155086154000.dkr.ecr.us-west-2.amazonaws.com/test/cyclops <type> <target>
+* docker run 155086154000.dkr.ecr.us-west-2.amazonaws.com/test/cyclops \<type\> \<target\>
 
 
 ### ci based
 
 * using image 155086154000.dkr.ecr.us-west-2.amazonaws.com/test/cyclops:latest  
-* set run command to <type> <target>
+* set run command to \<type\> \<target\>
 
 
 ## Parameter Explaining
 
-#### <type>
+#### \<type\>
 
 * regression  
 * smoking
 
-#### <target>
+#### \<target\>
 
 * staging  
 * production
