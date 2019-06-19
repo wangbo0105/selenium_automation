@@ -1,5 +1,5 @@
 *** Variables ***
-${usrname}       wangbo@veer.tv
+${usrname}       veerqa@veer.tv
 ${username}      veerqa
 ${password}      123456
 ${nickname}      veerqa
