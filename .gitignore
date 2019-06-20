@@ -3,10 +3,10 @@
 .DS_Store
 /.idea
 .vscode
-report
 log.html
 output.xml
 report.html
 __pycache__
 testdata/userdata.robot
-/report
+report/*.html
+report/*.xml
