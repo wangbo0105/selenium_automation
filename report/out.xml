@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.1 (Python 3.7.3 on darwin)" generated="20190620 16:32:15.636" rpa="false">
+<suite id="s1" name="Smoke" source="/Users/wangbo/PycharmProjects/automation/smoke">
+<suite id="s1-s1" name="Bookmark" source="/Users/wangbo/PycharmProjects/automation/smoke/bookmark">
+<suite id="s1-s1-s1" name="TC bookmark" source="/Users/wangbo/PycharmProjects/automation/smoke/bookmark/TC_bookmark.robot">
+<kw name="Run Keywords" library="BuiltIn" type="setup">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>load veer</arg>
+<arg>AND</arg>
+<arg>login</arg>
+<arg>${usrname}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="Load Veer" library="services.CommonLibrary">
+<status status="FAIL" starttime="20190620 16:32:15.878" endtime="20190620 16:32:18.937"></status>
+</kw>
+<status status="FAIL" starttime="20190620 16:32:15.878" endtime="20190620 16:32:18.938"></status>
+</kw>
+<test id="s1-s1-s1-t1" name="go bookmark tab">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.938" endtime="20190620 16:32:18.939" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s1-s1-t2" name="add bookmark in detail page">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.939" endtime="20190620 16:32:18.940" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s1-s1-t3" name="remove bookmark in detail page">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.940" endtime="20190620 16:32:18.940" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<kw name="Close My Browser" library="services.CommonLibrary" type="teardown">
+<msg timestamp="20190620 16:32:18.943" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10ee82b38&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/b135c58f3b2c055a7a6989104f30113f</msg>
+<msg timestamp="20190620 16:32:18.944" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10ee18f28&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/b135c58f3b2c055a7a6989104f30113f</msg>
+<msg timestamp="20190620 16:32:18.945" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10ee0d9b0&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/b135c58f3b2c055a7a6989104f30113f</msg>
+<status status="PASS" starttime="20190620 16:32:18.941" endtime="20190620 16:32:18.954"></status>
+</kw>
+<doc>bookmark smoke test</doc>
+<status status="FAIL" starttime="20190620 16:32:15.659" endtime="20190620 16:32:18.954">Suite setup failed:
+Execution terminated by signal</status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:15.657" endtime="20190620 16:32:18.956"></status>
+</suite>
+<suite id="s1-s2" name="Collection" source="/Users/wangbo/PycharmProjects/automation/smoke/collection">
+<suite id="s1-s2-s1" name="TC collection" source="/Users/wangbo/PycharmProjects/automation/smoke/collection/TC_collection.robot">
+<test id="s1-s2-s1-t1" name="create collection">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.957" endtime="20190620 16:32:18.958" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s2-s1-t2" name="add content to collection">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.958" endtime="20190620 16:32:18.958" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s2-s1-t3" name="clear collection">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.958" endtime="20190620 16:32:18.959" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>collection smoke test</doc>
+<status status="FAIL" starttime="20190620 16:32:18.957" endtime="20190620 16:32:18.959"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:18.956" endtime="20190620 16:32:18.960"></status>
+</suite>
+<suite id="s1-s3" name="Comment" source="/Users/wangbo/PycharmProjects/automation/smoke/comment">
+<suite id="s1-s3-s1" name="TC comment" source="/Users/wangbo/PycharmProjects/automation/smoke/comment/TC_comment.robot">
+<test id="s1-s3-s1-t1" name="post comment">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.962" endtime="20190620 16:32:18.962" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>comment somke test</doc>
+<status status="FAIL" starttime="20190620 16:32:18.961" endtime="20190620 16:32:18.962"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:18.960" endtime="20190620 16:32:18.963"></status>
+</suite>
+<suite id="s1-s4" name="Exppage" source="/Users/wangbo/PycharmProjects/automation/smoke/exppage">
+<suite id="s1-s4-s1" name="TC exp" source="/Users/wangbo/PycharmProjects/automation/smoke/exppage/TC_exp.robot">
+<test id="s1-s4-s1-t1" name="Interactive experience home page jump verification">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.965" endtime="20190620 16:32:18.965" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s4-s1-t2" name="Interactive experience details page jump verification">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.965" endtime="20190620 16:32:18.966" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>experience smoke test</doc>
+<status status="FAIL" starttime="20190620 16:32:18.964" endtime="20190620 16:32:18.966"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:18.964" endtime="20190620 16:32:18.967"></status>
+</suite>
+<suite id="s1-s5" name="Follow" source="/Users/wangbo/PycharmProjects/automation/smoke/follow">
+<suite id="s1-s5-s1" name="TC follow" source="/Users/wangbo/PycharmProjects/automation/smoke/follow/TC_follow.robot">
+<test id="s1-s5-s1-t1" name="follow creater in content detail page">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.968" endtime="20190620 16:32:18.969" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s5-s1-t2" name="following page :cancel follw alert select unfollow">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.969" endtime="20190620 16:32:18.969" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s5-s1-t3" name="clear following">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.969" endtime="20190620 16:32:18.970" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>follow smoke test</doc>
+<status status="FAIL" starttime="20190620 16:32:18.968" endtime="20190620 16:32:18.970"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:18.967" endtime="20190620 16:32:18.971"></status>
+</suite>
+<suite id="s1-s6" name="Homepage" source="/Users/wangbo/PycharmProjects/automation/smoke/homepage">
+<suite id="s1-s6-s1" name="TC home" source="/Users/wangbo/PycharmProjects/automation/smoke/homepage/TC_home.robot">
+<test id="s1-s6-s1-t1" name="go home page">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.972" endtime="20190620 16:32:18.973" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>Home smoke test</doc>
+<status status="FAIL" starttime="20190620 16:32:18.972" endtime="20190620 16:32:18.973"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:18.971" endtime="20190620 16:32:18.973"></status>
+</suite>
+<suite id="s1-s7" name="Language" source="/Users/wangbo/PycharmProjects/automation/smoke/language">
+<suite id="s1-s7-s1" name="TC language" source="/Users/wangbo/PycharmProjects/automation/smoke/language/TC_language.robot">
+<test id="s1-s7-s1-t1" name="switch english">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.975" endtime="20190620 16:32:18.975" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s7-s1-t2" name="switch japanese">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.975" endtime="20190620 16:32:18.976" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s7-s1-t3" name="switch chinese">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.976" endtime="20190620 16:32:18.976" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>Switch language smoke test</doc>
+<status status="FAIL" starttime="20190620 16:32:18.974" endtime="20190620 16:32:18.976"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:18.974" endtime="20190620 16:32:18.977"></status>
+</suite>
+<suite id="s1-s8" name="Like" source="/Users/wangbo/PycharmProjects/automation/smoke/like">
+<suite id="s1-s8-s1" name="TC like" source="/Users/wangbo/PycharmProjects/automation/smoke/like/TC_like.robot">
+<test id="s1-s8-s1-t1" name="go personal center like tab">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.978" endtime="20190620 16:32:18.979" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s8-s1-t2" name="add photos like">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.979" endtime="20190620 16:32:18.979" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s8-s1-t3" name="clear all liked content">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.979" endtime="20190620 16:32:18.980" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>like test</doc>
+<status status="FAIL" starttime="20190620 16:32:18.978" endtime="20190620 16:32:18.980"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:18.978" endtime="20190620 16:32:18.981"></status>
+</suite>
+<suite id="s1-s9" name="Loginpage" source="/Users/wangbo/PycharmProjects/automation/smoke/loginpage">
+<suite id="s1-s9-s1" name="TC login" source="/Users/wangbo/PycharmProjects/automation/smoke/loginpage/TC_login.robot">
+<test id="s1-s9-s1-t1" name="usrnameLogin">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.982" endtime="20190620 16:32:18.982" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s9-s1-t2" name="mobileLogin">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.983" endtime="20190620 16:32:18.983" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s9-s1-t3" name="emailLogin">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.983" endtime="20190620 16:32:18.983" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>login smoke test</doc>
+<status status="FAIL" starttime="20190620 16:32:18.981" endtime="20190620 16:32:18.984"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:18.981" endtime="20190620 16:32:18.984"></status>
+</suite>
+<suite id="s1-s10" name="Messagepage" source="/Users/wangbo/PycharmProjects/automation/smoke/messagepage">
+<suite id="s1-s10-s1" name="TC message" source="/Users/wangbo/PycharmProjects/automation/smoke/messagepage/TC_message.robot">
+<test id="s1-s10-s1-t1" name="go message page">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.986" endtime="20190620 16:32:18.986" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>message page smoke test</doc>
+<status status="FAIL" starttime="20190620 16:32:18.985" endtime="20190620 16:32:18.986"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:18.985" endtime="20190620 16:32:18.987"></status>
+</suite>
+<suite id="s1-s11" name="Personalpage" source="/Users/wangbo/PycharmProjects/automation/smoke/personalpage">
+<suite id="s1-s11-s1" name="TC personal" source="/Users/wangbo/PycharmProjects/automation/smoke/personalpage/TC_personal.robot">
+<test id="s1-s11-s1-t1" name="go personal page">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.988" endtime="20190620 16:32:18.988" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>Personal center smoke test</doc>
+<status status="FAIL" starttime="20190620 16:32:18.987" endtime="20190620 16:32:18.988"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:18.987" endtime="20190620 16:32:18.989"></status>
+</suite>
+<suite id="s1-s12" name="Photopage" source="/Users/wangbo/PycharmProjects/automation/smoke/photopage">
+<suite id="s1-s12-s1" name="TC photo" source="/Users/wangbo/PycharmProjects/automation/smoke/photopage/TC_photo.robot">
+<test id="s1-s12-s1-t1" name="go photo page">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.990" endtime="20190620 16:32:18.991" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s12-s1-t2" name="go photo detail page">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.991" endtime="20190620 16:32:18.991" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>photo page smoke test</doc>
+<status status="FAIL" starttime="20190620 16:32:18.990" endtime="20190620 16:32:18.991"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:18.990" endtime="20190620 16:32:18.992"></status>
+</suite>
+<suite id="s1-s13" name="Searchpage" source="/Users/wangbo/PycharmProjects/automation/smoke/searchpage">
+<suite id="s1-s13-s1" name="TC search" source="/Users/wangbo/PycharmProjects/automation/smoke/searchpage/TC_search.robot">
+<test id="s1-s13-s1-t1" name="jump &amp; search result validation">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.993" endtime="20190620 16:32:18.993" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>search page jump &amp; search result validation</doc>
+<status status="FAIL" starttime="20190620 16:32:18.993" endtime="20190620 16:32:18.994"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:18.992" endtime="20190620 16:32:18.994"></status>
+</suite>
+<suite id="s1-s14" name="Settingspage" source="/Users/wangbo/PycharmProjects/automation/smoke/settingspage">
+<suite id="s1-s14-s1" name="TC settings" source="/Users/wangbo/PycharmProjects/automation/smoke/settingspage/TC_settings.robot">
+<test id="s1-s14-s1-t1" name="go settings page">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.996" endtime="20190620 16:32:18.996" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s14-s1-t2" name="edit user information">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.996" endtime="20190620 16:32:18.996" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>Settingspage test</doc>
+<status status="FAIL" starttime="20190620 16:32:18.995" endtime="20190620 16:32:18.997"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:18.995" endtime="20190620 16:32:18.997"></status>
+</suite>
+<suite id="s1-s15" name="Signup" source="/Users/wangbo/PycharmProjects/automation/smoke/signup">
+<suite id="s1-s15-s1" name="TC signup" source="/Users/wangbo/PycharmProjects/automation/smoke/signup/TC_signup.robot">
+<test id="s1-s15-s1-t1" name="SimpleSignup">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:18.998" endtime="20190620 16:32:18.999" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>Signup modal test</doc>
+<status status="FAIL" starttime="20190620 16:32:18.998" endtime="20190620 16:32:18.999"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:18.998" endtime="20190620 16:32:19.000"></status>
+</suite>
+<suite id="s1-s16" name="Storepage" source="/Users/wangbo/PycharmProjects/automation/smoke/storepage">
+<suite id="s1-s16-s1" name="TC store" source="/Users/wangbo/PycharmProjects/automation/smoke/storepage/TC_store.robot">
+<test id="s1-s16-s1-t1" name="go store page">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:19.001" endtime="20190620 16:32:19.001" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>Store page smoke test</doc>
+<status status="FAIL" starttime="20190620 16:32:19.000" endtime="20190620 16:32:19.001"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:19.000" endtime="20190620 16:32:19.002"></status>
+</suite>
+<suite id="s1-s17" name="Uploadpage" source="/Users/wangbo/PycharmProjects/automation/smoke/uploadpage">
+<suite id="s1-s17-s1" name="TC upload" source="/Users/wangbo/PycharmProjects/automation/smoke/uploadpage/TC_upload.robot">
+<test id="s1-s17-s1-t1" name="go upload page">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:19.003" endtime="20190620 16:32:19.003" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>Upload page smoke test</doc>
+<status status="FAIL" starttime="20190620 16:32:19.003" endtime="20190620 16:32:19.003"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:19.002" endtime="20190620 16:32:19.004"></status>
+</suite>
+<suite id="s1-s18" name="Videopage" source="/Users/wangbo/PycharmProjects/automation/smoke/videopage">
+<suite id="s1-s18-s1" name="TC video" source="/Users/wangbo/PycharmProjects/automation/smoke/videopage/TC_video.robot">
+<test id="s1-s18-s1-t1" name="go video_page">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:19.005" endtime="20190620 16:32:19.005" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s18-s1-t2" name="go video detail page">
+<tags>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" starttime="20190620 16:32:19.005" endtime="20190620 16:32:19.006" critical="yes">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>video test</doc>
+<status status="FAIL" starttime="20190620 16:32:19.005" endtime="20190620 16:32:19.006"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:19.004" endtime="20190620 16:32:19.007"></status>
+</suite>
+<status status="FAIL" starttime="20190620 16:32:15.637" endtime="20190620 16:32:19.008"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="34">Critical Tests</stat>
+<stat pass="0" fail="34">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="0" info="combined" combined="NOT robot:exit">NOT robot:exit</stat>
+<stat pass="0" fail="34">robot:exit</stat>
+</tag>
+<suite>
+<stat pass="0" fail="34" id="s1" name="Smoke">Smoke</stat>
+<stat pass="0" fail="3" id="s1-s1" name="Bookmark">Smoke.Bookmark</stat>
+<stat pass="0" fail="3" id="s1-s1-s1" name="TC bookmark">Smoke.Bookmark.TC bookmark</stat>
+<stat pass="0" fail="3" id="s1-s2" name="Collection">Smoke.Collection</stat>
+<stat pass="0" fail="3" id="s1-s2-s1" name="TC collection">Smoke.Collection.TC collection</stat>
+<stat pass="0" fail="1" id="s1-s3" name="Comment">Smoke.Comment</stat>
+<stat pass="0" fail="1" id="s1-s3-s1" name="TC comment">Smoke.Comment.TC comment</stat>
+<stat pass="0" fail="2" id="s1-s4" name="Exppage">Smoke.Exppage</stat>
+<stat pass="0" fail="2" id="s1-s4-s1" name="TC exp">Smoke.Exppage.TC exp</stat>
+<stat pass="0" fail="3" id="s1-s5" name="Follow">Smoke.Follow</stat>
+<stat pass="0" fail="3" id="s1-s5-s1" name="TC follow">Smoke.Follow.TC follow</stat>
+<stat pass="0" fail="1" id="s1-s6" name="Homepage">Smoke.Homepage</stat>
+<stat pass="0" fail="1" id="s1-s6-s1" name="TC home">Smoke.Homepage.TC home</stat>
+<stat pass="0" fail="3" id="s1-s7" name="Language">Smoke.Language</stat>
+<stat pass="0" fail="3" id="s1-s7-s1" name="TC language">Smoke.Language.TC language</stat>
+<stat pass="0" fail="3" id="s1-s8" name="Like">Smoke.Like</stat>
+<stat pass="0" fail="3" id="s1-s8-s1" name="TC like">Smoke.Like.TC like</stat>
+<stat pass="0" fail="3" id="s1-s9" name="Loginpage">Smoke.Loginpage</stat>
+<stat pass="0" fail="3" id="s1-s9-s1" name="TC login">Smoke.Loginpage.TC login</stat>
+<stat pass="0" fail="1" id="s1-s10" name="Messagepage">Smoke.Messagepage</stat>
+<stat pass="0" fail="1" id="s1-s10-s1" name="TC message">Smoke.Messagepage.TC message</stat>
+<stat pass="0" fail="1" id="s1-s11" name="Personalpage">Smoke.Personalpage</stat>
+<stat pass="0" fail="1" id="s1-s11-s1" name="TC personal">Smoke.Personalpage.TC personal</stat>
+<stat pass="0" fail="2" id="s1-s12" name="Photopage">Smoke.Photopage</stat>
+<stat pass="0" fail="2" id="s1-s12-s1" name="TC photo">Smoke.Photopage.TC photo</stat>
+<stat pass="0" fail="1" id="s1-s13" name="Searchpage">Smoke.Searchpage</stat>
+<stat pass="0" fail="1" id="s1-s13-s1" name="TC search">Smoke.Searchpage.TC search</stat>
+<stat pass="0" fail="2" id="s1-s14" name="Settingspage">Smoke.Settingspage</stat>
+<stat pass="0" fail="2" id="s1-s14-s1" name="TC settings">Smoke.Settingspage.TC settings</stat>
+<stat pass="0" fail="1" id="s1-s15" name="Signup">Smoke.Signup</stat>
+<stat pass="0" fail="1" id="s1-s15-s1" name="TC signup">Smoke.Signup.TC signup</stat>
+<stat pass="0" fail="1" id="s1-s16" name="Storepage">Smoke.Storepage</stat>
+<stat pass="0" fail="1" id="s1-s16-s1" name="TC store">Smoke.Storepage.TC store</stat>
+<stat pass="0" fail="1" id="s1-s17" name="Uploadpage">Smoke.Uploadpage</stat>
+<stat pass="0" fail="1" id="s1-s17-s1" name="TC upload">Smoke.Uploadpage.TC upload</stat>
+<stat pass="0" fail="2" id="s1-s18" name="Videopage">Smoke.Videopage</stat>
+<stat pass="0" fail="2" id="s1-s18-s1" name="TC video">Smoke.Videopage.TC video</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20190620 16:32:18.943" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10ee82b38&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/b135c58f3b2c055a7a6989104f30113f</msg>
+<msg timestamp="20190620 16:32:18.944" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10ee18f28&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/b135c58f3b2c055a7a6989104f30113f</msg>
+<msg timestamp="20190620 16:32:18.945" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10ee0d9b0&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/b135c58f3b2c055a7a6989104f30113f</msg>
+</errors>
+</robot>
