@@ -3,6 +3,7 @@ Documentation   blog smoke test
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
+Force Tags  production
 
 
 *** Test Cases ***

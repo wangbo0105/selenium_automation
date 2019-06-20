@@ -42,15 +42,17 @@ if [ $2 = "production" ]; then
 	echo "ON PRODUCTION"
 	cp $HOME/testdata/prod_userdata.robot $HOME/testdata/userdata.robot
     export PRODUCTION=true
+    robot --pythonpath ${HOME}/services --pythonpath ${HOME}  ${HOME}/${TARGET}
 elif [ $2 = "staging" ]; then
 	echo "ON STAGING"
 	cp $HOME/testdata/stg_userdata.robot $HOME/testdata/userdata.robot
+	robot -e production --pythonpath ${HOME}/services --pythonpath ${HOME}  ${HOME}/${TARGET}
 else
     echo "Invalid target"
     print_usage
     exit 1
 fi
 
-robot --pythonpath ${HOME}/services --pythonpath ${HOME}  ${HOME}/${TARGET}
+#robot --pythonpath ${HOME}/services --pythonpath ${HOME}  ${HOME}/${TARGET}
 
 
