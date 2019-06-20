@@ -12,9 +12,9 @@ class LoginPage(BasePage):
     forgetPwd = ('class', 'forget-pwd', 0)  # 忘记密码
     registered = ('id', 'signupLink', 0)  # 注册
     log_out = ('link_text', '退出', 0)  # 用户tab——退出
-    user_tab = ('css','.user-avatar.ant-dropdown-trigger',0)
+    user_tab = ('css', '.user-avatar.ant-dropdown-trigger', 0)
     close_login_modal = ('class', 'ant-modal-close', 0)  # 登录弹框关闭button
-    signupLoginBtn = ('xpath','//div[@class="tips"]/div[@class="login"]', 0) # 注册弹框上的login button
+    signupLoginBtn = ('xpath', '//div[@class="tips"]/div[@class="login"]', 0)  # 注册弹框上的login button
     WeChat_button = ('id', 'wechatLoginBtn', 0)
     WeChat_modal = ('class', 'ant-modal-content', 0)
     forget_password_link = ('link_text', '忘记密码?', 0)
@@ -76,7 +76,7 @@ class LoginPage(BasePage):
 
     def check_WeChat_modal(self):
         self.element.is_element_exist(self.WeChat_modal)
-    
+
     def click_forget_password(self):
         self.element.click(self.forget_password_link)
 
@@ -89,7 +89,6 @@ class LoginPage(BasePage):
         print("email")
         print(email)
         self.element.send_keys(self.emailInput, email)
-        
 
     def select_next_step(self):
         self.element.click(self.nextStepBtn)
@@ -99,13 +98,12 @@ class LoginPage(BasePage):
 
     def check_sent_email_modal(self):
         self.element.is_element_exist(self.emailSentModal)
-    
+
     def close_sent_email_modal(self):
         self.element.click(self.emailSentModalClose)
-    
+
     def select_resent_email(self):
         self.element.click(self.resentBtn)
-    
+
     def close_forget_password_modal(self):
         self.element.click(self.forgetPasswordClose)
-        

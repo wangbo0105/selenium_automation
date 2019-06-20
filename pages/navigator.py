@@ -13,7 +13,7 @@ class Navigator(BasePage):
                      'video': ('class', 'ant-menu-item', 1),
                      'photo': ('class', 'ant-menu-item', 2),
                      'experience': ('class', 'ant-menu-item', 3),
-                     'blog': ('class', 'ant-menu-item', 4),
+                     'blog': ('xpath', '//*[@id="app"]/div/div/header/nav[1]/div/ul/li[2]/a', 0),
                      'store': ('class', 'ant-menu-item', 5),
                      'message': ('class', 'message-box-header', 0),
                      'signup': ('class', 'header-signup', 0),
@@ -62,7 +62,7 @@ class Navigator(BasePage):
                        'photo': 'VeeR 360 全景图',
                        'video': 'VeeR VR 视频',
                        'experience': 'VeeR 全新互动体验',
-                       'blog': ' VeeR VR 博客 ',
+                       'blog': 'VEER VR 博客',
                        'upload': '上传360/VR图片或视频',
                        'message': '消息',
 

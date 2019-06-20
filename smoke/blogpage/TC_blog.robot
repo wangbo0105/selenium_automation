@@ -8,5 +8,6 @@ Library  services.CommonLibrary
 *** Test Cases ***
 go blog page
     Given go page  blog
+    Then switch window
     Then should be expected page  blog
     And url should be matching  blog

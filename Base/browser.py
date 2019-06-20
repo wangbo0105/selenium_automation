@@ -1,3 +1,5 @@
+import json
+
 from Base import current_driver
 import time
 
@@ -32,3 +34,8 @@ class Browser(object):
     def quit():
         """退出浏览器"""
         current_driver.quit()
+
+    def get_cookies(self, path="cookies.txt"):
+        cookies = self.driver().get_cookies()
+        with open(path, "w") as fp:
+            json.dump(cookies, fp)

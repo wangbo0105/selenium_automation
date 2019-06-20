@@ -1,8 +1,8 @@
 *** Variables ***
-${usrname}       wangbo@veer.tv
-${username}      veerqa
+${usrname}       pro_veer@veer.tv
+${username}      pro_veer
 ${password}      123456
-${nickname}      veerqa
+${nickname}      pro_veer
 
 ###仅用于验证是一个有效的邮箱格式
 ${Valid email}            veerqa+999@veer.tv

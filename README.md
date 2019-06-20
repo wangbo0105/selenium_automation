@@ -21,9 +21,9 @@ pip3 install -r requirements.txt
 
 
 ## References
-Why page object: https://martinfowler.com/bliki/PageObject.html
-Page object wrapper of selenium: https://github.com/wgnet/webium
-Selenium wrapper for easy use: http://seleniumbase.com
+- Why page object: https://martinfowler.com/bliki/PageObject.html
+- Page object wrapper of selenium: https://github.com/wgnet/webium
+- Selenium wrapper for easy use: http://seleniumbase.com
 
 
 

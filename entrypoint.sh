@@ -41,6 +41,7 @@ fi
 if [ $2 = "production" ]; then
 	echo "ON PRODUCTION"
 	cp $HOME/testdata/prod_userdata.robot $HOME/testdata/userdata.robot
+    export PRODUCTION=true
 elif [ $2 = "staging" ]; then
 	echo "ON STAGING"
 	cp $HOME/testdata/stg_userdata.robot $HOME/testdata/userdata.robot
