@@ -4,6 +4,7 @@ from services.CommonLibrary import CommonLibrary
 from pages.basepage import BasePage
 import time
 
+
 class LoginLibrary(object):
 
     def __init__(self):
@@ -39,13 +40,13 @@ class LoginLibrary(object):
             self.loginpage.click_close_login_modal()
             self.base.element.is_element_exist(self.loginpage.login_tab)
 
-# def sign_up(self, email =None , username =None, password = None,ExpectedResult = True):
-#         self.signup.input_email(email)
-#         self.signup.input_username(username)
-#         self.signup.input_password(password)
-#         self.signup.submit()
-#         if ExpectedResult == 'False':
-#           self.close_signup_modal()
+    # def sign_up(self, email =None , username =None, password = None,ExpectedResult = True):
+    #         self.signup.input_email(email)
+    #         self.signup.input_username(username)
+    #         self.signup.input_password(password)
+    #         self.signup.submit()
+    #         if ExpectedResult == 'False':
+    #           self.close_signup_modal()
 
     @keyword
     def login(self, username, password, remember=True):
@@ -79,7 +80,7 @@ class LoginLibrary(object):
     @keyword
     def select_WeChat(self):
         self.loginpage.click_WeChat_button()
-    
+
     @keyword
     def check_WeChat_modal(self):
         self.loginpage.check_WeChat_modal()
@@ -87,8 +88,8 @@ class LoginLibrary(object):
     @keyword
     def select_forget_password(self):
         self.loginpage.click_forget_password()
-    
-    @keyword 
+
+    @keyword
     def check_forget_password_modal(self):
         self.loginpage.check_forget_password_modal()
 
@@ -97,11 +98,11 @@ class LoginLibrary(object):
         self.loginpage.input_email(email)
         print("hello word")
         print(email)
-    
+
     @keyword
     def select_next_step(self):
         self.loginpage.select_next_step()
-    
+
     @keyword
     def check_prompt_wrong_format_email(self):
         self.loginpage.check_prompt_wrong_format_email()
@@ -117,10 +118,13 @@ class LoginLibrary(object):
     @keyword
     def select_resent_email(self):
         self.loginpage.select_resent_email()
-        
+
     @keyword
     def close_forget_password_modal(self):
         self.loginpage.close_forget_password_modal()
 
-
-    
+    @keyword
+    def free_login(self, username, password):
+        self.login(username, password)
+        self.base.browser.get_cookies()
+        self.base.browser.add_cookies()

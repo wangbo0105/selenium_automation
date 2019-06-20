@@ -35,7 +35,13 @@ class Browser(object):
         """退出浏览器"""
         current_driver.quit()
 
-    def get_cookies(self, path="cookies.txt"):
+    def get_cookies(self):
         cookies = self.driver().get_cookies()
-        with open(path, "w") as fp:
+        with open("cookies.json", "w") as fp:
             json.dump(cookies, fp)
+
+    def add_cookies(self):
+        with open("cookies.json", "r") as fp:
+            cookies = json.load(fp)
+            for cookie in cookies:
+                self.driver().add_cookie(cookie)

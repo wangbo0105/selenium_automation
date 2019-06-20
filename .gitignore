@@ -8,3 +8,5 @@ output.xml
 report.html
 __pycache__
 testdata/userdata.robot
+test/
+cookies.json
