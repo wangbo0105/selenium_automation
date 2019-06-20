@@ -47,7 +47,7 @@ if [ $2 = "production" ]; then
 elif [ $2 = "staging" ]; then
 	echo "ON STAGING"
 	cp $HOME/testdata/stg_userdata.robot $HOME/testdata/userdata.robot
-	robot -l ./report/log -r ./report/report -o ./report/out -e production --pythonpath ${HOME}/services --pythonpath ${HOME}  ${HOME}/${TARGET}
+	robot -l ./report/log -r ./report/report -o ./report/output -e production --pythonpath ${HOME}/services --pythonpath ${HOME}  ${HOME}/${TARGET}
 
 else
     echo "Invalid target"

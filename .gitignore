@@ -8,6 +8,3 @@ output.xml
 report.html
 __pycache__
 testdata/userdata.robot
-report/out.xml
-report/log.html
-report/report.html
