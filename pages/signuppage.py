@@ -3,6 +3,7 @@ import time
 
 
 class SignupPage(BasePage):
+    signupBtn = ('xpath', '//div[@class="login-options"]//a', 0)
     email_input = ('css', '#signupIdentifier', 0)  # 邮箱输入框
     email_type = ('xpath', '//div[@class="signup-options"]/div', 1)
 
@@ -20,6 +21,9 @@ class SignupPage(BasePage):
     purposeModalDone = ('xpath', "//div[@class='purpose-modal-btns']/button", 0)
     purposeModalCloseBtn = ('class', 'ant-modal-close', 0)
     explain_is_exit = ('class', 'ant-form-explain', 0)
+
+    def clickSignupButton(self):
+        self.element.click(self.signupBtn)
 
     def select_email(self):
         self.element.click(self.email_type)
