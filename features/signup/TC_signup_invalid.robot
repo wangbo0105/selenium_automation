@@ -24,7 +24,8 @@ Email Already Registered         juxuan@veer.tv     ${Valid fullname}     ${Vali
 *** Keywords ***
 signupDDT
     [Arguments]    ${email}    ${username}    ${password}     &{nickname}     ${ExpectedResult}
-    Given go page  signup  
+    Given go page  login
+    When select signup
     When sign up   ${email}    ${username}    ${password}     &{nickname}     ${ExpectedResult}
 
 

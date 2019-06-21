@@ -29,7 +29,7 @@ def __create_driver(browser='chrome'):
     # option_chrome.add_argument('maximized')  # Windows 全屏
     # option_chrome.add_argument("--proxy-server='direct://'")
     # option_chrome.add_argument("--proxy-bypass-list=*")
-    # option_chrome.add_argument('headless')  
+    option_chrome.add_argument('headless')  
 
     if browser == 'chrome':
         driver = webdriver.Chrome(chrome_options=option_chrome)
