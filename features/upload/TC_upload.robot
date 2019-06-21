@@ -5,7 +5,6 @@ Suite Teardown  close my browser
 Library  services.CommonLibrary
 Library  services.UploadLibrary
 Library  services.LoginLibrary
-Library         Selenium2Library
 Resource  ../../testdata/userdata.robot
 
 
@@ -17,9 +16,6 @@ Select upload - upload one video
     js upload
     Then is upload page
 
-*** Keywords ***
-js upload
-    Execute JavaScript          window.scrollTo(0,2000)
    
       
    

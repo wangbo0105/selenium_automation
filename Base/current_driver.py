@@ -33,9 +33,6 @@ def __create_driver(browser='chrome'):
 
     if browser == 'chrome':
         driver = webdriver.Chrome(chrome_options=option_chrome)
-#       driver = webdriver.Remote(command_executor='http://127.0.0.1:32768/wd/hub',
-# desired_capabilities={'browserName': 'chrome'}
-# )
     elif browser == 'firefox':
         driver = webdriver.Firefox()
     elif browser == 'safari':

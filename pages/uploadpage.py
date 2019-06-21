@@ -22,5 +22,5 @@ class UploadPage(BasePage):
         self.element.send_keys(self.uoplodBtn,"/Users/cc/testfile/test_photos/ gear/gear_road/IMG_0647.JPG")
 
     def is_photo_Upload_page(self):
-        time.sleep(10)
+        time.sleep(4)
         self.element.is_element_exist(self.photoCanvas)
