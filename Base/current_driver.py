@@ -36,6 +36,7 @@ def __create_driver(browser='chrome'):
     option_chrome.add_argument('--disable-gpu')  # 谷歌文档提到需要加上这个属性来规避bug
     # option_chrome.add_argument('--hide-scrollbars') #隐藏滚动条, 应对一些特殊页面
     # option_chrome.add_argument('blink-settings=imagesEnabled=false')  # 不加载图片, 提升速度
+    option_chrome.add_argument('--enable-features=NetworkService,NetworkServiceInProcess')
 
     if browser == 'chrome':
         driver = webdriver.Chrome(chrome_options=option_chrome)

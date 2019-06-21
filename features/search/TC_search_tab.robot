@@ -1,11 +1,13 @@
 *** Settings ***
 Documentation   search page jump & search result validation
-
+Suite Setup  Run Keywords  load veer  AND  login  ${usrname}  ${password}
 Test Setup        load veer
 Test Teardown     close my browser
 
 Library           services.CommonLibrary
 Library           services.SearchLibrary
+Library  services.LoginLibrary
+Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
 Check search content no result page 

@@ -1,9 +1,11 @@
 *** Settings ***
 Documentation    Switch language test
-Suite Setup  load veer
+Suite Setup  Run Keywords  load veer  AND  login  ${usrname}  ${password}
 Suite Teardown  close my browser
 Library  services.CommonLibrary
 Library  services.LanguageLibrary
+Library  services.LoginLibrary
+Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
 switch english
