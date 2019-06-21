@@ -3,6 +3,7 @@ ${usrname}       pro_veer@veer.tv
 ${username}      pro_veer
 ${password}      123456
 ${nickname}      pro_veer
+${fullname}      veerqa
 
 ###仅用于验证是一个有效的邮箱格式
 ${Valid email}            veerqa+999@veer.tv

@@ -9,6 +9,7 @@ class SignupPage(BasePage):
 
     username_input = ('css', '#signupUsername', 0)  # 用户名输入框
     nickname_input = ('css', '#signupFullname', 0)
+    fullname_input = ('css', '#signupFullname', 0)  
     password = ('css', '#signupPassword', 0)  # 密码输入框
     signBtn = ('css', '.ant-btn.ant-btn-primary.ant-btn-lg.submit-btn', 0)  # 注册button
     # signBtn = ('xpath', '/html/body/div[6]/div/div[2]/div/div[1]/div/div[3]/form/button', 0)  # 注册button
@@ -46,6 +47,12 @@ class SignupPage(BasePage):
         """输入昵称"""
         self.element.send_keys(self.nickname_input, nickname)
 
+    def input_fullname(self, fullname):
+        self.element.double_click(self.fullname_input)
+        self.element.backSpace(self.fullname_input)
+        """输入昵称"""
+        self.element.send_keys(self.fullname_input, fullname)
+
     def input_password(self, pwd):
         self.element.double_click(self.password)
         self.element.backSpace(self.password)
@@ -60,37 +67,37 @@ class SignupPage(BasePage):
     def signup_success(self):
         self.element.is_element_not_exist(self.email_input)
 
-    def is_exist_purposeModal(self):
-        self.element.is_element_exist(self.purposeModal)
+    # def is_exist_purposeModal(self):
+    #     self.element.is_element_exist(self.purposeModal)
 
-    def skip_purposeModal(self):
-        self.element.click(self.purposeModalSkipBtn)
+    # def skip_purposeModal(self):
+    #     self.element.click(self.purposeModalSkipBtn)
 
-    def click_purposeModalCloseBtn(self):
-        self.element.click(self.purposeModalCloseBtn)
+    # def click_purposeModalCloseBtn(self):
+    #     self.element.click(self.purposeModalCloseBtn)
 
-    def is_exist_signupModal(self):
-        self.element.is_element_exist(self.signupModalCloseBtn)
+    # def is_exist_signupModal(self):
+    #     self.element.is_element_exist(self.signupModalCloseBtn)
 
-    def click_signupModalClose(self):
-        self.element.click(self.signupModalCloseBtn)
+    # def click_signupModalClose(self):
+    #     self.element.click(self.signupModalCloseBtn)
 
-    def click_one_purpose(self):
-        self.element.click(self.purposeItem)
+    # def click_one_purpose(self):
+    #     self.element.click(self.purposeItem)
 
-    def cancel_click_one_purpose(self):
-        self.element.click(self.purposeItem)
+    # def cancel_click_one_purpose(self):
+    #     self.element.click(self.purposeItem)
 
-    def one_purpose_is_selected(self):
-        active = self.element.get_attribute(self.purposeItem, 'class')
-        self.element.should_contains(active, 'active')
+    # def one_purpose_is_selected(self):
+    #     active = self.element.get_attribute(self.purposeItem, 'class')
+    #     self.element.should_contains(active, 'active')
 
-    def one_purpose_is_not_selected(self):
-        active = self.element.get_attribute(self.purposeItem, 'class')
-        self.element.should_be_equal(active, 'list-item')
+    # def one_purpose_is_not_selected(self):
+    #     active = self.element.get_attribute(self.purposeItem, 'class')
+    #     self.element.should_be_equal(active, 'list-item')
 
-    def done_purposeModal(self):
-        self.element.click(self.purposeModalDone)
+    # def done_purposeModal(self):
+    #     self.element.click(self.purposeModalDone)
 
     # def explain_is_email_registered(self):
     #     self.element.is_element_exist(self.explain_is_exit)
@@ -103,3 +110,4 @@ class SignupPage(BasePage):
 
     # def check_prompt_is_password_less_6_characters(self):
     #     self.element.is_element_exist(self.explain_is_exit)
+                                                                                     
