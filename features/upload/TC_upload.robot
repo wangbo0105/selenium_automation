@@ -7,10 +7,15 @@ Library  services.UploadLibrary
 Library  services.LoginLibrary
 Resource  ../../testdata/userdata.robot
 
+
 *** Test Cases ***
 Select upload - upload one video 
     Given login  ${usrname}  ${password}
     And select upload
     When upload one photo
+    js upload
     Then is upload page
+
+   
+      
    

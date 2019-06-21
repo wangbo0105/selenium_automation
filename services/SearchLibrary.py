@@ -11,6 +11,7 @@ class SearchLibrary(object):
     @keyword
     def search_content(self, searchword):
         """点击搜索，输入搜索词，敲击回车，查看搜索结果"""
+
         self.search.click_search_box()
         self.search.input_searchWord(searchword)
         time.sleep(3)

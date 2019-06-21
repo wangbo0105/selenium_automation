@@ -10,6 +10,7 @@ Resource  ../../testdata/userdata.robot
 *** Test cases ***
 SimpleSignup
     ${Random int} =         Evaluate    random.randint(0, 1000000)    modules=random
-    Given go page  signup
+    Given go page  login
+    When select signup
     When sign up   juxuan+${Random int}@veer.tv      qatest${Random int}   ${nickname}     ${password}
     Then signup success
