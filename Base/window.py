@@ -47,11 +47,16 @@ class Window(object):
         """最小化当前窗口的浏览器窗口"""
         self.driver().minimize_window()
 
-    def get_handle(self):
+    def get_current_handle(self):
         """获取当前页面的句柄"""
         handle = self.driver().current_window_handle
         print(handle)
         return handle
+
+    def get_handles(self):
+        """获取所有页面的句柄"""
+        handles = self.driver().window_handles
+        return handles
 
     def switch_handle(self):
         """切换到指定的window_name页面"""
@@ -70,8 +75,7 @@ class Window(object):
 
     def switch_handles(self, handle):
         """切换到指定的window_name页面"""
-        handles = self.driver().window_handles
-        self.driver().switch_to.window(handles[handle])
+        self.driver().switch_to.window(handle)
         time.sleep(3)
 
     def get_title(self):
