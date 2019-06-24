@@ -69,9 +69,9 @@ class SignupLibrary(object):
     #     self.login.hover_user_tab()
     #     self.login.click_log_out()
 
-    # @keyword
-    # def close_signup_modal(self):
-    #     self.signup.click_signupModalClose()
+    @keyword
+    def close_signup_modal(self):
+        self.signup.click_signupModalClose()
 
     # 注释代码是暂时还未实现的check各种注册失败情况下的文案提示
     # @keyword

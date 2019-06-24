@@ -9,11 +9,7 @@ Library  services.SignupLibrary
 Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
-Signup modal -login 
-    Given go page  signup
-    When select login
-    Then all login  ${usrname}  ${password}   True
-    
+
 Check WeChat modal
     Given go page  login
     When select WeChat

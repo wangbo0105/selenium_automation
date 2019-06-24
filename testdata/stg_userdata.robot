@@ -4,6 +4,8 @@ ${username}      veerqa
 ${password}      123456
 ${nickname}      veerqa
 ${fullname}      veerqa
+${signupSuccess}  true
+${signupFailed}  false
 
 
 
