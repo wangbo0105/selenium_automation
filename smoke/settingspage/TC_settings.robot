@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    Settingspage test
 Suite Setup  Run Keywords  load veer  AND  login  ${usrname}  ${password}
+Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
 Library  services.SettingsLibrary
@@ -13,6 +14,7 @@ go settings page
     Then should be settings page
 
 edit user information
-    Given edit user information
+    Given go settings page
+    Then edit user information
     And refresh current window
     Then check user information was modified successfully

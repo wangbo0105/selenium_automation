@@ -34,9 +34,10 @@ def __create_driver(browser='chrome'):
     option_chrome.add_argument('--disable-dev-shm-usage')
     # option_chrome.add_argument('window-size=1920x3000') #指定浏览器分辨率
     option_chrome.add_argument('--disable-gpu')  # 谷歌文档提到需要加上这个属性来规避bug
-    option_chrome.add_argument('--hide-scrollbars') #隐藏滚动条, 应对一些特殊页面
+    option_chrome.add_argument('--hide-scrollbars')  # 隐藏滚动条, 应对一些特殊页面
     # option_chrome.add_argument('blink-settings=imagesEnabled=false')  # 不加载图片, 提升速度
-    option_chrome.add_argument('--enable-features=NetworkService,NetworkServiceInProcess')
+    option_chrome.add_argument(
+        '--enable-features=NetworkService,NetworkServiceInProcess')  # 修复chrome74 版本静默模式cookies丢失问题
 
     if browser == 'chrome':
         driver = webdriver.Chrome(chrome_options=option_chrome)

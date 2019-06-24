@@ -62,7 +62,7 @@ class SignupPage(BasePage):
     def submit(self):
         """点击注册button"""
         self.element.click(self.signBtn)
-        time.sleep(3)
+        time.sleep(8)
 
     def signup_success(self):
         self.element.is_element_not_exist(self.email_input)

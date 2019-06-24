@@ -33,7 +33,7 @@ class Collection(BasePage):
     del_no = ('class', 'right-btn', 0)  # 删除-取消删除
     col_del_btn = ('xpath', '//div[@class="operation"]/img[2]', 0)  # collection 详情页删除button
     col_edit_btn = ('xpath', '//div[@class="operation"]/img[1]', 0)  # collection 详情页编辑button
-    collection_box = ('xpath', '//div[@class="play-overlay"]/a', 0)  # collection tab -第一个合辑
+    collection_box = ('xpath', '//div[@class="collection-title"]/a', 0)  # collection tab -第一个合辑
     content_href = ('xpath', '//div[@class="cover-bg"]/a', 0)  # collection box-第一个作品
     collection_box_title = ('xpath', '//div[@class="collection-title"]/a', 0)  # 合辑名称
     content_remove_btn = ('class', 'remove', 0)

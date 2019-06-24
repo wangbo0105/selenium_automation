@@ -7,7 +7,7 @@ Library  services.CommonLibrary
 Library  services.SignupLibrary
 Resource  ../../testdata/userdata.robot
 
-*** Test cases ***
+*** Test Cases ***
 SimpleSignup
     ${Random int} =         Evaluate    random.randint(0, 1000000)    modules=random
     Given go page  login

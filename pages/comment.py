@@ -1,5 +1,6 @@
 from pages.basepage import BasePage
 from module.random_generator import RandomGenerator
+import time
 
 
 class Comment(BasePage):
@@ -30,6 +31,7 @@ class Comment(BasePage):
 
     def click_submit_btn(self):
         self.element.click(self.submit_btn)
+        time.sleep(2)
 
     def check_comment(self):
         self.element.is_text_in_element(self.comment_content, self.comment_text)

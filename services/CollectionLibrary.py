@@ -5,6 +5,7 @@ from services.CommonLibrary import CommonLibrary
 from services.PersonalLibrary import PersonalLibrary
 from services.HomeLibrary import HomeLibrary
 from services.PhotoLibrary import PhotoLibrary
+import time
 
 
 class CollectionLibrary(object):
@@ -75,6 +76,7 @@ class CollectionLibrary(object):
 
     @keyword
     def check_create_collection_box_results(self, state=True):
+        time.sleep(2)
         self.collection.check_create_collection_box_results(state)
 
     @keyword

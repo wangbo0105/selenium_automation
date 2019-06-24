@@ -1,5 +1,6 @@
 from pages.basepage import BasePage
 from module.random_generator import RandomGenerator
+import time
 
 
 class SettingsPage(BasePage):
@@ -39,6 +40,7 @@ class SettingsPage(BasePage):
 
     def click_save_btn(self):
         self.element.click(self.save_btn)
+        time.sleep(2)
 
     def is_settings_page(self):
         self.window.is_text_in_url('settings')

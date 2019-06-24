@@ -12,7 +12,7 @@ class LoginPage(BasePage):
     forgetPwd = ('class', 'forget-pwd', 0)  # 忘记密码
     registered = ('id', 'signupLink', 0)  # 注册
     log_out = ('link_text', '退出', 0)  # 用户tab——退出
-    user_tab = ('css', '.user-avatar.ant-dropdown-trigger', 0)
+    user_tab = ('class', 'ant-dropdown-trigger', 0)  # 用户tab
     close_login_modal = ('class', 'ant-modal-close', 0)  # 登录弹框关闭button
     signupLoginBtn = ('xpath', '//div[@class="tips"]/div[@class="login"]', 0)  # 注册弹框上的login button
     WeChat_button = ('id', 'wechatLoginBtn', 0)
