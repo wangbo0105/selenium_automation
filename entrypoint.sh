@@ -42,7 +42,7 @@ if [ $2 = "production" ]; then
 	echo "ON PRODUCTION"
 	cp $HOME/testdata/prod_userdata.robot $HOME/testdata/userdata.robot
     export PRODUCTION=true
-    robot -l ./report/log -r ./report/report -o ./report/out --pythonpath ${HOME}/services --pythonpath ${HOME}  ${HOME}/${TARGET}
+    robot -l ./report/log -r ./report/report -o ./report/output --pythonpath ${HOME}/services --pythonpath ${HOME}  ${HOME}/${TARGET}
 
 elif [ $2 = "staging" ]; then
 	echo "ON STAGING"
