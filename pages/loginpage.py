@@ -53,6 +53,7 @@ class LoginPage(BasePage):
 
     def click_log_out(self):
         """点击退出tab"""
+        time.sleep(3)
         self.element.click(self.log_out)
 
     def click_close_login_modal(self):

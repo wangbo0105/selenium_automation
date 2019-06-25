@@ -45,3 +45,6 @@ Check WeChat modal
     When select WeChat
     Then check WeChat modal
     And close login modal
+
+
+
