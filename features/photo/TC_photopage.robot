@@ -19,18 +19,12 @@ go photo content detail page
     When photo click item  photo_content
     Then should be photo detail page
 
-select featured tab
+switch tabs-nav
     Given go page  photo
     When photo click item  featured
     Then the banner tab should be selected  featured
-
-select popular tab
-    Given go page  photo
     When photo click item  popular
     Then the banner tab should be selected  popular
-
-select recent tab
-    Given go page  photo
     When photo click item  recent
     Then the banner tab should be selected  recent
 

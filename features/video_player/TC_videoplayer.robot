@@ -1,10 +1,13 @@
 *** Settings ***
 Documentation   video player test
+Suite Setup  Run Keywords  load veer  AND  login  ${usrname}  ${password}
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.VideoLibrary
 Library  services.VideoPlayerLibrary
 Library  services.CommonLibrary
+Library  services.LoginLibrary
+Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
 

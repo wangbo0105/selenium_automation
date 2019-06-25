@@ -19,11 +19,12 @@ class Navigator(BasePage):
                      'signup': ('class', 'header-signup', 0),
                      'login': ('class', 'header-login', 0),
                      'user': ('class', 'ant-dropdown-trigger', 0),
-                     'upload': ('class', 'upload-btn', 0), }
+                     'upload': ('class', 'upload-btn', 0),
+                     'discover': ('class', 'discover', 0), }
         return page_name
 
     def go_page(self, name):
-        page = Navigator().page_dict()
+        page = self.page_dict()
         self.element.click(page[name])
         time.sleep(2)
 
@@ -41,7 +42,8 @@ class Navigator(BasePage):
             'upload': r'/upload',
             'message': r'/messages',
             'paid': r'/paid',
-            'contents': r'/contents/'
+            'contents': r'/contents/',
+            'discover': r'/discover'
 
         }
         return url_regular
@@ -65,7 +67,7 @@ class Navigator(BasePage):
                        'blog': 'VEER VR 博客',
                        'upload': '上传360/VR图片或视频',
                        'message': '消息',
-
+                       'discover': '全 球 V R 内 容 平 台',
                        }
         return slogan_name
 
@@ -78,11 +80,11 @@ class Navigator(BasePage):
                       'blog': ('class', 'navbar-brand', 0),
                       'upload': ('class', 'upload-title', 0),
                       'message': ('class', 'inner-page-title', 0),
-
+                      'discover': ('class', 'app-des', 0)
                       }
         return slogan_ele
 
     def check_current_page(self, _page):
-        _slogan = Navigator().page_slogan_dict()
-        _ele = Navigator().page_slogan_element_dict()
+        _slogan = self.page_slogan_dict()
+        _ele = self.page_slogan_element_dict()
         self.element.is_text_in_element(_ele[_page], _slogan[_page])

@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation   Experience test
-Suite Setup  load veer
+Suite Setup  Run Keywords  load veer  AND  login  ${usrname}  ${password}
 Test Setup  go page  experience
 Suite Teardown  close my browser
 Library  services.CommonLibrary
