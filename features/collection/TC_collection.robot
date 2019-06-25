@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    content collection test
 Suite Setup  Run Keywords  load veer  AND  login  ${usrname}  ${password}
+Test Setup  refresh_current_window
 Suite Teardown  close my browser
 Library  services.CommonLibrary
 Library  services.CollectionLibrary
@@ -19,7 +20,7 @@ create collection: save
     Given create collection box  ${True}
     Then check create collection box results  ${True}
 
-create collection：empty title
+create collection: empty title
     Given create collection box  ${True}  0
     Then check collection title error type  empty
     And cancel create collection page

@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   recommended test
-Suite Setup  Run Keywords  load veer  AND  login  ${usrname}  ${password}
-Test Setup  load veer
+Suite Setup  load veer
+Test Setup  go page  discover
 Suite Teardown  close my browser
 Library  services.CommonLibrary
 Library  services.HomeLibrary

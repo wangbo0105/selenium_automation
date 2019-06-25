@@ -1,6 +1,6 @@
 from pages.basepage import BasePage
 from pages.comment import Comment
-
+import time
 
 class Share(BasePage):
     share_btn = ('xpath', "//div[contains(text(),'分享')]", 0)
@@ -13,6 +13,7 @@ class Share(BasePage):
         super().__init__()
         self.comment = Comment()
         self._link = None
+        self.handle = None
 
     def click_share_btn(self):
         self.js.js_scroll(0, 500)
@@ -37,6 +38,7 @@ class Share(BasePage):
         return item_name
 
     def click_channels_item(self, name):
+        self.handle = self.window.get_current_handle()
         item = Share().channels_dict()
         self.element.click(item[name])
 
@@ -46,18 +48,21 @@ class Share(BasePage):
             self.window.switch_handle()
             url = self.window.get_current_url()
             self.element.should_contains(url, 'service.weibo.com/share')
-            self.window.switch_handle()
+            self.window.close()
+            self.window.switch_handles(self.handle)
         elif name == 'qq':
             self.window.switch_handle()
             url = self.window.get_current_url()
             self.element.should_contains(url, 'shareqq')
-            self.window.switch_handle()
+            self.window.close()
+            self.window.switch_handles(self.handle)
         elif name == 'qq_zone':
             self.window.switch_handle()
             url = self.window.get_current_url()
             self.element.should_contains(url, 'qzshare')
-            self.window.switch_handle()
-        elif name == ('wechat', 'moment'):
+            self.window.close()
+            self.window.switch_handles(self.handle)
+        elif name == 'wechat' or 'moment':
             self.element.click(self.ant_modal_content)
             self.element.is_element_exist(item[name])
             self.element.click(self.close_x)

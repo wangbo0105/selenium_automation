@@ -2,7 +2,7 @@ from pages.basepage import BasePage
 
 
 class PaidPage(BasePage):
-    paid_feeds = ('class', 'paid-feeds', 0)
+    paid_feeds = ('class', 'paid-discover', 0)
     overlay_mask = ('class', 'overlay-mask', 0)
 
     def is_paid_page(self):

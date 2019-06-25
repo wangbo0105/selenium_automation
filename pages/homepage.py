@@ -4,7 +4,7 @@ from pages.basepage import BasePage
 class HomePage(BasePage):
     recommended_view_all = ('class', 'view-all', 0)  # 推荐-查看全部
     recommended_container = ('class', 'main-container', 0)  # 推荐container
-    recommended_content = ('class', 'title', 1)  # 推荐-第一个作品
+    recommended_content = ('xpath', '//div[@class="title-name"]/a[@class="title"]', 1)  # 推荐-第一个作品
     recommended_show_more_btn = ('class', 'show-more', 0)  # 推荐-展开
     photo_player = ('class', 'photo-player', 0)  # photo-player
     video_player = ('class', 'video-player', 0)  # video-player

@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation   Tag test
+Suite Setup  Run Keywords  load veer  AND  login  ${usrname}  ${password}
 Test Setup  load veer
 Suite Teardown  close my browser
 Library  services.CommonLibrary
@@ -15,8 +16,7 @@ Click Search - input 2018 and select tag - tag page
     When enter tag page
     Then match tag page
 Check Tag page - upload    
-    When select upload
-    And login  ${usrname}  ${password}
+    Given select upload
     Then match upload page
 Check popular video - more
     Given search content  2018
