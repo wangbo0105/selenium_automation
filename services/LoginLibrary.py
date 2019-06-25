@@ -73,9 +73,9 @@ class LoginLibrary(object):
     def check_you_are_logged_out(self):
         self.loginpage.is_logout()
 
-    @keyword
-    def select_login(self):
-        self.loginpage.click_signupModal_login()
+    # @keyword
+    # def select_login(self):
+    #     self.loginpage.click_signupModal_login()
 
     @keyword
     def select_WeChat(self):
@@ -122,6 +122,11 @@ class LoginLibrary(object):
     @keyword
     def close_forget_password_modal(self):
         self.loginpage.close_forget_password_modal()
+
+    @keyword
+    def close_login_modal(self):
+        self.loginpage.click_close_login_modal()
+    
 
     @keyword
     def free_login(self, username, password):
