@@ -13,7 +13,7 @@ class LoginPage(BasePage):
     registered = ('id', 'signupLink', 0)  # 注册
     log_out = ('link_text', '退出', 0)  # 用户tab——退出
     user_tab = ('class', 'ant-dropdown-trigger', 0)  # 用户tab
-    close_login_modal = ('class', 'ant-modal-close', 0)  # 登录弹框关闭button
+    close_login_modal = ('class', 'ant-modal-close-x', 0)  # 登录弹框关闭button
     signupLoginBtn = ('xpath', '//div[@class="tips"]/div[@class="login"]', 0)  # 注册弹框上的login button
     WeChat_button = ('id', 'wechatLoginBtn', 0)
     WeChat_modal = ('class', 'ant-modal-content', 0)
@@ -53,6 +53,7 @@ class LoginPage(BasePage):
 
     def click_log_out(self):
         """点击退出tab"""
+        time.sleep(3)
         self.element.click(self.log_out)
 
     def click_close_login_modal(self):
