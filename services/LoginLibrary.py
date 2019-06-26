@@ -25,18 +25,21 @@ class LoginLibrary(object):
         7.退出登录"""
 
         self.common.go_page('login')
+        # time.sleep(3)
         self.loginpage.input_username(username)
         self.loginpage.input_password(password)
         time.sleep(3)
         if not remember:
             self.loginpage.click_remember()
         self.loginpage.click_loginBtn()
-        if expectedResult:
+
+        if expectedResult == "True":
             self.loginpage.is_login()
             time.sleep(3)
             self.loginpage.hover_user_tab()
             self.loginpage.click_log_out()
-        else:
+
+        if expectedResult == "False":   
             self.loginpage.click_close_login_modal()
             self.base.element.is_element_exist(self.loginpage.login_tab)
 
