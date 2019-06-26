@@ -4,6 +4,7 @@ import re
 
 
 class Navigator(BasePage):
+    discover = ('class', 'discover', 0)
 
     @staticmethod
     def page_dict():
@@ -88,3 +89,15 @@ class Navigator(BasePage):
         _slogan = self.page_slogan_dict()
         _ele = self.page_slogan_element_dict()
         self.element.is_text_in_element(_ele[_page], _slogan[_page])
+
+    @staticmethod
+    def discover_dict(name):
+        item_name = {'Video': ('xpath', "//a[@class='link-item']", 0),
+                     'Photo': ('xpath', "//a[@class='link-item']", 1),
+                     'Experience': ('xpath', "//a[@class='link-item']", 2), }
+        return item_name[name]
+
+    def select_discover_item(self, name):
+        self.element.move_to_element(self.discover)
+        time.sleep(2)
+        self.element.click(self.discover_dict(name))

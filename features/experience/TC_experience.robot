@@ -42,6 +42,4 @@ Seth VeeR's home page jumps to verify
 
 Experience the upload page jump immediately
     Given exp click item  experience_immediately
-    Then check the login alert is displayed
-    And login  ${usrname}  ${password}
     Then should be expected page  upload

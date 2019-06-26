@@ -9,6 +9,9 @@ Library  services.CollectionLibrary
 Library  services.LikeLibrary
 Library  services.LoginLibrary
 Library  services.PersonalLibrary
+Library  services.PhotoLibrary
+Library  services.VideoLibrary
+Library  services.ExpLibrary
 Library  services.HomeLibrary
 Resource  ../../testdata/userdata.robot
 
@@ -18,7 +21,8 @@ go personal center like tab
     Then check tabs is selected  喜欢
 
 add photos like
-    Given click feeds content item  精选图片
+    Given go page  photo
+    Then photo_click_item  photo_content
     When add content like
     Then check content is liked   liked_photo
 
@@ -30,12 +34,14 @@ remove liked content
     And check liked content is removed in liked tab  liked_photo
 
 add videos like
-    Given click feeds content item  精选视频
+    Given go page  video
+    Then video_click_item  video_content
     When add content like
     Then check content is liked   liked_video
 
 add experiences like
-    Given click feeds content item  精选互动
+    Given go page  experience
+    Then exp click item  learn_more
     When add content like
     Then check content is liked   liked_experience
 

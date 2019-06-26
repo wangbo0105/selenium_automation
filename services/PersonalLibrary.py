@@ -21,3 +21,9 @@ class PersonalLibrary(object):
     @keyword
     def check_tabs_is_selected(self, name):
         self.personal.check_tabs_is_selected(name)
+
+    @keyword()
+    def view_own_content(self):
+        self.go_personal_center()
+        self.switch_nav_tab('作品')
+        self.personal.view_own_content()
