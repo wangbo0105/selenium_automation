@@ -6,14 +6,9 @@ Library  services.CommonLibrary
 Library  services.LoginLibrary
 Library  services.SignupLibrary
 
-Resource  ../../testdata/userdata.robot
+Resource  ../../testdata/stg_userdata.robot
 
 *** Test Cases ***
-
-Check WeChat modal
-    Given go page  login
-    When select WeChat
-    Then check WeChat modal
 
 Check forget password - wrong email
     Given go page  login
@@ -22,6 +17,7 @@ Check forget password - wrong email
     And input email  985825282
     And select next step
     And check prompt wrong format email
+    And close forget password modal
     
 Check forget password - resent email
     Given go page  login
@@ -29,6 +25,7 @@ Check forget password - resent email
     And input email    985825282@qq.com
     And select next step
     Then select resent email
+    And close forget password modal
 
 Check forget password - close modal
     Given go page  login
@@ -42,3 +39,12 @@ Check forget password - right email
     Then select next step
     And check sent email modal
     And close sent email modal
+
+Check WeChat modal
+    Given go page  login
+    When select WeChat
+    Then check WeChat modal
+    And close login modal
+
+
+

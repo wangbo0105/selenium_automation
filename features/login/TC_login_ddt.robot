@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation   login smoke test
+Documentation   login ddt test
 Suite Setup  load veer
 Suite Teardown  close my browser
 Test Template     loginDDT
