@@ -19,12 +19,12 @@ channel list switch
 
 channel content jump：动画
     Given select channel list  动画
-    When go channel content detail page
+    When go channel content detail page  动画
     Then should be content detail page
 
 channel content jump: 付费专区
     Given select channel list  付费专区
-    When go channel content detail page
+    When go channel content detail page  付费专区
     Then should be content detail page
 
 turnpage in category tab
