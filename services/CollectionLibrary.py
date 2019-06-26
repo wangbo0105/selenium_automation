@@ -28,7 +28,7 @@ class CollectionLibrary(object):
 
     @keyword
     def create_collection_and_add_content(self):
-        self.home.click_feeds_content_item('精选视频')
+        self.personal.view_own_content()
         self.collection.get_current_content_url()
         self.collection.click_add_collection_btn()
         self.collection.click_creat_collection_btn()
@@ -37,8 +37,7 @@ class CollectionLibrary(object):
 
     @keyword
     def add_content_to_collection(self):
-        self.common.go_page('photo')
-        self.photo.photo_click_item('photo_content')
+        self.personal.view_own_content()
         self.collection.get_current_content_url()
         self.collection.click_add_collection_btn()
         self.collection.add_collection()

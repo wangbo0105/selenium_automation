@@ -44,6 +44,7 @@ class Comment(BasePage):
     def comment_like(self):
         self.js.js_scroll(0, 500)
         self.element.click(self.comment_like_btn)
+        time.sleep(2)
 
     def check_comment_like_type(self, type=True):
         value = self.element.get_attribute(self.comment_like_btn, 'class')

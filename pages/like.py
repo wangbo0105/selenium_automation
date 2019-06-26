@@ -14,6 +14,7 @@ class Like(BasePage):
     def click_like_button(self):
         self.content_href = self.window.get_current_url()
         self.element.click(self.like_button)
+        time.sleep(2)
 
     def click_unlike_button(self):
         self.element.click(self.liked_button)

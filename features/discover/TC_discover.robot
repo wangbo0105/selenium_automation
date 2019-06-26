@@ -1,29 +1,25 @@
 *** Settings ***
-Documentation   recommended test
-#Suite Setup  Run Keywords  load veer  AND  login  ${usrname}  ${password}
+Documentation   discover test
 Suite Setup  load veer
-Test Setup  go page  discover
+Test Setup  go page  logo
 Suite Teardown  close my browser
 Library  services.CommonLibrary
 Library  services.HomeLibrary
-Library  services.CommonLibrary
-Library  services.LoginLibrary
-Resource  ../../testdata/userdata.robot
 
 *** Test Cases ***
-go discover page
+go discover index page
     Given go page  discover
     Then should be expected page  discover
     And url should be matching  discover
 
-go recommend index page
-    Given click feeds item  推荐
-    Then should be recommended page
+discover tab : Video
+    Given select discover item  Video
+    Then should be expected page  video
 
-go recommended content detail page
-    Given go recommended content detail page
-    Then should be recommended content detail page
+discover tab : Photo
+    Given select discover item  Photo
+    Then should be expected page  photo
 
-recommended show more
-    Given click more recommended
-    Then check recommended show more successful
+discover tab : Experience
+    Given select discover item  Experience
+    Then should be expected page  experience

@@ -1,18 +1,16 @@
 from robot.api.deco import keyword
 from pages.homepage import HomePage
+from pages.navigator import Navigator
 
 
 class HomeLibrary(object):
     def __init__(self):
         self.homepage = HomePage()
+        self.nav = Navigator()
 
     @keyword
-    def click_feeds_item(self, name):
-        self.homepage.click_feeds_item(name)
-
-    @keyword
-    def click_feeds_content_item(self, name):
-        self.homepage.click_feeds_content_item(name)
+    def go_recommend_page(self):
+        self.homepage.click_recommended_item()
 
     @keyword
     def should_be_recommended_page(self):
@@ -20,12 +18,17 @@ class HomeLibrary(object):
 
     @keyword
     def go_recommended_content_detail_page(self):
-        self.homepage.get_recommended_content_href()
+        self.homepage.get_content_href()
         self.homepage.click_recommended_content()
 
     @keyword
-    def should_be_recommended_content_detail_page(self):
-        self.homepage.recommended_content_detail_page()
+    def go_channel_content_detail_page(self):
+        self.homepage.get_content_href(False)
+        self.homepage.click_channel_content()
+
+    @keyword
+    def should_be_content_detail_page(self):
+        self.homepage.content_detail_page()
 
     @keyword
     def click_more_recommended(self):
@@ -35,18 +38,19 @@ class HomeLibrary(object):
     def check_recommended_show_more_successful(self):
         self.homepage.recommended_show_more()
 
-    @keyword
-    def click_category_tab(self, name):
-        self.homepage.click_category_tab(name)
+    @keyword()
+    def select_discover_item(self, name):
+        self.nav.select_discover_item(name)
 
-    @keyword
-    def check_category_page(self, name):
-        self.homepage.check_category_page(name)
+    @keyword()
+    def select_channel_list(self, name):
+        self.homepage.select_channel(name)
 
-    @keyword
-    def turning_list(self, _direction):
-        self.homepage.turning_page(_direction)
+    @keyword()
+    def check_current_channel(self, name):
+        self.homepage.check_current_channel(name)
 
-    @keyword
-    def check_turned_wrapper(self, item):
-        self.homepage.is_turned_wrapper(item)
+    @keyword()
+    def turn_channel_page(self, direction):
+        self.homepage.turning_page(direction)
+        self.homepage.is_turned_wrapper(direction)

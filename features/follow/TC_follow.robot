@@ -7,6 +7,8 @@ Library  services.CommonLibrary
 Library  services.FollowLibrary
 Library  services.LoginLibrary
 Library  services.HomeLibrary
+Library  services.PhotoLibrary
+Library  services.VideoLibrary
 Library  services.OthersCenterLibrary
 Resource  ../../testdata/userdata.robot
 
@@ -20,14 +22,16 @@ go follower page
     Then check current page is follower page
 
 follow creater in content detail page
-    Given click feeds content item  精选图片
+    Given go page  photo
+    Then photo_click_item  photo_content
     When click follow btn
     Then check follow state in detail page  ${True}
     Then check followed num  1
     And check follow state in following page  ${True}
 
 content page :cancel follw alert select cancle
-    Then click feeds content item  精选图片
+    Given go page  photo
+    Then photo_click_item  photo_content
     When click followed btn
     And choose follow operation  ${False}
     Then check follow state in detail page  ${True}
@@ -35,7 +39,8 @@ content page :cancel follw alert select cancle
     And check follow state in following page  ${True}
 
 content page :cancel follw alert select unfollow
-    Then click feeds content item  精选图片
+    Given go page  photo
+    Then photo_click_item  photo_content
     When click followed btn
     And choose follow operation  ${True}
     Then check follow state in detail page  ${False}
