@@ -9,6 +9,9 @@ class HomePage(BasePage):
     recommended_show_more_btn = ('class', 'show-more', 0)  # 推荐-展开
     play_overlay = ('class', 'play-overlay', 0)
     channel_content_href = ('xpath', '//div[@class="cover-bg"]/a', 0)  # 频道-第一个作品
+    premium_href = ('xpath', '//div[@class="grid-item"]/a', 0)
+    premium_content = ('class', 'grid-item', 0)
+    content_main_info = ('class', 'content-main-info', 0)
     photo_player = ('class', 'photo-player', 0)  # photo-player
     video_player = ('class', 'video-player', 0)  # video-player
     collection_info = ('class', 'collection-info', 0)  # collection-info
@@ -57,13 +60,18 @@ class HomePage(BasePage):
         """点击推荐-第一个推荐"""
         self.element.click(self.recommended_content)
 
-    def click_channel_content(self):
-        self.element.click(self.play_overlay)
+    def click_channel_content(self, channel):
+        if channel == '付费专区':
+            self.element.click(self.premium_content)
+        else:
+            self.element.click(self.play_overlay)
 
-    def get_content_href(self, recommend=True):
+    def get_content_href(self, channel='推荐'):
         """获取推荐-第一个推荐的链接"""
-        if recommend:
+        if channel == '推荐':
             self.content_href = self.element.get_attribute_href(self.recommended_content)
+        elif channel == '付费专区':
+            self.content_href = self.element.get_attribute_href(self.premium_href)
         else:
             self.content_href = self.element.get_attribute_href(self.channel_content_href)
 
@@ -79,6 +87,8 @@ class HomePage(BasePage):
             self.element.is_element_exist(self.collection_info)
         elif 'experiences' in href:
             self.element.is_element_exist(self.experience_player)
+        elif 'contents' in href:
+            self.element.is_element_exist(self.content_main_info)
         else:
             raise AttributeError('链接类型异常')
         self.content_href = None

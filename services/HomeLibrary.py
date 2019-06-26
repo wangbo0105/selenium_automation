@@ -22,9 +22,9 @@ class HomeLibrary(object):
         self.homepage.click_recommended_content()
 
     @keyword
-    def go_channel_content_detail_page(self):
-        self.homepage.get_content_href(False)
-        self.homepage.click_channel_content()
+    def go_channel_content_detail_page(self, channel):
+        self.homepage.get_content_href(channel)
+        self.homepage.click_channel_content(channel)
 
     @keyword
     def should_be_content_detail_page(self):
