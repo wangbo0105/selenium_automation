@@ -29,7 +29,7 @@ def __create_driver(browser='chrome'):
     # option_chrome.add_argument('maximized')  # Windows 全屏
     # option_chrome.add_argument("--proxy-server='direct://'")
     # option_chrome.add_argument("--proxy-bypass-list=*")
-    option_chrome.add_argument('headless')  # 浏览器不提供可视化页面. linux下如果系统不支持可视化不加这条会启动失败
+    # option_chrome.add_argument('headless')  # 浏览器不提供可视化页面. linux下如果系统不支持可视化不加这条会启动失败
     option_chrome.add_argument('--no-sandbox')
     option_chrome.add_argument('--disable-dev-shm-usage')
     # option_chrome.add_argument('window-size=1920x3000') #指定浏览器分辨率

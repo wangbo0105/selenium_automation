@@ -6,7 +6,7 @@ Suite Teardown  close my browser
 Library  services.CommonLibrary
 Library  services.UploadLibrary
 Library  services.LoginLibrary
-Resource  ../../testdata/userdata.robot
+Resource  ../../testdata/stg_userdata.robot
 
 
 *** Test Cases ***
