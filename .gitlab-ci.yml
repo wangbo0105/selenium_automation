@@ -11,7 +11,7 @@ build:image:
     only:
         - master
     tags:
-        - beijing
+        - oregon
         - docker_build
     variables:
         IMAGE_TAG: "${DOCKER_DOMAIN}/test/cyclops:latest"
