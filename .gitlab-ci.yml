@@ -8,11 +8,11 @@ variables:
 
 build:image:
     stage: build
+    image: docker:stable
     only:
         - master
     tags:
-        - oregon
-        - docker_build
+        - beijing
     variables:
         IMAGE_TAG: "${DOCKER_DOMAIN}/test/cyclops:latest"
     script:
