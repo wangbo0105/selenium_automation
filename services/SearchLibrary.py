@@ -37,7 +37,7 @@ class SearchLibrary(object):
 
     @keyword
     def check_no_result_page(self):
-        # time.sleep(3)
+        time.sleep(3)
         self.search.check_no_result_page()
 
     @keyword
