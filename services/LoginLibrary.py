@@ -59,6 +59,7 @@ class LoginLibrary(object):
         if not remember:
             self.loginpage.click_remember()
         self.loginpage.click_loginBtn()
+        time.sleep(3)
 
     @keyword
     def log_out(self):
