@@ -7,10 +7,10 @@ class Searchpage(BasePage):
     search_input = ('id', 'searchInput', 0)  # 搜索词输入框
     search_result = ('class', 'tabs-nav', 0)  # 搜索结果内容容器
 
-    content_tab = ('class', ' tabs-tab', 0) 
-    collection_tab = ('class', ' tabs-tab', 1) 
-    user_tab = ('class', ' tabs-tab', 2) 
-    tag_tab = ('class', ' tabs-tab', 3) # 切换tab到tag
+    content_tab = ('class', 'tabs-tab', 0) 
+    collection_tab = ('class', 'tabs-tab', 1) 
+    user_tab = ('class', 'tabs-tab', 2) 
+    tag_tab = ('class', 'tabs-tab', 3) # 切换tab到tag
 
     no_content_img = ('class', 'search-result-empty', 0)
     _container = ('class', 'content-container', 0)  # 搜索结果页面
