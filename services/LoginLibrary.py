@@ -24,7 +24,6 @@ class LoginLibrary(object):
         6.判断登录成功&失败
         7.退出登录"""
         
-        print(expectedResult)
         self.common.go_page('login')
         # time.sleep(3)
         self.loginpage.input_username(username)
