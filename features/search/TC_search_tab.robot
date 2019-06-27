@@ -1,7 +1,6 @@
 *** Settings ***
 Documentation   search page jump & search result validation
 Test Setup  Run Keywords  load veer  AND  login  ${usrname}  ${password}
-
 Test Teardown     close my browser
 
 Library           services.CommonLibrary
