@@ -33,13 +33,13 @@ class LoginLibrary(object):
             self.loginpage.click_remember()
         self.loginpage.click_loginBtn()
 
-        if expectedResult == "True":
+        if expectedResult:
             self.loginpage.is_login()
             time.sleep(3)
             self.loginpage.hover_user_tab()
             self.loginpage.click_log_out()
 
-        if expectedResult == "False":   
+        else:
             self.loginpage.click_close_login_modal()
             self.base.element.is_element_exist(self.loginpage.login_tab)
 
@@ -130,7 +130,6 @@ class LoginLibrary(object):
     @keyword
     def close_login_modal(self):
         self.loginpage.click_close_login_modal()
-    
 
     @keyword
     def free_login(self, username, password):
