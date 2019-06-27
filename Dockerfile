@@ -8,6 +8,7 @@ ENV HOME=/automation
 
 WORKDIR ${HOME}
 
+
 # DEBUG USE
 #RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
@@ -23,6 +24,8 @@ RUN mkdir -p ${HOME}
 RUN chmod 755 ${HOME}
 
 COPY . ${HOME}/
+
+VOLUME  ${HOME}/report
 
 ENTRYPOINT ["./entrypoint.sh"]
 

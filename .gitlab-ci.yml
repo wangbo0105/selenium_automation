@@ -3,16 +3,16 @@ stages:
 
 
 variables:
-  DOCKER_DOMAIN: "155086154000.dkr.ecr.us-west-2.amazonaws.com"
+  DOCKER_DOMAIN: "246015105378.dkr.ecr.cn-north-1.amazonaws.com.cn"
 
 
 build:image:
     stage: build
+    image: docker:stable
     only:
         - master
     tags:
-        - oregon
-        - docker_build
+        - beijing
     variables:
         IMAGE_TAG: "${DOCKER_DOMAIN}/test/cyclops:latest"
     script:
