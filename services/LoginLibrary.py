@@ -23,7 +23,8 @@ class LoginLibrary(object):
         5、点击登录button
         6.判断登录成功&失败
         7.退出登录"""
-
+        
+        print(expectedResult)
         self.common.go_page('login')
         # time.sleep(3)
         self.loginpage.input_username(username)
@@ -33,15 +34,17 @@ class LoginLibrary(object):
             self.loginpage.click_remember()
         self.loginpage.click_loginBtn()
 
-        # if expectedResult == "True":
-        if expectedResult:
+        if expectedResult == "True":
+        # if expectedResult:
+            print("11111111")
             self.loginpage.is_login()
             time.sleep(3)
             self.loginpage.hover_user_tab()
             self.loginpage.click_log_out()
 
-        else:
-        # if expectedResult == "False":   
+        # else:
+        if expectedResult == "False":   
+            print("22211111")
             self.loginpage.click_close_login_modal()
             self.base.element.is_element_exist(self.loginpage.login_tab)
 
