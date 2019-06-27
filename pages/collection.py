@@ -106,13 +106,13 @@ class Collection(BasePage):
         self.element.backSpace(self.create_des_input_box)
         self.element.send_keys(self.create_des_input_box, self.collection_des)
 
-    def upload_cover(self):
-        self.element.click(self.collection_cover)
-        self.element.send_keys(self.thumb_input, '/Users/wangbo/PycharmProjects/automation/image/001.jpg')
-        self.element.click(self.screenshot_save)
-
-    def check_cover_img_replaced(self):
-        self.element.is_element_exist(self.cover_img)
+    # def upload_cover(self):
+    #     self.element.click(self.collection_cover)
+    #     self.element.send_keys(self.thumb_input, '/Users/wangbo/PycharmProjects/automation/image/001.jpg')
+    #     self.element.click(self.screenshot_save)
+    #
+    # def check_cover_img_replaced(self):
+    #     self.element.is_element_exist(self.cover_img)
 
     def privacy_setting(self, type='public'):
         self.element.click(self.privacy)

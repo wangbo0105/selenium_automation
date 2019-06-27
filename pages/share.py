@@ -67,12 +67,12 @@ class Share(BasePage):
             self.element.is_element_exist(item[name])
             self.element.click(self.close_x)
 
-    def check_share_link(self, name):
-        if name == 'content_link':
-            self._link = self.element.get_attribute(self.pagePath, 'value')
-        elif name == 'html_embed_link':
-            self._link = self.element.get_attribute(self.embedPath, 'value')
-        self.element.click(self.share_btn)
-        self.element.paste(self.comment.comment_box)
-        _text = self.element.get_text(self.comment.comment_box)
-        self.element.should_be_equal(self._link, _text)
+    # def check_share_link(self, name):
+    #     if name == 'content_link':
+    #         self._link = self.element.get_attribute(self.pagePath, 'value')
+    #     elif name == 'html_embed_link':
+    #         self._link = self.element.get_attribute(self.embedPath, 'value')
+    #     self.element.click(self.share_btn)
+    #     self.element.paste(self.comment.comment_box)
+    #     _text = self.element.get_text(self.comment.comment_box)
+    #     self.element.should_be_equal(self._link, _text)

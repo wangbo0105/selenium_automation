@@ -15,6 +15,6 @@ class ShareLibrary(object):
     def check_channels_results(self, name):
         self.share.check_channels_results(name)
 
-    @keyword
-    def check_share_link(self, name):
-        self.share.check_share_link(name)
+    # @keyword
+    # def check_share_link(self, name):
+    #     self.share.check_share_link(name)

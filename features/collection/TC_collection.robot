@@ -51,11 +51,6 @@ switch privacy type
     Then check privacy select type  public
     And cancel create collection page
 
-upload collection cover img
-    Given upload cover
-    Then check cover replaced
-    And cancel create collection page
-
 delete collection box: Cancel
     Given delete collection box  ${False}
     Then check delete collection results  ${False}

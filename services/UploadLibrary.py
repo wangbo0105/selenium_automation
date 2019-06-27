@@ -1,6 +1,7 @@
 from robot.api.deco import keyword
 from pages.uploadpage import UploadPage
 
+
 class UploadLibrary(object):
     def __init__(self):
         self.upload = UploadPage()
@@ -21,4 +22,3 @@ class UploadLibrary(object):
     @keyword
     def is_upload_page(self):
         self.upload.is_photo_Upload_page()
-        

@@ -91,14 +91,14 @@ class CollectionLibrary(object):
     def check_privacy_select_type(self, type):
         self.collection.check_privacy_select_type(type)
 
-    @keyword
-    def upload_cover(self):
-        self.collection.click_create_collection_btn()
-        self.collection.upload_cover()
-
-    @keyword
-    def check_cover_replaced(self):
-        self.collection.check_cover_img_replaced()
+    # @keyword
+    # def upload_cover(self):
+    #     self.collection.click_create_collection_btn()
+    #     self.collection.upload_cover()
+    #
+    # @keyword
+    # def check_cover_replaced(self):
+    #     self.collection.check_cover_img_replaced()
 
     @keyword
     def edit_collection(self, enter='main'):

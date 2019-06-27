@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation   Upload demo test
+Documentation   Upload test
 Suite Setup  Run Keywords  load veer  AND  login  ${usrname}  ${password}
 Test Setup  load veer
 Suite Teardown  close my browser
@@ -10,11 +10,10 @@ Resource  ../../testdata/stg_userdata.robot
 
 
 *** Test Cases ***
-Select upload - upload one video 
-    Given select upload
-    When upload one photo
-    js upload
-    Then is upload page
+go upload page
+    Given go page  upload
+    Then should be expected page  upload
+    And url should be matching  upload
 
    
       
