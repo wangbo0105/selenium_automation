@@ -27,6 +27,7 @@ class VideoPlayer(BasePage):
 
     def check_current_state_of_play(self, state):
         if state == 'play':
+            time.sleep(5)  # 避免网络不好时资源加载慢，造成错误判断影响
             self.element.is_element_exist(self.pause)
         elif state == 'pause':
             self.element.is_element_not_exist(self.pause)
