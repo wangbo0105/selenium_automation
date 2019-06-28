@@ -41,6 +41,7 @@ class Share(BasePage):
         self.handle = self.window.get_current_handle()
         item = Share().channels_dict()
         self.element.click(item[name])
+        time.sleep(2)
 
     def check_channels_results(self, name):
         item = Share().channels_item_dict()
