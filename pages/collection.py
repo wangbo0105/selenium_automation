@@ -51,6 +51,7 @@ class Collection(BasePage):
 
     def click_add_collection_btn(self):
         self.element.click(self.add_collection_btn)
+        time.sleep(2)
 
     def add_collection(self):
         self.element.click(self.add_collection_box)
@@ -70,6 +71,7 @@ class Collection(BasePage):
 
     def click_create_and_add_btn(self):
         self.element.click(self.submit_btn)
+        time.sleep(2)
 
     def click_collection_box(self):
         self.element.click(self.collection_box)
@@ -169,6 +171,7 @@ class Collection(BasePage):
         self.input_cc_title(title_length)
         self.input_cc_des(des_length)
         self.click_cc_safe_btn()
+        time.sleep(2)
 
     def remove_collection_or_content(self, state=True):
         self.element.click(self.del_alert)
@@ -176,6 +179,7 @@ class Collection(BasePage):
             self.element.click(self.del_yes)
         else:
             self.element.click(self.del_no)
+        time.sleep(2)
 
     def click_delete_btn(self):
         self.element.click(self.collection_box_del_btn)

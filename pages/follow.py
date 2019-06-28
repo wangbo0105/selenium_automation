@@ -73,12 +73,14 @@ class Follow(BasePage):
     def click_followed_button(self):
         self.c_name = self.element.get_text(self.creater_name)
         self.element.click(self.followed_btn)
+        time.sleep(2)
 
     def select_follow_type(self, type):
         if type:
             self.element.click(self.ant_btn_primary)
         else:
             self.element.click(self.ant_btn_ghost)
+        time.sleep(2)
 
     def clear_follow_all(self):
         while self.element.ElementExist(self.followed_btn):

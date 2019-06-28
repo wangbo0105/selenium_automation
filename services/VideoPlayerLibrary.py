@@ -15,6 +15,7 @@ class VideoPlayerLibrary(object):
     def go_video_player(self):
         self.common.go_page('video')
         self.video.click_item('video_content')
+        time.sleep(2)
 
     @keyword()
     def play_video(self):
