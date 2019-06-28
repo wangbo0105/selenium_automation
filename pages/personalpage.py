@@ -11,11 +11,11 @@ class PersonalPage(BasePage):
 
     @staticmethod
     def tabs_nav_dict():
-        item_name = {'主页': ('class', 'tabs-tab', 0),
-                     '作品': ('class', 'tabs-tab', 1),
-                     '合辑': ('class', 'tabs-tab', 2),
-                     'VR书签': ('class', 'tabs-tab', 3),
-                     '喜欢': ('class', 'tabs-tab', 4)}
+        item_name = {'主页': ('class', ' tabs-tab', 0),
+                     '作品': ('class', ' tabs-tab', 1),
+                     '合辑': ('class', ' tabs-tab', 2),
+                     'VR书签': ('class', ' tabs-tab', 3),
+                     '喜欢': ('class', ' tabs-tab', 4)}
         return item_name
 
     def get_tabs_nav_dict(self, name):
