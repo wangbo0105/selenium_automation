@@ -25,6 +25,7 @@ class SignupPage(BasePage):
 
     def clickSignupButton(self):
         self.element.click(self.signupBtn)
+        time.sleep(2)
 
     def select_email(self):
         self.element.click(self.email_type)
