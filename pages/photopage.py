@@ -1,3 +1,5 @@
+import time
+
 from pages.basepage import BasePage
 
 
@@ -21,6 +23,7 @@ class PhotoPage(BasePage):
         item = self.photo_page_dict()
         self.js.js_scroll(0, 100)
         self.element.click(item[name])
+        time.sleep(2)
 
     def is_photo_detail_page(self):
         self.element.is_element_exist(self.photo_player)

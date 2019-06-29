@@ -22,10 +22,10 @@ Email Already Registered         juxuan@veer.tv     ${Valid fullname}     ${Vali
 
 *** Keywords ***
 signupDDT
-    [Arguments]    ${email}    ${username}    ${password}     
+    [Arguments]    ${email}    ${username}    ${password}
     Given go page  login
     And select signup  
-    When sign up   ${email}    ${username}    ${password}     qatest     ${signupFailed}
+    When sign up   ${email}    ${username}    ${password}     qatest     ${False}
 
 
 
