@@ -25,6 +25,7 @@ class ExpPage(BasePage):
     def click_item(self, name):
         item = ExpPage().exp_page_dict()
         self.element.click(item[name])
+        time.sleep(2)
 
     def match_exp_url(self):
         current_url = (self.window.get_current_url())
