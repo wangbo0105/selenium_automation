@@ -8,14 +8,10 @@ class OthersCenterLibrary(object):
         self.ocl = OthersCenterPage()
 
     @keyword
-    def should_be_otherscenter_page(self):
-        self.ocl.is_othercenterpage()
+    def should_be_other_center_page(self):
+        self.ocl.should_be_expect_other_center()
 
     @keyword
-    def click_username_from_list(self):
+    def go_other_center(self):
         self.ocl.click_username()
-        self.ocl.get_username_from_profilepage()
 
-    @keyword
-    def click_content(self):
-        self.ocl.click_content()
