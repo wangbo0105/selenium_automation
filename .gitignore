@@ -9,3 +9,4 @@ report.html
 __pycache__
 testdata/userdata.robot
 cookies.json
+/test
