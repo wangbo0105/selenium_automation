@@ -1,4 +1,5 @@
-FROM selenium/node-chrome-debug
+#FROM selenium/node-chrome-debug
+FROM 820585630/robot
 
 USER root
 
@@ -17,7 +18,9 @@ RUN apt-get update
 RUN apt-get install -y python3-pip
 
 # install selenium
-RUN sudo pip3 install selenium robotframework pyperclip # -i https://pypi.douban.com/simple
+#RUN sudo pip3 install selenium robotframework pyperclip # -i https://pypi.douban.com/simple
+
+RUN sudo pip3 install selenium pyperclip # -i https://pypi.douban.com/simple
 
 RUN mkdir -p ${HOME}
 
