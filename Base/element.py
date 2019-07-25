@@ -91,6 +91,11 @@ class Element(object):
         """清除文本内容"""
         self.findElements(element).clear()
 
+    def clear_value(self, element):
+        """清空元素value"""
+        ele = element[1]
+        self.driver().execute_script('document.getElementById("%s").value=""' % ele)
+
     def enter(self, element):
         """键盘操作回车"""
         self.findElements(element).send_keys(Keys.ENTER)
