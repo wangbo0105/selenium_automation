@@ -34,8 +34,8 @@ class LoginLibrary(object):
         self.loginpage.click_loginBtn()
 
         if expectedResult:
-            self.loginpage.is_login()
             time.sleep(3)
+            self.loginpage.is_login()
             self.loginpage.hover_user_tab()
             self.loginpage.click_log_out()
 

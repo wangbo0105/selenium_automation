@@ -5,8 +5,8 @@ import time
 class LoginPage(BasePage):
     login_tab = ('class', 'header-login', 0)  # 导航栏-登录tab
     login_alert = ('class', 'ant-modal-content', 0)  # 登录弹窗
-    username = ('css', '#loginIdentifier', 0)  # 用户名输入框
-    password = ('css', '#loginPassword', 0)  # 密码输入框
+    username = ('id', 'loginIdentifier', 0)  # 用户名输入框
+    password = ('id', 'loginPassword', 0)  # 密码输入框
     loginBtn = ('class', 'submit-btn', 0)  # 登录button
     remember = ('class', 'ant-checkbox-input', 0)  # 是否记住勾选框
     forgetPwd = ('class', 'forget-pwd', 0)  # 忘记密码
@@ -29,14 +29,12 @@ class LoginPage(BasePage):
 
     def input_username(self, user):
         """输入用户名"""
-        self.element.double_click(self.username)
-        self.element.backSpace(self.username)
+        self.element.clear_value(self.username)
         self.element.send_keys(self.username, user)
 
     def input_password(self, pwd):
         """输入密码"""
-        self.element.double_click(self.password)
-        self.element.backSpace(self.password)
+        self.element.clear_value(self.password)
         self.element.send_keys(self.password, pwd)
 
     def click_loginBtn(self):
@@ -53,7 +51,6 @@ class LoginPage(BasePage):
 
     def click_log_out(self):
         """点击退出tab"""
-        time.sleep(3)
         self.element.click(self.log_out)
 
     def click_close_login_modal(self):
